@@ -338,3 +338,43 @@ Received Import Request.
 Start importing Assets/Prefabs/Hands/Right Hand Model.prefab using Guid(1b35643724f0b784d9cc540922eecfbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f297a5edec43f6d89190842c27270a3') in 0.017479 seconds 
   Import took 0.025076 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 240.140970 seconds.
+  path: Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncModel.cs
+  artifactKey: Guid(cd394c127cb0a2e418ca18f73d345dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncModel.cs using Guid(cd394c127cb0a2e418ca18f73d345dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28f7056241222f4c1c8b10d630878f00') in 0.002644 seconds 
+  Import took 0.013565 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002066 seconds.
+  path: Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncModel.cs
+  artifactKey: Guid(cd394c127cb0a2e418ca18f73d345dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncModel.cs using Guid(cd394c127cb0a2e418ca18f73d345dac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28f7056241222f4c1c8b10d630878f00') in 0.002165 seconds 
+  Import took 0.009488 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.903113 seconds.
+  path: Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSync.cs
+  artifactKey: Guid(9296acd42662dd7478ec2f41dbcafd14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSync.cs using Guid(9296acd42662dd7478ec2f41dbcafd14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02a5163b9c34024530736e2f438434ad') in 0.002580 seconds 
+  Import took 0.011954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.259032 seconds.
+  path: Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncTest.cs
+  artifactKey: Guid(fc76c691f03ccf1478255f0020951f5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncTest.cs using Guid(fc76c691f03ccf1478255f0020951f5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ce3486cac377bfbff633f6a595245a9') in 0.003514 seconds 
+  Import took 0.011509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001576 seconds.
+  path: Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncTest.cs
+  artifactKey: Guid(fc76c691f03ccf1478255f0020951f5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Sync Models/Trigger Animation Sync/TriggerAnimationSyncTest.cs using Guid(fc76c691f03ccf1478255f0020951f5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ce3486cac377bfbff633f6a595245a9') in 0.003246 seconds 
+  Import took 0.013503 seconds .
+
