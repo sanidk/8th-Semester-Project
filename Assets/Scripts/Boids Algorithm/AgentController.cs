@@ -16,7 +16,8 @@ public class AgentController : MonoBehaviour
 
     void Update()
     {
-        transform.forward = CalculateMove(.1f, .1f, 1, 0.1f, 0.1f);
+        //transform.forward = CalculateMove(.1f, .1f, 10, .05f, .1f);
+        transform.forward = CalculateMove(0, 0, 10, .05f, .1f);
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 
@@ -35,10 +36,12 @@ public class AgentController : MonoBehaviour
             if (i == 0)
             {
                 dir = Alignment(radius) * weights[i];
-            } else if (i == 1)
+            }
+            else if (i == 1)
             {
                 dir = Cohesion(radius) * weights[i];
-            } else if (i == 2)
+            }
+            else if (i == 2)
             {
                 dir = Avoidance(avoidanceRadius) * weights[i];
             }
@@ -58,15 +61,28 @@ public class AgentController : MonoBehaviour
         return move;
     }
 
-    void Move(Vector3 heading)
-    {
-        if (heading != Vector3.zero)
-        {
-            transform.forward = heading;
-        }
+    //Vector3 CalculateMove(float alignmentWeight, float cohesionWeight, float avoidanceWeight, float radius, float avoidanceRadius)
+    //{
+    //    Vector3 move = Vector3.zero;
+    //    Vector3 dir;
 
-        transform.position += transform.forward * Time.deltaTime;
-    }
+    //    dir = Avoidance(avoidanceRadius);
+    //    dir.Normalize();
+    //    move += dir;
+
+    //    return move;
+    //}
+
+
+    //void Move(Vector3 heading)
+    //{
+    //    if (heading != Vector3.zero)
+    //    {
+    //        transform.forward = heading;
+    //    }
+
+    //    transform.position += transform.forward * Time.deltaTime;
+    //}
 
     List<Transform> GetNearbyObjects(float radius)
     {
@@ -85,6 +101,31 @@ public class AgentController : MonoBehaviour
 
         return nearbyObjects;
     }
+
+    //Vector3 Containment(float radius)
+    //{
+
+    //    Vector3 position = transform.position;
+
+    //    Vector3 xmin;
+    //    Vector3 xmax;
+    //    Vector3 ymin;
+    //    Vector3 ymax;
+    //    Vector3 zmin;
+    //    Vector3 zmax;
+
+    //    Vector3 xdir;
+    //    Vector3 ydir;
+    //    Vector3 zdir;  
+
+    //    if (position.x > xmax)
+    //    {
+    //        xdir = 
+    //    }
+
+
+
+    //}
 
 
     Vector3 Cohesion(float radius)
@@ -132,26 +173,26 @@ public class AgentController : MonoBehaviour
 
     }
 
-    Vector3 AvoidanceOld(float radius)
-    {
-        List<Transform> nearbyObjects = GetNearbyObjects(radius);
-        Vector3 heading = Vector3.zero;
-        Vector3 dir = transform.forward;
+    //Vector3 AvoidanceOld(float radius)
+    //{
+    //    List<Transform> nearbyObjects = GetNearbyObjects(radius);
+    //    Vector3 heading = Vector3.zero;
+    //    Vector3 dir = transform.forward;
 
-        if (nearbyObjects.Count > 0)
-        {
-            foreach (Transform obj in nearbyObjects)
-            {
-                heading += (transform.position - obj.position).normalized * -1;
+    //    if (nearbyObjects.Count > 0)
+    //    {
+    //        foreach (Transform obj in nearbyObjects)
+    //        {
+    //            heading += (transform.position - obj.position).normalized * -1;
 
-            }
-            heading /= nearbyObjects.Count;
+    //        }
+    //        heading /= nearbyObjects.Count;
 
 
-        }
+    //    }
 
-        return heading;
-    }
+    //    return heading;
+    //}
 
     
     public Vector3 Avoidance(float radius)
@@ -160,6 +201,7 @@ public class AgentController : MonoBehaviour
 
         if (nearbyObjects.Count == 0)
         {
+            
             return Vector3.zero;
         }
 
@@ -178,7 +220,7 @@ public class AgentController : MonoBehaviour
         {
             heading /= avoidAmount;
         }
-
+        
         return heading;
 
     }

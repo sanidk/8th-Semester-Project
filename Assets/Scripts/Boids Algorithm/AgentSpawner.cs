@@ -20,7 +20,7 @@ public class AgentSpawner : MonoBehaviour
             GameObject newAgent = Instantiate(
                 agentPrefab,
                 new Vector3(-2, 1, 0) + Random.insideUnitSphere,
-                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
+                Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)),
                 transform
                 );
             newAgent.name = "Agent" + i;
