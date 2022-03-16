@@ -26,7 +26,7 @@ public class GridManager : MonoBehaviour
 
 
     //SPAWNING
-    Vector3 instantiatePosition = new Vector3(0, 10, 0);
+    Vector3 instantiatePosition = new Vector3(0, -100, 0);
     bool instantiateBalls = true;
     bool spawnBalls = false;
     public int ballsAmount = 10;

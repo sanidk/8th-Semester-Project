@@ -9,9 +9,9 @@ public class BallBehaviour : MonoBehaviour
     Vector3 startPos;
     Vector3 minPos;
     Vector3 maxPos;
-    Vector3 currentPos;
+    public Vector3 currentPos;
 
-    Vector3 dir;
+    public Vector3 dir;
     float randomDirectionAmount = 0.5f;
 
     float speed = .05f;
@@ -27,15 +27,11 @@ public class BallBehaviour : MonoBehaviour
     void Start()
     {
 
-        startPos = transform.position;
-        float spacing = GridManager.gridSpacing / 2;
-        minPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
-        maxPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
+        
+        //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+        //transform.rotation = Quaternion.Euler(rotation);
 
-        Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-        transform.rotation = Quaternion.Euler(rotation);
-
-        dir = transform.forward;
+        dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
 
     }
 
@@ -46,6 +42,10 @@ public class BallBehaviour : MonoBehaviour
         
         yield return new WaitForSeconds(cooldown);
         transform.position = pos;
+        startPos = transform.position;
+        float spacing = GridManager.gridSpacing / 2;
+        minPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
+        maxPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
 
 
     }
@@ -65,40 +65,39 @@ public class BallBehaviour : MonoBehaviour
         if (!isBallActive) return;
         
         currentPos = transform.position;
+        
+        dir = dir.normalized;
 
-        if (currentPos.x > maxPos.x)
+        if (currentPos.x > maxPos.x && dir.x > 0)
+        {
+            dir.x *= -1;
+        }
+        else if (currentPos.x < minPos.x && dir.x < 0)
         {
             dir.x *= -1;
         }
 
-        if (currentPos.x < minPos.x)
+
+        if (currentPos.y > maxPos.y && dir.y > 0)
         {
-            dir.x *= -1;
+            dir.y *= -1;
         }
-
-
-        if (currentPos.y > maxPos.y)
+        else if (currentPos.y < minPos.y && dir.y < 0)
         {
             dir.y *= -1;
         }
 
-        if (currentPos.y < minPos.y)
+        
+        if (currentPos.z > maxPos.z && dir.z > 0)
         {
-            dir.y *= -1;
+            dir.z *= -1;
         }
-
-
-        if (currentPos.z > maxPos.z)
+        else if (currentPos.z < minPos.z && dir.z < 0)
         {
             dir.z *= -1;
         }
 
-        if (currentPos.z < minPos.z)
-        {
-            dir.z *= -1;
-        }
-
-        dir += new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * randomDirectionAmount;
+        //dir += new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * randomDirectionAmount;
 
         transform.position += dir.normalized * Time.deltaTime * speed;
 
