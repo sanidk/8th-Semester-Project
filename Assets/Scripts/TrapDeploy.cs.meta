@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 44f68c249234a854eb18740395f7705d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - floorMat: {fileID: 2100000, guid: 08aca42658915584689dd978fd7a3959, type: 2}
+  - warningMat: {fileID: 2100000, guid: de627a9c3e775114eb43bd47152b9146, type: 2}
+  - spikes: {fileID: 6977387829735023341, guid: 306ce41748af3f542ad408dcd62c0fc2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

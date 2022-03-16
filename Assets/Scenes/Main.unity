@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2160,6 +2160,7 @@ MonoBehaviour:
   spawnzonesInUseArray: 
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
+  ballsAmount: 10
 --- !u!4 &1290933643
 Transform:
   m_ObjectHideFlags: 0
@@ -2222,6 +2223,7 @@ MonoBehaviour:
   spawnzonesInUseArray: 
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
+  ballsAmount: 10
 --- !u!1 &1427258979
 GameObject:
   m_ObjectHideFlags: 0
