@@ -1326,7 +1326,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
   spawnBalls: 0
-  ballsAmount: 10
+  ballsAmount: 20
 --- !u!4 &1290933643
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
   spawnBalls: 0
-  ballsAmount: 10
+  ballsAmount: 20
 --- !u!1 &1427258979
 GameObject:
   m_ObjectHideFlags: 0
