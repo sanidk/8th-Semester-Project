@@ -28,7 +28,7 @@ public class GridManager : MonoBehaviour
     //SPAWNING
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     bool instantiateBalls = true;
-    bool spawnBalls = false;
+    public bool spawnBalls = false;
     public int ballsAmount = 10;
     int ballsAmountMax = 50;
     GameObject[] ballsArray;
@@ -93,7 +93,7 @@ public class GridManager : MonoBehaviour
                 destroyWhenLastClientLeaves = true
             });
 
-            ballsArray[i].transform.SetParent(transform);
+            ballsArray[i].transform.SetParent(gameObject.transform);
         }
     }
 
@@ -122,7 +122,6 @@ public class GridManager : MonoBehaviour
                     Vector3 pos = spawnzonesArray[gridNumber];
                     //SetSpawnzonesInUseArray(gridNumber, true);
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos)); 
-                    
                     
                 }
             }

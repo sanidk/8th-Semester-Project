@@ -27,12 +27,13 @@ public class BallBehaviour : MonoBehaviour
     void Start()
     {
 
-        
+
         //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         //transform.rotation = Quaternion.Euler(rotation);
 
+        //dir = transform.right;
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
-
+        
     }
 
     public IEnumerator SpawnBall(int gridNumber, Vector3 pos)
@@ -44,8 +45,8 @@ public class BallBehaviour : MonoBehaviour
         transform.position = pos;
         startPos = transform.position;
         float spacing = GridManager.gridSpacing / 2;
-        minPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
-        maxPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
+        maxPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
+        minPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
 
 
     }
@@ -96,8 +97,6 @@ public class BallBehaviour : MonoBehaviour
         {
             dir.z *= -1;
         }
-
-        //dir += new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * randomDirectionAmount;
 
         transform.position += dir.normalized * Time.deltaTime * speed;
 
