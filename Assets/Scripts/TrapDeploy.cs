@@ -4,39 +4,45 @@ using UnityEngine;
 
 public class TrapDeploy : MonoBehaviour
 {
+    MeshRenderer meshRenderer;
     public Material floorMat;
     public Material warningMat;
-
-    public bool didNotDeploy = true;
-    public GameObject spikes;
     GameObject tempTrap;
+    public GameObject spikes;
+
+    public int nextTrap = 10;
 
     // Start is called before the first frame update
     void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
+        floorMat = Resources.Load<Material>("Floor");
+        warningMat = Resources.Load<Material>("PulseMat");
+        spikes = Resources.Load("SpearTrap") as GameObject;
 
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (didNotDeploy)
+    {   
+
+        if (Time.time > nextTrap)
         {
             spawnTrap();
+            nextTrap += 10;
         }
-        didNotDeploy = false;
-        
+
     }
 
-    void spawnTrap()
+    public void spawnTrap()
     {
-        this.GetComponent<MeshRenderer>().material = warningMat;
+        this.GetComponentInParent<MeshRenderer>().material = warningMat;
         // conditional logic
         tempTrap = Instantiate(spikes, new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation);
         // Play sound of trap getting ready (build up)
         StartCoroutine(WaitAndTriggerTrap());
         // Play sound of trap triggering (snap)
-
 
     }
 
@@ -44,8 +50,8 @@ public class TrapDeploy : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(5);
         tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
-        Debug.Log("Trap deployed");
-        this.GetComponent<MeshRenderer>().material = floorMat;
+        gameObject.GetComponentInParent<MeshRenderer>().material = floorMat;
+        yield return new WaitForSecondsRealtime(2);
+        Destroy(tempTrap);
     }
-
 }

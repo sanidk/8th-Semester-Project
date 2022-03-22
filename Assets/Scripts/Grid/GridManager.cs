@@ -24,6 +24,18 @@ public class GridManager : MonoBehaviour
     float gridLength = 2;
     public static float gridSpacing;
 
+    //TRAP
+    public GameObject trapCubePrefab;
+    List<GameObject> trapCubeList;
+    public TrapDeploy trapDeploy;
+
+    int trapGridResolution = 2;
+    float trapGridSpacing;
+    int trapGridSize;
+
+    int nextTrap = 0; 
+
+    public int trapNameDesignator = 0;
 
     //SPAWNING
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
@@ -52,6 +64,34 @@ public class GridManager : MonoBehaviour
 
         gridStart = transform.position;
         int index = 0;
+
+        // Trap grid
+
+        trapCubeList = new List<GameObject>();
+        trapDeploy = GetComponent<TrapDeploy>();
+
+        trapGridSpacing = gridLength / trapGridResolution;
+        trapGridSize = (int)Mathf.Pow(trapGridResolution, 2);
+
+        for (int i = 0; i < trapGridResolution; i++) {
+            for (int j = 0; j < trapGridResolution; j++) {
+
+                float xpos = gridStart.x + (trapGridSpacing / 2) + (i * trapGridSpacing);
+                float zpos = gridStart.z + (trapGridSpacing / 2) + (j * trapGridSpacing);
+
+                trapCubeList.Add(Instantiate(trapCubePrefab, new Vector3(xpos, -0.09f, zpos), transform.rotation));
+            }
+        }
+        
+        foreach(GameObject trapCube in trapCubeList) {
+            trapCube.name = "Trap" + trapNameDesignator;
+            trapCube.AddComponent<TrapDeploy>();
+            trapCube.transform.SetParent(gameObject.transform);
+            trapNameDesignator++;
+            
+        }
+
+        // Trap grid end
 
         for (int x = 0; x < gridResolution; x++)
         {
@@ -128,6 +168,12 @@ public class GridManager : MonoBehaviour
                 }
             }
 
+        }
+
+        if (Time.time > nextTrap) {
+            int Randy = Random.Range(0, 3);
+            trapCubeList[Randy].GetComponent<TrapDeploy>().spawnTrap();
+            nextTrap += 10;
         }
 
     }

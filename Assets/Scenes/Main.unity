@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -933,9 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6257c5846a3224ca7cf75fcb4a7be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomServer: {fileID: 0}
-  roomClient: {fileID: 0}
-  roomActive: {fileID: 0}
   networkManager: {fileID: 750047679}
   isThisClientActingServer: 0
   roomPlayer1: {fileID: 1941443230}
@@ -1532,6 +1529,9 @@ MonoBehaviour:
   spawnzonesInUseArray: 
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
+  trapCubePrefab: {fileID: 0}
+  trapDeploy: {fileID: 0}
+  trapNameDesignator: 0
   spawnBalls: 0
   ballsAmount: 20
 --- !u!4 &1290933643
@@ -1596,6 +1596,9 @@ MonoBehaviour:
   spawnzonesInUseArray: 
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 4466275183578376408, guid: 05a3751048daa6e4cb372b867265f983, type: 3}
+  trapCubePrefab: {fileID: 0}
+  trapDeploy: {fileID: 0}
+  trapNameDesignator: 0
   spawnBalls: 0
   ballsAmount: 20
 --- !u!1 &1427258979
