@@ -41,6 +41,8 @@ public class Lighsaber : MonoBehaviour
     [Tooltip("The amount of force applied to each side of a slice")]
     private float _forceAppliedToCut = 3f;
 
+    public GameObject playerObject;
+
     private Mesh _mesh;
     private Vector3[] _vertices;
     private int[] _triangles;
@@ -142,12 +144,16 @@ public class Lighsaber : MonoBehaviour
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
             _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
             streak = 0;
+            playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             return;
         }
         audioSource.PlayOneShot(scoreTemporary);
         score++;
         streak++;
-        
+        //if (!playerObject.GetComponent<PlayerStat>()) { return; }
+        //playerObject.GetComponent<PlayerStat>()._scoreStreak = streak;
+        playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+        //No score variable to increase in Playerstat?
     }
 
     private void OnTriggerExit(Collider other)

@@ -39,7 +39,7 @@ public class SwingAudio : MonoBehaviour
         velocity = ((transform.TransformPoint(Vector3.zero) - previousPos).magnitude) / Time.deltaTime;
         previousPos = transform.TransformPoint(Vector3.zero);
 
-        animator.SetBool("isMoving", velocity > 0.2f);
+        //animator.SetBool("isMoving", velocity > 0.2f);
 
         
         swingAudio.volume = Mathf.Clamp(velocity, 0, 1);
