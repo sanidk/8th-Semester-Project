@@ -144,6 +144,7 @@ public class Lighsaber : MonoBehaviour
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
             _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
             streak = 0;
+            playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             return;
         }
         audioSource.PlayOneShot(scoreTemporary);
