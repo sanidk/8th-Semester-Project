@@ -5,6 +5,9 @@ using Normal.Realtime;
 
 public class GameManagerLogic : MonoBehaviour
 {
+    public GameObject roomServer;
+    public GameObject roomClient;
+    public GameObject roomActive;
 
     public GameObject networkManager;
     static RealtimeAvatarManager manager;
@@ -61,6 +64,7 @@ public class GameManagerLogic : MonoBehaviour
                 if (VRRig.transform.position != spawnPlayer1.transform.position)
                 {
                     VRRig.transform.position = spawnPlayer1.transform.position;
+                    roomActive = roomServer;
                 }
                 
             }
@@ -69,6 +73,7 @@ public class GameManagerLogic : MonoBehaviour
                 if (VRRig.transform.position != spawnPlayer2.transform.position)
                 {
                     VRRig.transform.position = spawnPlayer2.transform.position;
+                    roomActive = roomClient;
                 }
 
             }

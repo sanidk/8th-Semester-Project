@@ -10,10 +10,10 @@ public class BallBehaviour : MonoBehaviour
     Vector3 minPos;
     Vector3 maxPos;
     public Vector3 currentPos;
-
+    Vector3 instantiatePosition = new Vector3(0, -100, 0);
     public Vector3 dir;
     float randomDirectionAmount = 0.5f;
-
+    bool isBallSpawned;
     float speed = .05f;
     public int gridPosition;
 
@@ -40,10 +40,11 @@ public class BallBehaviour : MonoBehaviour
     {
         gridPosition = gridNumber;
         isBallActive = true;
-        
+
         yield return new WaitForSeconds(cooldown);
+        isBallSpawned = true;
         transform.position = pos;
-        //startPos = transform.position;
+        startPos = pos;
         float spacing = GridManager.gridSpacing / 2;
         maxPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
         minPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
@@ -53,8 +54,9 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
+        isBallSpawned = false;
         isBallActive = false;
-        transform.position = startPos;
+        transform.position = instantiatePosition;
         GridManager gm = GetComponentInParent<GridManager>();
         gm.SetSpawnzonesInUseArray(gridPosition, false);
 
@@ -63,7 +65,7 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isBallActive) return;
+        if (!isBallSpawned) return;
         
         currentPos = transform.position;
         

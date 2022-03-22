@@ -119,7 +119,8 @@ public class GridManager : MonoBehaviour
 
                 if (!ball.GetComponent<BallBehaviour>().isBallActive)
                 {
-                    int gridNumber = GetAvailableGridPosition();
+                    //int gridNumber = GetAvailableGridPosition();
+                    int gridNumber = Random.Range(0, spawnzonesArray.Length-1);
                     Vector3 pos = spawnzonesArray[gridNumber];
                     //SetSpawnzonesInUseArray(gridNumber, true);
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos)); 
@@ -144,7 +145,7 @@ public class GridManager : MonoBehaviour
 
         while (!foundAvailablePosition)
         {
-            gridNumber = Random.Range(0, spawnzonesArray.Length);
+            gridNumber = Random.Range(0, spawnzonesArray.Length-1);
 
             if (spawnzonesInUseArray[gridNumber] == false)
             {
