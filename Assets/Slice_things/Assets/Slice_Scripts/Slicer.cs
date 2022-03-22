@@ -60,6 +60,7 @@ namespace Assets.Scripts
 
             meshGameObject.AddComponent<MeshFilter>();
             meshGameObject.AddComponent<MeshRenderer>();
+            meshGameObject.AddComponent<DestroyXSec>(); // Destroys sliced objects after 3 sec.
             //Commented next 4 lines of code to make child objects NOT sliceable.
             //Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
 

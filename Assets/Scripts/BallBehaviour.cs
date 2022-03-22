@@ -43,7 +43,7 @@ public class BallBehaviour : MonoBehaviour
         
         yield return new WaitForSeconds(cooldown);
         transform.position = pos;
-        startPos = transform.position;
+        //startPos = transform.position;
         float spacing = GridManager.gridSpacing / 2;
         maxPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
         minPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
