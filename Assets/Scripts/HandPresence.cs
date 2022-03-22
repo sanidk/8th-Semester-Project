@@ -63,24 +63,7 @@ public class HandPresence : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Gun"))
-        {
-            if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-            {
-                //handAnimator.SetFloat("Trigger", triggerValue);
-                //handAnimationSyncTest._triggerValue = triggerValue;
-                //GetComponent<TriggerAnimation>().
-                other.gameObject.GetComponent<TriggerAnimationSyncTest>()._triggerValue = triggerValue;
-
-
-            }
-            else
-            {
-                //handAnimator.SetFloat("Trigger", 0);
-                //handAnimationSyncTest._triggerValue = 0;
-                other.gameObject.GetComponent<TriggerAnimationSyncTest>()._triggerValue = 0;
-            }
-        }
+        
     }
 
     void UpdateHandAnimation()

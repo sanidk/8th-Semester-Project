@@ -101,12 +101,13 @@ public class GridManager : MonoBehaviour
     void Update()
     {
         if (!realtime.connected) return;
+        if (!GameManagerLogic.isServer) return;
 
         if (instantiateBalls)
         {
             InstantiateBalls();
             instantiateBalls = false;
-            spawnBalls = true;
+            //spawnBalls = true;
         }
 
         if (spawnBalls)

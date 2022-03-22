@@ -10,7 +10,8 @@ public class GameManagerLogic : MonoBehaviour
     static RealtimeAvatarManager manager;
     public Dictionary<int, RealtimeAvatar> avatars;
     public Dictionary<int, RealtimeAvatar> previousAvatars;
-    public bool isServer = false;
+    public static bool isServer = false;
+    public bool isThisClientActingServer;
     bool isPlayersReady;
 
     public GameObject roomPlayer1;
@@ -18,19 +19,28 @@ public class GameManagerLogic : MonoBehaviour
     GridManager gridManagerPlayer1;
     GridManager gridManagerPlayer2;
 
+    public bool isPlayerSpawnSet;
+    public GameObject VRRig;
+    public GameObject spawnPlayer1;
+    public GameObject spawnPlayer2;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        gridManagerPlayer1 = roomPlayer1.GetComponent<GridManager>();
-        gridManagerPlayer2 = roomPlayer2.GetComponent<GridManager>();  
+        gridManagerPlayer1 = roomPlayer1.GetComponentInChildren<GridManager>();
+        gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();  
     }
 
     // Update is called once per frame
     void Update()
     {
+        isThisClientActingServer = isServer;
+
         if (manager == null)
         {
             manager = networkManager.GetComponent<RealtimeAvatarManager>();
+            
         }
         else
         {
@@ -38,36 +48,47 @@ public class GameManagerLogic : MonoBehaviour
 
         }
 
-
-
-        if (avatars.Count == 1)
+        if (!CheckIfServerExist())
         {
-            isServer = true;
-            //avatars[0].GetComponent<PlayerStats>()._isServer = true;
-
+            AssignServer();
         }
 
-        if (!isServer)
+
+        if (CheckIfServerExist())
         {
-            //avatars[0].gameObject.SetActive(false);
-            return;
+            if (isServer)
+            {
+                if (VRRig.transform.position != spawnPlayer1.transform.position)
+                {
+                    VRRig.transform.position = spawnPlayer1.transform.position;
+                }
+                
+            }
+            else
+            {
+                if (VRRig.transform.position != spawnPlayer2.transform.position)
+                {
+                    VRRig.transform.position = spawnPlayer2.transform.position;
+                }
+
+            }
         }
 
+        if (!isServer) return;
+          
         if (!isPlayersReady)
         {
             isPlayersReady = CheckIfAllPlayersReady();
+            
         }
-
-        //start game
+        print("isPlayersReady" + isPlayersReady);
         if (isPlayersReady)
         {
+            print("calling spawn methods");
             gridManagerPlayer1.spawnBalls = true;
             gridManagerPlayer2.spawnBalls = true;
 
         }
-
-
-
 
     }
 
@@ -84,11 +105,10 @@ public class GameManagerLogic : MonoBehaviour
         {
             RealtimeAvatar player = avatars[i];
 
-            //ENABLE THIS CODE
-            //if (!player.gameObject.GetComponent<GameNetworkStats>()._isReady)
-            //{
-            //    isTeamsReady = false;
-            //}
+            if (!player.gameObject.GetComponent<PlayerStat>()._isReady)
+            {
+                isTeamsReady = false;
+            }
 
         }
 
@@ -96,4 +116,28 @@ public class GameManagerLogic : MonoBehaviour
 
 
     }
+
+    bool CheckIfServerExist()
+    {
+        bool isServerExist = true;
+
+        for (int i = 0; i < avatars.Count; i++)
+        {
+            RealtimeAvatar player = avatars[i];
+
+            if (!player.gameObject.GetComponent<PlayerStat>()._backupVariable1) //isServer
+            {
+                isServerExist = false;
+            }
+
+        }
+
+        return isServerExist;
+    }
+
+    void AssignServer()
+    {
+        avatars[0].GetComponent<PlayerStat>()._backupVariable1 = true; //isServer
+    }
+
 }

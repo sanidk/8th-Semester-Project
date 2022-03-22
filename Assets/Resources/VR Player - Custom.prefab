@@ -288,6 +288,10 @@ GameObject:
   - component: {fileID: 114879240156072798}
   - component: {fileID: 114800176784454794}
   - component: {fileID: 114272718057082298}
+  - component: {fileID: -5160255428441080128}
+  - component: {fileID: 6871082704993692755}
+  - component: {fileID: 884715774065208603}
+  - component: {fileID: 8296678170913804214}
   m_Layer: 0
   m_Name: VR Player - Custom
   m_TagString: Untagged
@@ -336,6 +340,8 @@ MonoBehaviour:
     component: {fileID: 114800176784454794}
   - componentID: 2
     component: {fileID: 114272718057082298}
+  - componentID: 3
+    component: {fileID: 6871082704993692755}
   _childViews:
   - viewID: 1
     view: {fileID: 114098979720017432}
@@ -376,6 +382,83 @@ MonoBehaviour:
   _syncScale: 1
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
+--- !u!114 &-5160255428441080128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a511607728058346afd1b48d83a7017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStatSync: {fileID: 0}
+  _isReady: 0
+  _previousIsReady: 0
+  _weaponColor: {r: 0, g: 0, b: 0, a: 0}
+  _previousWeaponColor: {r: 0, g: 0, b: 0, a: 0}
+  _scoreStreak: 0
+  _previousScoreStreak: 0
+  _trapsSent: 0
+  _previousTrapsSent: 0
+  _currentLevel: 0
+  _previousCurrentLevel: 0
+  _lives: 0
+  _previousLives: 0
+  _backupVariable1: 0
+  _previousBackupVariable1: 0
+  _backupVariable2: 0
+  _previousBackupVariable2: 0
+  _backupVariable3: 0
+  _previousBackupVariable3: 0
+  _backupVariable4: 0
+  _previousBackupVariable4: 0
+  _backupVariable5: 0
+  _previousBackupVariable5: 0
+  _backupVariable6: 0
+  _previousBackupVariable6: 0
+--- !u!114 &6871082704993692755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85037aa6950a6294594af364f450e812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &884715774065208603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8296678170913804214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d2ed2ed5fc4c546ae59f943147a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1573471737031190
 GameObject:
   m_ObjectHideFlags: 0
