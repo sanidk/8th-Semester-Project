@@ -5,9 +5,9 @@ using Normal.Realtime;
 
 public class GameManagerLogic : MonoBehaviour
 {
-    public GameObject roomServer;
-    public GameObject roomClient;
-    public GameObject roomActive;
+    public static GameObject roomServer;
+    public static GameObject roomClient;
+    public static GameObject roomActive;
 
     public GameObject networkManager;
     static RealtimeAvatarManager manager;

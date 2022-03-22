@@ -34,6 +34,24 @@ public class PlayerBehaviour : MonoBehaviour
             GameManagerLogic.isServer = false;
         }
 
+        if (GameManagerLogic.isServer)
+        {
+            if (playerStat._scoreStreak >= 10)
+            {
+                //GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapDeploy();
+                playerStat._scoreStreak = 0;
+            }
+        }
+        else if (!GameManagerLogic.isServer)
+        {
+            if (playerStat._scoreStreak >= 10)
+            {
+                //GameManagerLogic.serverClient.GetComponentInChildren<GridManager>().trapDeploy();
+                playerStat._scoreStreak = 0;
+            }
+        }
+
+
     }
 
 
@@ -45,6 +63,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             playerStat._isReady = true;
         }
+
+
     }
 
 }
