@@ -67,6 +67,8 @@ public class GridManager : MonoBehaviour
 
         // Trap grid
 
+        trapCubePrefab = Resources.Load("trapCube") as GameObject;
+
         trapCubeList = new List<GameObject>();
         trapDeploy = GetComponent<TrapDeploy>();
 
@@ -79,7 +81,7 @@ public class GridManager : MonoBehaviour
                 float xpos = gridStart.x + (trapGridSpacing / 2) + (i * trapGridSpacing);
                 float zpos = gridStart.z + (trapGridSpacing / 2) + (j * trapGridSpacing);
 
-                trapCubeList.Add(Instantiate(trapCubePrefab, new Vector3(xpos, -0.05f, zpos), transform.rotation));
+                trapCubeList.Add(Instantiate(trapCubePrefab, new Vector3(xpos, -0.03f, zpos), transform.rotation));
             }
         }
         
@@ -172,7 +174,7 @@ public class GridManager : MonoBehaviour
 
         // For testing traps
         if (Time.time > nextTrap) {
-            startTrap(2);
+            sendTrap(2);
             nextTrap += 10;
         }
         
