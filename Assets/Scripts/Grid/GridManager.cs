@@ -165,7 +165,9 @@ public class GridManager : MonoBehaviour
                     int gridNumber = Random.Range(0, spawnzonesArray.Length-1);
                     Vector3 pos = spawnzonesArray[gridNumber];
                     //SetSpawnzonesInUseArray(gridNumber, true);
-                    StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos)); 
+                    //ball.GetComponent<BallBehaviour>().isBallActive = true;
+                    StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
+                    
                     
                 }
             }
@@ -173,10 +175,10 @@ public class GridManager : MonoBehaviour
         }
 
         // For testing traps
-        if (Time.time > nextTrap) {
-            sendTrap(2);
-            nextTrap += 10;
-        }
+        //if (Time.time > nextTrap) {
+        //    sendTrap(2);
+        //    nextTrap += 10;
+        //}
         
 
     }

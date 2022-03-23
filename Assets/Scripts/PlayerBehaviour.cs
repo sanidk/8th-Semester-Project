@@ -36,17 +36,19 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (GameManagerLogic.isServer)
         {
-            if (playerStat._scoreStreak >= 10)
+            if (playerStat._scoreStreak >= 2)
             {
-                //GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapDeploy();
+                int randomInt = Random.Range(0, 3);
+                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt);
                 playerStat._scoreStreak = 0;
             }
         }
         else if (!GameManagerLogic.isServer)
         {
-            if (playerStat._scoreStreak >= 10)
+            if (playerStat._scoreStreak >= 2)
             {
-                //GameManagerLogic.serverClient.GetComponentInChildren<GridManager>().trapDeploy();
+                int randomInt = Random.Range(0, 3);
+                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt);
                 playerStat._scoreStreak = 0;
             }
         }

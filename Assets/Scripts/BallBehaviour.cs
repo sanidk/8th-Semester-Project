@@ -13,13 +13,13 @@ public class BallBehaviour : MonoBehaviour
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     public Vector3 dir;
     float randomDirectionAmount = 0.5f;
-    bool isBallSpawned;
+    
     float speed = .05f;
     public int gridPosition;
 
+    bool isBallSpawned;
     public bool isBallActive = false;
-    public bool isBallMoving = false;
-    
+
     public static float cooldown = 3;
 
 
@@ -42,6 +42,7 @@ public class BallBehaviour : MonoBehaviour
         isBallActive = true;
 
         yield return new WaitForSeconds(cooldown);
+
         isBallSpawned = true;
         transform.position = pos;
         startPos = pos;
@@ -54,11 +55,12 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
+        transform.position = instantiatePosition;
         isBallSpawned = false;
         isBallActive = false;
-        transform.position = instantiatePosition;
-        GridManager gm = GetComponentInParent<GridManager>();
-        gm.SetSpawnzonesInUseArray(gridPosition, false);
+        
+        //GridManager gm = GetComponentInParent<GridManager>();
+        //gm.SetSpawnzonesInUseArray(gridPosition, false);
 
     }
 

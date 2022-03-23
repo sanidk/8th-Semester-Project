@@ -191,7 +191,7 @@ public class Lighsaber : MonoBehaviour
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
         //Destroy(other.gameObject); - Commented, Instead Despawn.
         other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
-
+        
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
         rigidbody.AddForce(newNormal, ForceMode.Impulse);

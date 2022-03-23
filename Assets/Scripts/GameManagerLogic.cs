@@ -86,10 +86,10 @@ public class GameManagerLogic : MonoBehaviour
             isPlayersReady = CheckIfAllPlayersReady();
             
         }
-        print("isPlayersReady" + isPlayersReady);
+
         if (isPlayersReady)
         {
-            print("calling spawn methods");
+
             gridManagerPlayer1.spawnBalls = true;
             gridManagerPlayer2.spawnBalls = true;
 
