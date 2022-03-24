@@ -6327,7 +6327,7 @@ MonoBehaviour:
   _trailFrameLength: 3
   _colour: {r: 15.920942, g: 68.59351, b: 8.97821, a: 1}
   _forceAppliedToCut: 3
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 7800072070774914081}
   scoreTemporary: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
 --- !u!54 &2542045245700167601
 Rigidbody:

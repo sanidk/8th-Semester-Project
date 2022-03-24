@@ -127,7 +127,7 @@ public class GridManager : MonoBehaviour
         for (int i = 0; i < ballsAmountMax; i++)
         {
 
-            ballsArray[i] = Realtime.Instantiate("Ball_Prefab", instantiatePosition, transform.rotation, new Realtime.InstantiateOptions
+            ballsArray[i] = Realtime.Instantiate("Cube_Prefab", instantiatePosition, transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = true,
                 preventOwnershipTakeover = true,

@@ -147,6 +147,7 @@ public class Lighsaber : MonoBehaviour
             playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             return;
         }
+        
 
         audioSource.PlayOneShot(scoreTemporary);
         score++;
