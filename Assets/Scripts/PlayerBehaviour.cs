@@ -7,6 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
+
     PlayerStat playerStat;
     GameObject gameManager;
     RealtimeAvatarManager manager;
@@ -39,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (playerStat._scoreStreak >= 2)
             {
                 int randomInt = Random.Range(0, 3);
-                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt);
+                gameManager.GetComponent<GameManagerLogic>().roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -48,7 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (playerStat._scoreStreak >= 2)
             {
                 int randomInt = Random.Range(0, 3);
-                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt);
+                gameManager.GetComponent<GameManagerLogic>().roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt);
                 playerStat._scoreStreak = 0;
             }
         }
