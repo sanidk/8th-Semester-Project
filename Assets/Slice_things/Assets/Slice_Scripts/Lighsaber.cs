@@ -208,6 +208,7 @@ public class Lighsaber : MonoBehaviour
         if (GetComponent<RealtimeTransform>().isOwnedLocallySelf)
         {
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            StartCoroutine(reEnableMeshRenderer(other.gameObject, 3));
         }
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
@@ -217,5 +218,11 @@ public class Lighsaber : MonoBehaviour
         //maybe make ienumerater to wait a few seconds before despawning ball
         //other.getcomponent<BallBehaviour>().Despawn(); ish
         //Also script or function to delete object after few second?
+    }
+
+    IEnumerator reEnableMeshRenderer(GameObject obj, float time) { 
+        yield return new WaitForSeconds(time);
+        obj.GetComponent<MeshRenderer>().enabled = true;
+
     }
 }
