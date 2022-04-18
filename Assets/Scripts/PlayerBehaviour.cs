@@ -12,6 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject gameManager;
     RealtimeAvatarManager manager;
     public Dictionary<int, RealtimeAvatar> avatars;
+    GameObject lightSaber;
+    bool lightSaberSpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,18 @@ public class PlayerBehaviour : MonoBehaviour
                 gameManager.GetComponent<GameManagerLogic>().roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt);
                 playerStat._scoreStreak = 0;
             }
+        }
+
+        if (GameManagerLogic.isPlayersReady && !lightSaberSpawned)
+        {
+            lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+            lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
         }
 
 

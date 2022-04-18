@@ -15,7 +15,7 @@ public class GameManagerLogic : MonoBehaviour
     public Dictionary<int, RealtimeAvatar> previousAvatars;
     public static bool isServer = false;
     public bool isThisClientActingServer;
-    bool isPlayersReady;
+    public static bool isPlayersReady;
 
     public GameObject roomPlayer1;
     public GameObject roomPlayer2;

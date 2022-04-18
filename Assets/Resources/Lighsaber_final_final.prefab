@@ -349,6 +349,8 @@ GameObject:
   - component: {fileID: 85178262916457391}
   - component: {fileID: 85178262916457390}
   - component: {fileID: 4178074518983641820}
+  - component: {fileID: 7250680817627705512}
+  - component: {fileID: 5962388417764101148}
   m_Layer: 0
   m_Name: Lighsaber_final_final
   m_TagString: Untagged
@@ -390,7 +392,7 @@ MonoBehaviour:
   _tip: {fileID: 8047412289442943094}
   _base: {fileID: 872401251079047261}
   _meshParent: {fileID: 1290887906172964307}
-  _trailFrameLength: 0
+  _trailFrameLength: 3
   _colour: {r: 15.920942, g: 68.59351, b: 8.97821, a: 1}
   _forceAppliedToCut: 2
   playerObject: {fileID: 0}
@@ -635,6 +637,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7250680817627705512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178074518983641821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -363599832, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 0}
+  _sceneViewUUID: 
+  _viewUUID: 
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _sceneViewDestroyWhenOwnerOrLastClientLeavesMigrated: 0
+  _sceneViewDestroyWhenLastClientLeaves: 1
+  _components:
+  - componentID: 1
+    component: {fileID: 5962388417764101148}
+  _childViews: []
+--- !u!114 &5962388417764101148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178074518983641821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1029778088, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolate: 1
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 0
+  _syncVelocity: 1
+  _maintainOwnershipWhileSleeping: 0
 --- !u!1 &5305730895369438515
 GameObject:
   m_ObjectHideFlags: 0
