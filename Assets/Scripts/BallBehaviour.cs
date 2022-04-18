@@ -57,7 +57,7 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
-        //maybe request permission to be able to move the box
+        //maybe request permission to be able to move the box/ball
         transform.position = instantiatePosition;
         isBallSpawned = false;
         isBallActive = false;

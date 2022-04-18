@@ -38,6 +38,7 @@ public class GameManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //maybe make delays in the loop so it doesnt check all the time
         isThisClientActingServer = isServer;
 
         if (manager == null)
