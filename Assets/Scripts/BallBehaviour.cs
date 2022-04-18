@@ -57,13 +57,24 @@ public class BallBehaviour : MonoBehaviour
     public void DespawnBall()
     {
         //maybe request permission to be able to move the box/ball
-        transform.position = instantiatePosition;
+        StartCoroutine(resetBallPosition(gameObject, 2));
         
-        isBallSpawned = false;
-        isBallActive = false;
         
+
+
         //GridManager gm = GetComponentInParent<GridManager>();
         //gm.SetSpawnzonesInUseArray(gridPosition, false);
+
+    }
+
+    IEnumerator resetBallPosition(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+        obj.GetComponent<MeshRenderer>().enabled = true;
+        obj.GetComponent<BoxCollider>().enabled = true;
+        transform.position = instantiatePosition;
+        isBallSpawned = false;
+        isBallActive = false;
 
     }
 

@@ -208,6 +208,8 @@ public class Lighsaber : MonoBehaviour
         if (GetComponent<RealtimeTransform>().isOwnedLocallySelf)
         {
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+
             StartCoroutine(reEnableMeshRenderer(other.gameObject, 3));
         }
 
@@ -223,6 +225,8 @@ public class Lighsaber : MonoBehaviour
     IEnumerator reEnableMeshRenderer(GameObject obj, float time) { 
         yield return new WaitForSeconds(time);
         obj.GetComponent<MeshRenderer>().enabled = true;
+        obj.GetComponent<BoxCollider>().enabled = true;
+
 
     }
 }
