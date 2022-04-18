@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour
 {
+    //public int playerOwnership;
+    
     GameObject gridManager;
 
     Vector3 startPos;
@@ -55,6 +57,7 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
+        //maybe request permission to be able to move the box
         transform.position = instantiatePosition;
         isBallSpawned = false;
         isBallActive = false;

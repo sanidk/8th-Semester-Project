@@ -60,7 +60,7 @@ public class Lighsaber : MonoBehaviour
 
     void Start()
     {
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+        //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         //Init mesh and triangles
         _meshParent.transform.position = Vector3.zero;
@@ -87,7 +87,7 @@ public class Lighsaber : MonoBehaviour
     
     void LateUpdate()
     {
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+        //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         //Reset the frame count one we reach the frame length
         if (_frameCount == (_trailFrameLength * NUM_VERTICES))
@@ -136,8 +136,7 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
-
+        //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
@@ -168,7 +167,7 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+        //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         _triggerExitTipPosition = _tip.transform.position;
 
