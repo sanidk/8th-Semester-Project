@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallBehaviour : MonoBehaviour
 {
     //public int playerOwnership;
-    
+    GameObject gameManager;
     GameObject gridManager;
 
     Vector3 startPos;
@@ -28,7 +28,6 @@ public class BallBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
 
         //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         //transform.rotation = Quaternion.Euler(rotation);
@@ -70,6 +69,9 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (!GameManagerLogic.isServer) {
+        //    return;
+        //}
         if (!isBallSpawned) return;
         
         currentPos = transform.position;
