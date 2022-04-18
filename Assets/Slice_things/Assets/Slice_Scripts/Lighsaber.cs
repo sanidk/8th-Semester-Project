@@ -63,17 +63,17 @@ public class Lighsaber : MonoBehaviour
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         //Init mesh and triangles
-        _meshParent.transform.position = Vector3.zero;
-        _mesh = new Mesh();
-        _meshParent.GetComponent<MeshFilter>().mesh = _mesh;
+        //_meshParent.transform.position = Vector3.zero;
+        //_mesh = new Mesh();
+        //_meshParent.GetComponent<MeshFilter>().mesh = _mesh;
 
-        Material trailMaterial = Instantiate(_meshParent.GetComponent<MeshRenderer>().sharedMaterial);
-        trailMaterial.SetColor("Color_8F0C0815", _colour);
-        _meshParent.GetComponent<MeshRenderer>().sharedMaterial = trailMaterial;
+        //Material trailMaterial = Instantiate(_meshParent.GetComponent<MeshRenderer>().sharedMaterial);
+        //trailMaterial.SetColor("Color_8F0C0815", _colour);
+        //_meshParent.GetComponent<MeshRenderer>().sharedMaterial = trailMaterial;
 
-        Material bladeMaterial = Instantiate(_blade.GetComponent<MeshRenderer>().sharedMaterial);
-        bladeMaterial.SetColor("Color_AF2E1BB", _colour);
-        _blade.GetComponent<MeshRenderer>().sharedMaterial = bladeMaterial;
+        //Material bladeMaterial = Instantiate(_blade.GetComponent<MeshRenderer>().sharedMaterial);
+        //bladeMaterial.SetColor("Color_AF2E1BB", _colour);
+        //_blade.GetComponent<MeshRenderer>().sharedMaterial = bladeMaterial;
 
         _vertices = new Vector3[_trailFrameLength * NUM_VERTICES];
         _triangles = new int[_vertices.Length];
