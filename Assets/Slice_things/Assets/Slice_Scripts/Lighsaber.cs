@@ -202,7 +202,7 @@ public class Lighsaber : MonoBehaviour
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
 
         //Destroy(other.gameObject); - Commented, Instead Despawn.
-        if (GetComponent<RealtimeTransform>().isOwnedLocallySelf) {
+        if (GameManagerLogic.isServer) {
             other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
         }
 

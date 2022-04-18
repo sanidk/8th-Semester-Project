@@ -69,9 +69,9 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!GameManagerLogic.isServer) {
-        //    return;
-        //}
+        if (!GameManagerLogic.isServer) {
+            return;
+        }
         if (!isBallSpawned) return;
         
         currentPos = transform.position;
