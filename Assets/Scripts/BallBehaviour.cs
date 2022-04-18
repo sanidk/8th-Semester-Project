@@ -57,7 +57,7 @@ public class BallBehaviour : MonoBehaviour
     public void DespawnBall()
     {
         //maybe request permission to be able to move the box/ball
-        StartCoroutine(resetBallPosition(gameObject, 2));
+        StartCoroutine(resetBallPosition(gameObject, 1));
         
         
 

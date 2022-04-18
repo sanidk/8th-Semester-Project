@@ -205,13 +205,12 @@ public class Lighsaber : MonoBehaviour
         if (GameManagerLogic.isServer) {
             other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
         }
-        if (GetComponent<RealtimeTransform>().isOwnedLocallySelf)
-        {
-            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        
+        other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        other.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-            StartCoroutine(reEnableMeshRenderer(other.gameObject, 3));
-        }
+        StartCoroutine(reEnableMeshRenderer(other.gameObject, 1));
+        
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
