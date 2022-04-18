@@ -209,7 +209,7 @@ public class Lighsaber : MonoBehaviour
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        StartCoroutine(reEnableMeshRenderer(other.gameObject, 1));
+        StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
         
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
