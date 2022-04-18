@@ -70,6 +70,7 @@ public class GameManagerLogic : MonoBehaviour
                 if (VRRig.transform.position != spawnPlayer1.transform.position)
                 {
                     VRRig.transform.position = spawnPlayer1.transform.position;
+                    VRRig.transform.rotation = Quaternion.Euler(0, 90, 0);
                     roomActive = roomServer;
                 }
                 
@@ -79,6 +80,7 @@ public class GameManagerLogic : MonoBehaviour
                 if (VRRig.transform.position != spawnPlayer2.transform.position)
                 {
                     VRRig.transform.position = spawnPlayer2.transform.position;
+                    VRRig.transform.rotation = Quaternion.Euler(0, -90, 0);
                     roomActive = roomClient;
                 }
 
