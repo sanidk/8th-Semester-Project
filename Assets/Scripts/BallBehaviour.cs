@@ -43,7 +43,7 @@ public class BallBehaviour : MonoBehaviour
         isBallActive = true;
 
         yield return new WaitForSeconds(cooldown);
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+
         isBallSpawned = true;
         transform.position = pos;
         startPos = pos;
@@ -58,6 +58,7 @@ public class BallBehaviour : MonoBehaviour
     {
         //maybe request permission to be able to move the box/ball
         transform.position = instantiatePosition;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         isBallSpawned = false;
         isBallActive = false;
         
