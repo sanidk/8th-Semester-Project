@@ -199,8 +199,13 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
-        GameObject[] slices = Slicer.Slice(plane, other.gameObject);
-
+        if (GetComponent<RealtimeTransform>().isOwnedLocallySelf)
+        {
+            GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+            Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+            Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+            rigidbody.AddForce(newNormal, ForceMode.Impulse);
+        }
         //Destroy(other.gameObject); - Commented, Instead Despawn.
         if (GameManagerLogic.isServer) {
             other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
@@ -210,10 +215,6 @@ public class Lighsaber : MonoBehaviour
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(reEnableMeshRenderer(other.gameObject, 3));
         }
-
-        Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
-        Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-        rigidbody.AddForce(newNormal, ForceMode.Impulse);
 
         //maybe make ienumerater to wait a few seconds before despawning ball
         //other.getcomponent<BallBehaviour>().Despawn(); ish

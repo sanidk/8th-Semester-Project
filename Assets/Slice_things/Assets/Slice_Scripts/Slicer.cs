@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Normal.Realtime;
 
 namespace Assets.Scripts
 {
@@ -55,7 +56,15 @@ namespace Assets.Scripts
         {
             var originalMaterial = originalObject.GetComponent<MeshRenderer>().materials;
 
-            GameObject meshGameObject = new GameObject();
+            //GameObject meshGameObject = new GameObject();
+
+            GameObject meshGameObject = Realtime.Instantiate("Test", originalObject.transform.position, originalObject.transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
             Sliceable originalSliceable = originalObject.GetComponent<Sliceable>();
 
             meshGameObject.AddComponent<MeshFilter>();
