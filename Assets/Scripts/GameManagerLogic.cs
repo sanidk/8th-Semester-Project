@@ -9,6 +9,8 @@ public class GameManagerLogic : MonoBehaviour
     public GameObject roomClient;
     public GameObject roomActive;
 
+    public GameLogic syncVariablesObject;
+
     public GameObject networkManager;
     static RealtimeAvatarManager manager;
     public Dictionary<int, RealtimeAvatar> avatars;
@@ -32,7 +34,9 @@ public class GameManagerLogic : MonoBehaviour
     void Start()
     {
         gridManagerPlayer1 = roomPlayer1.GetComponentInChildren<GridManager>();
-        gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();  
+        gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();
+
+        syncVariablesObject = GetComponent<GameLogic>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class GameManagerLogic : MonoBehaviour
     {
         //maybe make delays in the loop so it doesnt check all the time
         isThisClientActingServer = isServer;
+        isPlayersReady = syncVariablesObject._isPlayersReadyToStartGame;
 
         if (manager == null)
         {
@@ -82,13 +87,15 @@ public class GameManagerLogic : MonoBehaviour
 
         if (!isServer) return;
           
-        if (!isPlayersReady)
+        if (!syncVariablesObject._isPlayersReadyToStartGame)
         {
-            isPlayersReady = CheckIfAllPlayersReady();
+            syncVariablesObject._isPlayersReadyToStartGame = CheckIfAllPlayersReady();
+            //syncVariablesObject._isPlayersReadyToStartGame = isPlayersReady;
             
+            //GameLogic._isPlayersReadyToStartGame = isPlayersReady;
         }
 
-        if (isPlayersReady)
+        if (syncVariablesObject._isPlayersReadyToStartGame)
         {
 
             gridManagerPlayer1.spawnBalls = true;
