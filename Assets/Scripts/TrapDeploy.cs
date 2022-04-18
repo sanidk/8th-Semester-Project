@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class TrapDeploy : MonoBehaviour
 {
@@ -32,7 +33,16 @@ public class TrapDeploy : MonoBehaviour
     {
         this.GetComponentInParent<MeshRenderer>().material = warningMat;
         // conditional logic
-        tempTrap = Instantiate(spikes, new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation);
+        //tempTrap = Instantiate(spikes, new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation);
+        tempTrap = Realtime.Instantiate("SpearTrap", new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+        {
+            ownedByClient = false,
+            preventOwnershipTakeover = false,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+        });
+        
+
         // Play sound of trap getting ready (build up)
         StartCoroutine(WaitAndTriggerTrap());
         // Play sound of trap triggering (snap)
