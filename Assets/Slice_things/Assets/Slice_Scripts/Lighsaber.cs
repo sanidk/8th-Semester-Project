@@ -205,6 +205,10 @@ public class Lighsaber : MonoBehaviour
         if (GameManagerLogic.isServer) {
             other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
         }
+        if (GetComponent<RealtimeTransform>().isOwnedLocallySelf)
+        {
+            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;

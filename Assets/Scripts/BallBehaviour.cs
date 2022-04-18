@@ -43,7 +43,7 @@ public class BallBehaviour : MonoBehaviour
         isBallActive = true;
 
         yield return new WaitForSeconds(cooldown);
-
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         isBallSpawned = true;
         transform.position = pos;
         startPos = pos;
