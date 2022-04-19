@@ -44,10 +44,8 @@ public class GridManager : MonoBehaviour
     public int ballsAmount = 10;
     int ballsAmountMax = 50;
     GameObject[] ballsArray;
-    
 
-
-
+    List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
 
 
     // Start is called before the first frame update
@@ -62,12 +60,85 @@ public class GridManager : MonoBehaviour
         spawnzonesArray = new Vector3[gridSize];
         spawnzonesInUseArray = new bool[gridSize];
 
+        
         gridStart = transform.position;
         int index = 0;
 
-        // Trap grid
+        for (int x = 0; x < gridResolution; x++)
+        {
+            for (int y = 0; y < gridResolution; y++)
+            {
+                for (int z = 0; z < gridResolution; z++)
+                {
+                    gridSpacing = gridLength / gridResolution;
 
-        trapCubePrefab = Resources.Load("trapCube") as GameObject;
+                    float xpos = gridStart.x + (gridSpacing / 2) + (x * gridSpacing);
+                    float ypos = gridStart.y + (gridSpacing / 2) + (y * gridSpacing);
+                    float zpos = gridStart.z + (gridSpacing / 2) + (z * gridSpacing);
+
+                    spawnzonesArray[index] = new Vector3(xpos, ypos, zpos);
+                    index++;
+
+                    /*
+                    if (gridGraphicToggle)
+                    {
+                        GameObject cube = Instantiate(cubePrefab, new Vector3(xpos, ypos, zpos), transform.rotation);
+                        cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
+                    }
+                    */
+
+                }
+            }
+        }
+        int widthcounter = 0;
+        int depthcounter = 1;
+        int heightcounter = 0;
+
+
+        for (int x = 0; x < spawnzonesArray.Length; x++)
+        {
+            widthcounter++;
+            
+
+
+            if (depthcounter < 0 || depthcounter > 5)
+            {
+                spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+            }
+            else if (widthcounter < 3 || widthcounter > 6) {
+                spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+            }
+
+
+
+            if (widthcounter == gridResolution)
+            {
+                heightcounter++;
+                widthcounter = 0;
+                
+            }
+
+            if (heightcounter == gridResolution) {
+                depthcounter++;
+                heightcounter = 0;
+            }
+
+
+        }
+
+        for (int x = 0; x < spawnzonesArrayWithoutMiddle.Count; x++)
+        {
+            if (gridGraphicToggle)
+            {
+                GameObject cube = Instantiate(cubePrefab, new Vector3(spawnzonesArrayWithoutMiddle[x].x, spawnzonesArrayWithoutMiddle[x].y, spawnzonesArrayWithoutMiddle[x].z), transform.rotation);
+                cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
+            }
+        }
+
+
+            // Trap grid
+
+            trapCubePrefab = Resources.Load("trapCube") as GameObject;
 
         trapCubeList = new List<GameObject>();
         trapDeploy = GetComponent<TrapDeploy>();
@@ -95,30 +166,7 @@ public class GridManager : MonoBehaviour
 
         // Trap grid end
 
-        for (int x = 0; x < gridResolution; x++)
-        {
-            for (int y = 0; y < gridResolution; y++)
-            {
-                for (int z = 0; z < gridResolution; z++)
-                {
-                    gridSpacing = gridLength / gridResolution;
-
-                    float xpos = gridStart.x + (gridSpacing / 2) + (x * gridSpacing);
-                    float ypos = gridStart.y + (gridSpacing / 2) + (y * gridSpacing);
-                    float zpos = gridStart.z + (gridSpacing / 2) + (z * gridSpacing);
-
-                    spawnzonesArray[index] = new Vector3(xpos, ypos, zpos);
-                    index++;
-                    
-                    if (gridGraphicToggle)
-                    {
-                        GameObject cube = Instantiate(cubePrefab, new Vector3(xpos, ypos, zpos), transform.rotation);
-                        cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
-                    }
-
-                }
-            }
-        }
+        
 
     }
 
@@ -162,8 +210,8 @@ public class GridManager : MonoBehaviour
                 if (!ball.GetComponent<BallBehaviour>().isBallActive)
                 {
                     //int gridNumber = GetAvailableGridPosition();
-                    int gridNumber = Random.Range(0, spawnzonesArray.Length-1);
-                    Vector3 pos = spawnzonesArray[gridNumber];
+                    int gridNumber = Random.Range(0, spawnzonesArrayWithoutMiddle.Count-1);
+                    Vector3 pos = spawnzonesArrayWithoutMiddle[gridNumber];
                     //SetSpawnzonesInUseArray(gridNumber, true);
                     //ball.GetComponent<BallBehaviour>().isBallActive = true;
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
