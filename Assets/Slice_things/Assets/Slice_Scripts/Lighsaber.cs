@@ -150,7 +150,7 @@ public class Lighsaber : MonoBehaviour
         {
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
             _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
-            streak = 0;
+            streak = 1;
             playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             return;
         }
