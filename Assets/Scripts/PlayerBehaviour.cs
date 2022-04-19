@@ -7,6 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
+    public int streakToSendTrap = 10;
 
     PlayerStat playerStat;
     GameObject gameManager;
@@ -39,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (GameManagerLogic.isServer)
         {
-            if (playerStat._scoreStreak >= 2)
+            if (playerStat._scoreStreak >= streakToSendTrap)
             {
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
@@ -49,7 +50,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if (!GameManagerLogic.isServer)
         {
-            if (playerStat._scoreStreak >= 2)
+            if (playerStat._scoreStreak >= streakToSendTrap)
             {
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
