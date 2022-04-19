@@ -41,8 +41,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (playerStat._scoreStreak >= 2)
             {
-                int randomInt = Random.Range(0, 3);
-                gameManager.GetComponent<GameManagerLogic>().roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt);
+                int randomInt = Random.Range(0, 4);
+                int randomTrap = Random.Range(0, 2);
+                gameManager.GetComponent<GameManagerLogic>().roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -50,8 +51,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (playerStat._scoreStreak >= 2)
             {
-                int randomInt = Random.Range(0, 3);
-                gameManager.GetComponent<GameManagerLogic>().roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt);
+                int randomInt = Random.Range(0, 4);
+                int randomTrap = Random.Range(0, 2);
+                gameManager.GetComponent<GameManagerLogic>().roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 playerStat._scoreStreak = 0;
             }
         }

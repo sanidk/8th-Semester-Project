@@ -188,9 +188,10 @@ public class GridManager : MonoBehaviour
     //    return gridNumber;
     //}
 
-    public void sendTrap(int trapNumber)
-    {
-        trapCubeList[trapNumber].GetComponent<TrapDeploy>().spawnTrap();
+    public void sendTrap(int trapNumber, int typeOfTrap) {
+
+        trapCubeList[trapNumber].GetComponent<TrapDeploy>().spawnTrap(typeOfTrap);
+
     }
 
     /*
