@@ -144,7 +144,7 @@ public class Lighsaber : MonoBehaviour
         {
             return;
         }
-        audioSource.PlayOneShot(audioWhenHit);
+        //audioSource.PlayOneShot(audioWhenHit);
 
         if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
         {
@@ -156,12 +156,13 @@ public class Lighsaber : MonoBehaviour
         }
         
 
-        audioSource.PlayOneShot(scoreTemporary);
+        //audioSource.PlayOneShot(scoreTemporary);
         score++;
         streak++;
         //if (!playerObject.GetComponent<PlayerStat>()) { return; }
         //playerObject.GetComponent<PlayerStat>()._scoreStreak = streak;
         playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+        other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
         //No score variable to increase in Playerstat?
     }
 
