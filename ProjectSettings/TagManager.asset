@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ReadyPlayer
   - PostFX
+  - Trap
   layers:
   - Default
   - TransparentFX

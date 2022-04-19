@@ -57,12 +57,30 @@ public class TrapDeploy : MonoBehaviour
         }
 
         if (typeOfTrap == 0) {
-            tempTrap = Instantiate(spikes, new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation);
+            tempTrap = Realtime.Instantiate("SpearTrap", new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
         } else if (typeOfTrap == 1 && this.name == "Trap0" || this.name == "Trap1" ) {
-            tempTrap = Instantiate(pendulum, new Vector3(transform.position.x + 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation);
+            tempTrap = Realtime.Instantiate("PendulumTrap", new Vector3(transform.position.x + 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
             tempTrap.transform.rotation *= spawnRotation;
         } else if (typeOfTrap == 1 && this.name == "Trap2" || this.name == "Trap3") {
-            tempTrap = Instantiate(pendulum, new Vector3(transform.position.x - 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation);
+            tempTrap = Realtime.Instantiate("PendulumTrap", new Vector3(transform.position.x - 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
             tempTrap.transform.rotation *= spawnRotation;
         }
 
@@ -91,4 +109,5 @@ public class TrapDeploy : MonoBehaviour
         
     }
 }
+
 
