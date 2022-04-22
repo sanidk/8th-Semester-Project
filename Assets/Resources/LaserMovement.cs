@@ -16,10 +16,10 @@ public class LaserMovement : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        transform.position = startPosition;
+        //transform.position = startPosition;
         //transform.position-= transform.forward;
 
-        transform.rotation = direction;
+        //transform.rotation = direction;
     }
 
     // Update is called once per frame

@@ -144,13 +144,14 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("ENTER: "+other.gameObject.name);
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
         if (GameManagerLogic.isServer)
         {
 
-            Vector3 tipCollision = other.ClosestPoint(_triggerEnterTipPosition);
-            Vector3 baseCollision = other.ClosestPoint(_triggerEnterBasePosition);
+            //Vector3 tipCollision = other.ClosestPoint(_triggerEnterTipPosition);
+            //Vector3 baseCollision = other.ClosestPoint(_triggerEnterBasePosition);
+            Vector3 tipCollision = _triggerEnterTipPosition;
+            Vector3 baseCollision = _triggerEnterBasePosition;
 
             Vector3 sliceStart = (tipCollision + baseCollision) / 2;
 
@@ -276,7 +277,6 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        print("EXIT: " + other.gameObject.name);
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
@@ -350,8 +350,10 @@ public class Lighsaber : MonoBehaviour
 
         //laser.transform.position = sliceStart;
 
-        laser.GetComponent<LaserMovement>().direction = sliceDirection;
-        laser.GetComponent<LaserMovement>().startPosition = relativeSliceStart;
+        //laser.GetComponent<LaserMovement>().direction = sliceDirection;
+        //laser.GetComponent<LaserMovement>().startPosition = relativeSliceStart;
+        laser.transform.position = relativeSliceStart;
+        laser.transform.rotation = sliceDirection;
 
     }
 

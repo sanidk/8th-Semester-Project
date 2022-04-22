@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2836777570469582292}
   - component: {fileID: 523808258542378304}
   - component: {fileID: 2976835285716167459}
-  - component: {fileID: 4582239243488249727}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -97,29 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4582239243488249727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877172691042851518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -363599832, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _realtime: {fileID: 0}
-  _sceneViewUUID: 
-  _viewUUID: 
-  _sceneViewPreventOwnershipTakeover: 0
-  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
-  _sceneViewDestroyWhenOwnerOrLastClientLeavesMigrated: 0
-  _sceneViewDestroyWhenLastClientLeaves: 1
-  _components:
-  - componentID: 1
-    component: {fileID: 0}
-  _childViews: []
 --- !u!1 &7808261793381172233
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +169,7 @@ MonoBehaviour:
     component: {fileID: 6885766423300136670}
   _childViews:
   - viewID: 1
-    view: {fileID: 4582239243488249727}
+    view: {fileID: 0}
 --- !u!114 &6885766423300136670
 MonoBehaviour:
   m_ObjectHideFlags: 0
