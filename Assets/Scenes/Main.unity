@@ -3116,6 +3116,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 85178262916457389, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 129911790361504735, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
       propertyPath: roomRefPlayer2
       value: 
@@ -3126,15 +3130,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3652507327037296743, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0615282
+      value: -2.204
       objectReference: {fileID: 0}
     - target: {fileID: 3652507327037296743, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.943
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 3652507327037296743, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.359
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 3652507327037296743, guid: f140ac1171b574baa8508cd1b98f5b88, type: 3}
       propertyPath: m_LocalRotation.w

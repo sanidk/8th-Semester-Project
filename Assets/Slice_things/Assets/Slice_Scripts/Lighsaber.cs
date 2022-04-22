@@ -145,44 +145,44 @@ public class Lighsaber : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
-        
+        if (GameManagerLogic.isServer)
+        {
+
+            Vector3 tipCollision = other.ClosestPoint(_triggerEnterTipPosition);
+            Vector3 baseCollision = other.ClosestPoint(_triggerEnterBasePosition);
+
+            Vector3 sliceStart = (tipCollision + baseCollision) / 2;
+
+
+            float oldMinX = other.transform.position.x - (other.transform.localScale.x / 2);
+            float oldMaxX = other.transform.position.x + (other.transform.localScale.x / 2);
+            float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.localScale.x / 2);
+            float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.localScale.x / 2);
+            float valX = sliceStart.x;
+
+            float oldMinY = other.transform.position.y - (other.transform.localScale.y / 2);
+            float oldMaxY = other.transform.position.y + (other.transform.localScale.y / 2);
+            float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.localScale.y / 2);
+            float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.localScale.y / 2);
+            float valY = sliceStart.y;
+
+            float oldMinZ = other.transform.position.z - (other.transform.localScale.z / 2);
+            float oldMaxZ = other.transform.position.z + (other.transform.localScale.z / 2);
+            float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.localScale.z / 2);
+            float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.localScale.z / 2);
+            float valZ = sliceStart.z;
+
+            float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
+            float y = map(valY, oldMinY, oldMaxY, newMinY, newMaxY);
+            float z = map(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
+
+
+            relativeSliceStart = new Vector3(x, y, z);
+        }
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
-        Vector3 tipCollision = other.ClosestPoint(_triggerEnterTipPosition);
-        Vector3 baseCollision = other.ClosestPoint(_triggerEnterBasePosition);
-        
-        Vector3 sliceStart = (tipCollision + baseCollision) / 2;
 
-
-        float oldMinX = other.transform.position.x - (other.transform.localScale.x / 2);
-        float oldMaxX = other.transform.position.x + (other.transform.localScale.x / 2);
-        float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.localScale.x / 2);
-        float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.localScale.x / 2);
-        float valX = sliceStart.x;
-
-        float oldMinY = other.transform.position.y - (other.transform.localScale.y / 2);
-        float oldMaxY = other.transform.position.y + (other.transform.localScale.y / 2);
-        float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.localScale.y / 2);
-        float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.localScale.y / 2);
-        float valY = sliceStart.y;
-
-        float oldMinZ = other.transform.position.z - (other.transform.localScale.z / 2);
-        float oldMaxZ = other.transform.position.z + (other.transform.localScale.z / 2);
-        float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.localScale.z / 2);
-        float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.localScale.z / 2);
-        float valZ = sliceStart.z;
-
-        float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
-        float y = map(valY, oldMinY, oldMaxY, newMinY, newMaxY);
-        float z = map(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
-
-        print(oldMinX +" : "+ oldMaxX + " : " + newMinX + " : " + newMaxX + " : " + valX);
-
-        relativeSliceStart = new Vector3(x, y, z);
-
-        print(sliceStart);
-        print(relativeSliceStart);
 
         if (!other.GetComponent<Sliceable>())
         {
@@ -276,6 +276,9 @@ public class Lighsaber : MonoBehaviour
     {
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
+            if (!GameManagerLogic.isServer) {
+                return;
+            }
 
             _triggerExitTipPosition = _tip.transform.position;
 
