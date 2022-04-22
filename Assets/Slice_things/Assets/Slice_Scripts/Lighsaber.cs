@@ -157,20 +157,20 @@ public class Lighsaber : MonoBehaviour
 
         float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
         float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
-        float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.lossyScale.x / 2);
-        float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.lossyScale.x / 2);
+        float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.localScale.x / 2);
+        float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.localScale.x / 2);
         float valX = sliceStart.x;
 
         float oldMinY = other.transform.position.y - (other.transform.lossyScale.y / 2);
         float oldMaxY = other.transform.position.y + (other.transform.lossyScale.y / 2);
-        float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.lossyScale.y / 2);
-        float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.lossyScale.y / 2);
+        float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.localScale.y / 2);
+        float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.localScale.y / 2);
         float valY = sliceStart.y;
 
         float oldMinZ = other.transform.position.z - (other.transform.lossyScale.z / 2);
         float oldMaxZ = other.transform.position.z + (other.transform.lossyScale.z / 2);
-        float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.lossyScale.z / 2);
-        float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.lossyScale.z / 2);
+        float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.localScale.z / 2);
+        float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.localScale.z / 2);
         float valZ = sliceStart.z;
 
         float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
@@ -196,7 +196,7 @@ public class Lighsaber : MonoBehaviour
             _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
             bladeMat.SetColor("_EmissionColor", _colour);
             _blade.GetComponent<MeshRenderer>().material = bladeMat;
-            streak = 0;
+            streak = 1;
             playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             //other.GetComponent<CubeFeedback>().colour = _colour;
             return;

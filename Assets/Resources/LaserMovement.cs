@@ -10,8 +10,7 @@ public class LaserMovement : MonoBehaviour
     float endTime;
     public Quaternion direction;
     public Vector3 startPosition;
-    float speed = 0.1f;
-    public Vector3 roomRefPlayer2 = new Vector3(2, 1, 0);
+    float speed = 0.5f;
 
     // Start is called before the first frame update
     void Start()

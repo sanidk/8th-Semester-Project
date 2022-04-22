@@ -398,8 +398,8 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   scoreTemporary: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
   bladeMat: {fileID: 2100000, guid: ce14e8cc7ad28404d915cb44ed70ae24, type: 2}
-  roomRefPlayer1: {x: 0, y: 0, z: 0}
-  roomRefPlayer2: {x: 2, y: 1, z: 0}
+  roomRefPlayer1: {fileID: 0}
+  roomRefPlayer2: {fileID: 0}
 --- !u!54 &7874898741404584144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305730895369438515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6329bbb6440b2475890dcc82e64a7b10, type: 2}
   m_CullingMode: 0
