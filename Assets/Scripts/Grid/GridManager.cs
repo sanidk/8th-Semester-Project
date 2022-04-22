@@ -22,20 +22,27 @@ public class GridManager : MonoBehaviour
 
     int gridResolution = 8;
     float gridLength = 2;
+    float smallGridLength = 2;
     public static float gridSpacing;
 
     //TRAP
     public GameObject trapCubePrefab;
+    public GameObject smallTrapCubePrefab;
     public List<GameObject> trapCubeList;
+    public List<GameObject> smallTrapCubeList;
     public TrapDeploy trapDeploy;
 
     int trapGridResolution = 2;
+    int smallTrapGridResolution = 4;
     float trapGridSpacing;
+    float smallTrapGridSpacing;
     int trapGridSize;
+    int smallTrapGridSize;
 
     int nextTrap = 0; 
 
     public int trapNameDesignator = 0;
+    public int smallTrapNameDesignator = 0;
 
     //SPAWNING
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
@@ -136,9 +143,9 @@ public class GridManager : MonoBehaviour
         }
 
 
-            // Trap grid
+        // Big trap grid
 
-            trapCubePrefab = Resources.Load("trapCube") as GameObject;
+        trapCubePrefab = Resources.Load("trapCube") as GameObject;
 
         trapCubeList = new List<GameObject>();
         trapDeploy = GetComponent<TrapDeploy>();
@@ -159,12 +166,41 @@ public class GridManager : MonoBehaviour
         foreach(GameObject trapCube in trapCubeList) {
             trapCube.name = "Trap" + trapNameDesignator;
             trapCube.AddComponent<TrapDeploy>();
+            trapCube.AddComponent<RealtimeView>();
+            trapCube.AddComponent<RealtimeTransform>();
             trapCube.transform.SetParent(gameObject.transform);
             trapNameDesignator++;
-            
         }
 
-        // Trap grid end
+        // Big trap grid end
+
+        // Small trap grid
+
+        smallTrapCubePrefab = Resources.Load("smallTrapCube") as GameObject;
+
+        smallTrapCubeList = new List<GameObject>();
+
+        smallTrapGridSpacing = smallGridLength / smallTrapGridResolution;
+        smallTrapGridSize = (int)Mathf.Pow(smallTrapGridResolution, 2);
+
+        for (int i = 0; i < smallTrapGridResolution; i++) {
+            for (int j = 0; j < smallTrapGridResolution; j++) {
+
+                float xpos = gridStart.x + (smallTrapGridSpacing / 2) + (i * smallTrapGridSpacing);
+                float zpos = gridStart.z + (smallTrapGridSpacing / 2) + (j * smallTrapGridSpacing);
+
+                smallTrapCubeList.Add(Instantiate(smallTrapCubePrefab, new Vector3(xpos, -0.05f, zpos), transform.rotation));
+            }
+        }
+
+        foreach(GameObject smallTrapCube in smallTrapCubeList) {
+            smallTrapCube.name = "smallTrap" + smallTrapNameDesignator;
+            smallTrapCube.AddComponent<TrapDeploy>();
+            smallTrapCube.transform.SetParent(gameObject.transform);
+            smallTrapNameDesignator++;
+        }
+
+        // Small trap grid end
 
         
 
@@ -240,6 +276,10 @@ public class GridManager : MonoBehaviour
 
         trapCubeList[trapNumber].GetComponent<TrapDeploy>().spawnTrap(typeOfTrap);
 
+    }
+
+    public void sendSmallTrap(int trapNumber) {
+        smallTrapCubeList[trapNumber].GetComponent<TrapDeploy>().spawnSmallTrap();
     }
 
     /*

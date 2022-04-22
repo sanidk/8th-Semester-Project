@@ -9,9 +9,13 @@ public class TrapDeploy : MonoBehaviour
     MeshRenderer meshRenderer;
     public Material floorMat;
     public Material warningMat;
+    public Material laserChargeMat;
+    public Material laserDischargeMat; 
     GameObject tempTrap;
+    GameObject smallTempTrap;
     public GameObject spikes;
     public GameObject pendulum;
+    public GameObject laser;
 
     int selectedTrap;
     Quaternion spawnRotation = Quaternion.Euler(0,0,90);
@@ -21,10 +25,13 @@ public class TrapDeploy : MonoBehaviour
     {
         gridManager = GetComponent<GridManager>();
         meshRenderer = GetComponent<MeshRenderer>();
-        floorMat = Resources.Load<Material>("Lit");
+        floorMat = Resources.Load<Material>("Floor");
         warningMat = Resources.Load<Material>("PulseMat");
+        laserChargeMat = Resources.Load<Material>("LaserCharge");
+        laserDischargeMat = Resources.Load<Material>("LaserDischarge");
         spikes = Resources.Load("SpearTrap") as GameObject;
-        pendulum = Resources.Load("PendulumTrap") as GameObject;
+        pendulum = Resources.Load("MaceTrapPivot") as GameObject;
+        laser = Resources.Load("Laser") as GameObject; 
     }
 
     // Update is called once per frame
@@ -33,6 +40,17 @@ public class TrapDeploy : MonoBehaviour
 
     }
 
+    public void spawnSmallTrap() {
+        smallTempTrap = Realtime.Instantiate("Laser", new Vector3(transform.position.x, transform.position.y + 0.35f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+
+        StartCoroutine(WaitAndTriggerSmallTrap());
+    }
 
     public void spawnTrap(int typeOfTrap)
     {
@@ -65,7 +83,7 @@ public class TrapDeploy : MonoBehaviour
                 destroyWhenLastClientLeaves = true
             });
         } else if (typeOfTrap == 1 && this.name == "Trap0" || this.name == "Trap1" ) {
-            tempTrap = Realtime.Instantiate("PendulumTrap", new Vector3(transform.position.x + 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("MaceTrapPivot", new Vector3(transform.position.x + 0.50f, transform.position.y + 4.5f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -74,7 +92,7 @@ public class TrapDeploy : MonoBehaviour
             });
             tempTrap.transform.rotation *= spawnRotation;
         } else if (typeOfTrap == 1 && this.name == "Trap2" || this.name == "Trap3") {
-            tempTrap = Realtime.Instantiate("PendulumTrap", new Vector3(transform.position.x - 0.50f, transform.position.y + 1.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("MaceTrapPivot", new Vector3(transform.position.x - 0.50f, transform.position.y + 4.5f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -97,7 +115,7 @@ public class TrapDeploy : MonoBehaviour
             yield return new WaitForSecondsRealtime(2);
         } else if (selectedTrap == 1) {
             tempTrap.transform.GetChild(0).gameObject.AddComponent<PendulumMovement>();
-            yield return new WaitForSecondsRealtime(6);
+            yield return new WaitForSecondsRealtime(1.5f);
         }
 
         this.transform.parent.Find("Trap0").GetComponentInParent<MeshRenderer>().material = floorMat;
@@ -105,9 +123,13 @@ public class TrapDeploy : MonoBehaviour
         this.transform.parent.Find("Trap2").GetComponentInParent<MeshRenderer>().material = floorMat;
         this.transform.parent.Find("Trap3").GetComponentInParent<MeshRenderer>().material = floorMat;
 
-        Destroy(tempTrap);
-        
+        Realtime.Destroy(tempTrap);
+    }
+
+    IEnumerator WaitAndTriggerSmallTrap() {
+        yield return new WaitForSecondsRealtime(5);
+        smallTempTrap.GetComponent<MeshRenderer>().material = laserDischargeMat;
+        yield return new WaitForSecondsRealtime(2);
+        Realtime.Destroy(smallTempTrap);
     }
 }
-
-
