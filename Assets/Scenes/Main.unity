@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6575277, g: 0.61293507, b: 0.36865655, a: 1}
+  m_IndirectSpecularColor: {r: 0.65743643, g: 0.6129573, b: 0.36849385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021285154}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -2892,9 +2892,12 @@ MonoBehaviour:
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 1081361131485640260, guid: 4a34d90dc2d6246e1a566a91f6454aa5, type: 3}
   trapCubePrefab: {fileID: 0}
+  smallTrapCubePrefab: {fileID: 0}
   trapCubeList: []
+  smallTrapCubeList: []
   trapDeploy: {fileID: 0}
   trapNameDesignator: 0
+  smallTrapNameDesignator: 0
   spawnBalls: 0
   ballsAmount: 20
 --- !u!4 &1290933643
@@ -2960,9 +2963,12 @@ MonoBehaviour:
   cubePrefab: {fileID: 5985337091921518937, guid: 99d44903ba6b2134a9f49c4f7a84fb03, type: 3}
   ballPrefab: {fileID: 1081361131485640260, guid: 4a34d90dc2d6246e1a566a91f6454aa5, type: 3}
   trapCubePrefab: {fileID: 0}
+  smallTrapCubePrefab: {fileID: 0}
   trapCubeList: []
+  smallTrapCubeList: []
   trapDeploy: {fileID: 0}
   trapNameDesignator: 0
+  smallTrapNameDesignator: 0
   spawnBalls: 0
   ballsAmount: 20
 --- !u!1 &1427258979

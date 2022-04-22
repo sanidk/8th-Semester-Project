@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85178262653971543}
-  m_LocalRotation: {x: 0.8474869, y: 0.012709619, z: 0.017014654, w: -0.5303914}
-  m_LocalPosition: {x: -0.0130000645, y: 0.04200011, z: -0.30600002}
+  m_LocalRotation: {x: 0.8433915, y: -0, z: -0, w: -0.5372995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3652507327037296743}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 244.08301, y: -2.0140076, z: -0.4580078}
+  m_LocalEulerAnglesHint: {x: 245, y: 0, z: 0}
 --- !u!1 &872401251079047261
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 3391189686998026238}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 8}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 7593158321645205725}
   - {fileID: 6213885864403646360}
@@ -203,7 +203,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce14e8cc7ad28404d915cb44ed70ae24, type: 2}
+  - {fileID: 2100000, guid: 63753f2a8d2de47ec862f569283297f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -266,8 +266,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4112427211308168315}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.07, z: 0}
-  m_LocalScale: {x: 6.906325, y: 6.906325, z: 7.2992606}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7.4261556, y: 7.4261556, z: 8.509424}
   m_Children: []
   m_Father: {fileID: 8116953206829944763}
   m_RootOrder: 1
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 7250680817627705512}
   - component: {fileID: 5962388417764101148}
   m_Layer: 0
-  m_Name: Lighsaber_final_final
+  m_Name: Lighsaber_final_final_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 4178074518983641821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.167, y: 0.23357004, z: 0.528}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.4071394, y: 0.4071394, z: 0.4071394}
   m_Children:
   - {fileID: 8116953206829944763}
   - {fileID: 2182101344936699142}
@@ -397,9 +397,6 @@ MonoBehaviour:
   _forceAppliedToCut: 2
   playerObject: {fileID: 0}
   scoreTemporary: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
-  bladeMat: {fileID: 2100000, guid: ce14e8cc7ad28404d915cb44ed70ae24, type: 2}
-  roomRefPlayer1: {x: 0, y: 0, z: 0}
-  roomRefPlayer2: {x: 2, y: 1, z: 0}
 --- !u!54 &7874898741404584144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -742,10 +739,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305730895369438515}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab95ad7313e924dcc9cdc056d896e2c9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d14164727a7bc45cb97d6dc04fb001d0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1

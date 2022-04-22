@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: d1e218a2b009f5c4db0b67c7a83826ce, type: 3}
+  - {fileID: 2100000, guid: b9909fc94d88a3a49ad0cf40fbebe329, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: cb4eef434e859c94d90d4623d9005064, type: 2}
   greenMaterial: {fileID: 2100000, guid: 71b51ccdae36ea94eb770ab0b8d44092, type: 2}
   blueMaterial: {fileID: 2100000, guid: d6bb86e2af660084bbaf7a1d45ef989e, type: 2}
-  materialOfObject: {fileID: 0}
+  materialOfObject: {fileID: 2100000, guid: 12f23d215b59e4c49a4a09f14e3eab1e, type: 2}
 --- !u!54 &5282509297753460246
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -320,3 +320,4 @@ MonoBehaviour:
   audioFeedback: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
   scoreStreakV2: 0
   colour: {r: 0, g: 0, b: 0, a: 0}
+  cubeHit: 0

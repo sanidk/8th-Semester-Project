@@ -16,23 +16,23 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.48
+    m_Value: 0.9
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2.84
+    m_Value: 1
     min: 0
   scatter:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.763
     min: 0
     max: 1
   clamp:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 65472
     min: 0
   tint:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 0, b: 0.018256664, a: 1}
     hdr: 0
     showAlpha: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   skipIterations:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 6
     min: 0
     max: 16

@@ -42,10 +42,10 @@ public class SwingAudio : MonoBehaviour
         //animator.SetBool("isMoving", velocity > 0.2f);
 
         
-        swingAudio.volume = Mathf.Clamp(velocity, 0, 1);
-        colorAlpha = bladeRenderer.material.color;
-        colorAlpha.a = Mathf.Clamp(velocity, 0, 1);
-        bladeRenderer.material.color = colorAlpha;
+        swingAudio.volume = Mathf.Clamp(velocity, 0.1f, 65f);
+        //colorAlpha = bladeRenderer.material.color;
+        //colorAlpha.a = Mathf.Clamp(velocity, 0, 1);
+        //bladeRenderer.material.color = colorAlpha;
 
         /*swingAudio.volume = speed;
         colorAlpha = bladeRenderer.material.color;

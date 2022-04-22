@@ -57,6 +57,7 @@ public class Lighsaber : MonoBehaviour
     public AudioClip scoreTemporary;
     private int score;
     private int streak;
+    public Material bladeMat;
 
     public Vector3 roomRefPlayer1;
     public Vector3 roomRefPlayer2 = new Vector3(2, 1, 0);
@@ -87,6 +88,9 @@ public class Lighsaber : MonoBehaviour
         _previousBasePosition = _base.transform.position;
 
         audioSource = GetComponent<AudioSource>();
+        bladeMat = new Material(bladeMat); // copy of bladematerial
+        bladeMat.SetColor("_EmissionColor", Color.red);
+        _blade.GetComponent<MeshRenderer>().material = bladeMat;
     }
 
     void LateUpdate()
@@ -94,7 +98,7 @@ public class Lighsaber : MonoBehaviour
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         //Reset the frame count one we reach the frame length
-        if (_frameCount == (_trailFrameLength * NUM_VERTICES))
+        /*if (_frameCount == (_trailFrameLength * NUM_VERTICES))
         {
             _frameCount = 0;
         }
@@ -130,12 +134,12 @@ public class Lighsaber : MonoBehaviour
         _triangles[_frameCount + 11] = _frameCount + 11;
 
         _mesh.vertices = _vertices;
-        _mesh.triangles = _triangles;
+        _mesh.triangles = _triangles;*/
 
         //Track the previous base and tip positions for the next frame
         _previousTipPosition = _tip.transform.position;
         _previousBasePosition = _base.transform.position;
-        _frameCount += NUM_VERTICES;
+        //_frameCount += NUM_VERTICES;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -154,8 +158,11 @@ public class Lighsaber : MonoBehaviour
         {
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
             _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
-            streak = 1;
+            bladeMat.SetColor("_EmissionColor", _colour);
+            _blade.GetComponent<MeshRenderer>().material = bladeMat;
+            streak = 0;
             playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
+            //other.GetComponent<CubeFeedback>().colour = _colour;
             return;
         }
 
@@ -166,8 +173,52 @@ public class Lighsaber : MonoBehaviour
         //if (!playerObject.GetComponent<PlayerStat>()) { return; }
         //playerObject.GetComponent<PlayerStat>()._scoreStreak = streak;
         playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+        other.GetComponent<CubeFeedback>().cubeHit = false;
         other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
         //No score variable to increase in Playerstat?
+        switch ((int)playerObject.GetComponent<PlayerStat>()._scoreStreak)
+        {
+            case 1:
+                bladeMat.SetColor("_EmissionColor", _colour * 2f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 2:
+                bladeMat.SetColor("_EmissionColor", _colour * 3f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 3:
+                bladeMat.SetColor("_EmissionColor", _colour * 4f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 4:
+                bladeMat.SetColor("_EmissionColor", _colour * 5f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 5:
+                bladeMat.SetColor("_EmissionColor", _colour * 6f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 6:
+                bladeMat.SetColor("_EmissionColor", _colour * 7f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 7:
+                bladeMat.SetColor("_EmissionColor", _colour * 8f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 8:
+                bladeMat.SetColor("_EmissionColor", _colour * 9f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 9:
+                bladeMat.SetColor("_EmissionColor", _colour * 11f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+            case 10:
+                bladeMat.SetColor("_EmissionColor", _colour * 15f);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                break;
+        }
     }
 
     void OnDrawGizmosSelected(Vector3 pos, Vector3 direction)

@@ -11,7 +11,7 @@ public class CubeFeedback : MonoBehaviour
     float previousScorestreak;
     public Color colour;
     //Outline outline;
-    bool cubeHit;
+    public bool cubeHit;
     // Start is called before the first frame update
     void Start()
     {
