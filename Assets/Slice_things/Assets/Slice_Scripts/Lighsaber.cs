@@ -155,20 +155,20 @@ public class Lighsaber : MonoBehaviour
         Vector3 sliceStart = (tipCollision + baseCollision) / 2;
 
 
-        float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
-        float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
+        float oldMinX = other.transform.position.x - (other.transform.localScale.x / 2);
+        float oldMaxX = other.transform.position.x + (other.transform.localScale.x / 2);
         float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.localScale.x / 2);
         float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.localScale.x / 2);
         float valX = sliceStart.x;
 
-        float oldMinY = other.transform.position.y - (other.transform.lossyScale.y / 2);
-        float oldMaxY = other.transform.position.y + (other.transform.lossyScale.y / 2);
+        float oldMinY = other.transform.position.y - (other.transform.localScale.y / 2);
+        float oldMaxY = other.transform.position.y + (other.transform.localScale.y / 2);
         float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.localScale.y / 2);
         float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.localScale.y / 2);
         float valY = sliceStart.y;
 
-        float oldMinZ = other.transform.position.z - (other.transform.lossyScale.z / 2);
-        float oldMaxZ = other.transform.position.z + (other.transform.lossyScale.z / 2);
+        float oldMinZ = other.transform.position.z - (other.transform.localScale.z / 2);
+        float oldMaxZ = other.transform.position.z + (other.transform.localScale.z / 2);
         float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.localScale.z / 2);
         float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.localScale.z / 2);
         float valZ = sliceStart.z;
@@ -319,7 +319,7 @@ public class Lighsaber : MonoBehaviour
             Quaternion sliceDirection = Quaternion.LookRotation(side1);
 
             Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
-            StartCoroutine(spawnLaser(sliceDirection, laserOrientation, relativeSliceStart));
+            StartCoroutine(spawnLaser(sliceDirection, relativeSliceStart));
 
 
         }
@@ -331,9 +331,9 @@ public class Lighsaber : MonoBehaviour
     }
 
 
-    IEnumerator spawnLaser(Quaternion sliceDirection, Quaternion laserOrientation, Vector3 sliceStart) {
+    IEnumerator spawnLaser(Quaternion sliceDirection , Vector3 sliceStart) {
         yield return new WaitForSeconds(1);
-        GameObject laser = Realtime.Instantiate("Laser", transform.position, laserOrientation, new Realtime.InstantiateOptions
+        GameObject laser = Realtime.Instantiate("Laser", transform.position, transform.rotation, new Realtime.InstantiateOptions
         {
             ownedByClient = true,
             preventOwnershipTakeover = true,
