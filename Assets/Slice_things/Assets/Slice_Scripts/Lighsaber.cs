@@ -340,7 +340,7 @@ public class Lighsaber : MonoBehaviour
 
     IEnumerator spawnLaser(Quaternion sliceDirection , Vector3 sliceStart) {
         yield return new WaitForSeconds(1);
-        GameObject laser = Realtime.Instantiate("Laser", transform.position, transform.rotation, new Realtime.InstantiateOptions
+        GameObject laser = Realtime.Instantiate("Laser", relativeSliceStart, sliceDirection, new Realtime.InstantiateOptions
         {
             ownedByClient = true,
             preventOwnershipTakeover = true,
@@ -352,8 +352,9 @@ public class Lighsaber : MonoBehaviour
 
         //laser.GetComponent<LaserMovement>().direction = sliceDirection;
         //laser.GetComponent<LaserMovement>().startPosition = relativeSliceStart;
-        laser.transform.position = relativeSliceStart;
-        laser.transform.rotation = sliceDirection;
+        //laser.transform.position = relativeSliceStart;
+        //laser.transform.position = sliceStart;
+        //laser.transform.rotation = sliceDirection;
 
     }
 
