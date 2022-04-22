@@ -16,7 +16,7 @@ public class Lighsaber : MonoBehaviour
     [SerializeField]
     [Tooltip("The blade object")]
     private GameObject _blade = null;
-     
+
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
     private GameObject _tip = null;
@@ -58,6 +58,10 @@ public class Lighsaber : MonoBehaviour
     private int score;
     private int streak;
 
+    public Vector3 roomRefPlayer1;
+    public Vector3 roomRefPlayer2 = new Vector3(2, 1, 0);
+
+
     void Start()
     {
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
@@ -84,7 +88,7 @@ public class Lighsaber : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }
-    
+
     void LateUpdate()
     {
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
@@ -154,7 +158,7 @@ public class Lighsaber : MonoBehaviour
             playerObject.GetComponent<PlayerStat>()._scoreStreak = 0;
             return;
         }
-        
+
 
         //audioSource.PlayOneShot(scoreTemporary);
         score++;
@@ -166,8 +170,131 @@ public class Lighsaber : MonoBehaviour
         //No score variable to increase in Playerstat?
     }
 
+    void OnDrawGizmosSelected(Vector3 pos, Vector3 direction)
+    {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        direction = transform.TransformDirection(Vector3.forward) * 5;
+        Gizmos.DrawRay(pos, direction);
+    }
+
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("RepresentationCube")) {
+
+
+            _triggerExitTipPosition = _tip.transform.position;
+
+            //Create a triangle between the tip and base so that we can get the normal
+            Vector3 side1 = _triggerExitTipPosition - _triggerEnterTipPosition;
+            Vector3 side2 = _triggerExitTipPosition - _triggerEnterBasePosition;
+
+            //Get the point perpendicular to the triangle above which is the normal
+            //https://docs.unity3d.com/Manual/ComputingNormalPerpendicularVector.html
+            Vector3 normal = Vector3.Cross(side1, side2).normalized;
+
+            //Transform the normal so that it is aligned with the object we are slicing's transform.
+            Vector3 transformedNormal = ((Vector3)(other.gameObject.transform.localToWorldMatrix.transpose * normal)).normalized;
+
+            //Get the enter position relative to the object we're cutting's local transform
+            Vector3 transformedStartingPoint = other.gameObject.transform.InverseTransformPoint(_triggerEnterTipPosition);
+
+            Plane plane = new Plane();
+
+            plane.SetNormalAndPosition(
+                    transformedNormal,
+                    transformedStartingPoint);
+
+            var direction = Vector3.Dot(Vector3.up, transformedNormal);
+
+            //Flip the plane so that we always know which side the positive mesh is on
+            if (direction < 0)
+            {
+                plane = plane.flipped;
+            }
+
+
+
+            //GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+
+            ////Destroy(other.gameObject); - Commented, Instead Despawn.
+            //if (GameManagerLogic.isServer)
+            //{
+            //    other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
+            //}
+
+            //other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+            //StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
+
+
+            //Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+            //Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+            //rigidbody.AddForce(newNormal, ForceMode.Impulse);
+
+            //Vector3 startPos = other.transform.position;
+            Vector3 startPos = _triggerEnterTipPosition;
+
+
+            Debug.DrawRay(startPos, normal, Color.green, 10);
+            Debug.DrawRay(startPos, side1, Color.red, 10);
+            Debug.DrawRay(startPos, side2, Color.blue, 10);
+
+            //GameObject planeObj = GameObject.CreatePrimitive(PrimitiveType.Plane);
+
+            //planeObj.transform.position = _triggerEnterTipPosition;
+            //planeObj.transform.rotation = Quaternion.FromToRotation(Vector3.up, normal);
+            //planeObj.transform.Rotate(Vector3.up, 90);
+
+
+            //laser.transform.position = _triggerEnterTipPosition;
+            //laser.transform.rotation = Quaternion.FromToRotation(Vector3.up, normal);
+            //laser.transform.Rotate(Vector3.up, 90);
+            //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.up);
+            //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.up);
+
+            //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(-90, Vector3.up);
+            Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, side1);// * Quaternion.AngleAxis(-90, Vector3.up);
+
+
+            Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
+            StartCoroutine(spawnLaser(sliceDirection, laserOrientation));
+            //laser.transform.rotation = laserOrientation;
+            //laser.transform.rotation *= Quaternion.Euler(90, 0, 0);
+
+
+
+        }
+        else
+        {
+            SliceCube(other);
+        }
+
+    }
+
+
+
+    IEnumerator spawnLaser(Quaternion sliceDirection, Quaternion laserOrientation) {
+        yield return new WaitForSeconds(1);
+        GameObject laser = Realtime.Instantiate("Laser", transform.position, laserOrientation, new Realtime.InstantiateOptions
+        {
+            ownedByClient = true,
+            preventOwnershipTakeover = true,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+        });
+
+        laser.transform.rotation = laserOrientation.normalized;
+        laser.transform.position = roomRefPlayer2;
+        //laser.transform.position -= sliceDirection.eulerAngles.normalized;
+
+        laser.GetComponent<LaserMovement>().direction = sliceDirection;
+    }
+
+ 
+
+    void SliceCube(Collider other) {
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         _triggerExitTipPosition = _tip.transform.position;
@@ -200,18 +327,21 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
+
+
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
 
         //Destroy(other.gameObject); - Commented, Instead Despawn.
-        if (GameManagerLogic.isServer) {
+        if (GameManagerLogic.isServer)
+        {
             other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
         }
-        
+
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
 
         StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
-        
+
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
