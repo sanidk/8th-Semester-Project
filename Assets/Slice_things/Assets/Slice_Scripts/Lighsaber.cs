@@ -255,7 +255,9 @@ public class Lighsaber : MonoBehaviour
             //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.up);
 
             //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(-90, Vector3.up);
-            Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, side1);// * Quaternion.AngleAxis(-90, Vector3.up);
+            //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, side1);// * Quaternion.AngleAxis(-90, Vector3.up);
+            Quaternion sliceDirection = Quaternion.LookRotation(side1);
+            //Quaternion sliceDirection = Quaternion.FromToRotation(Vector3.up, side1);
 
 
             Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
@@ -285,7 +287,7 @@ public class Lighsaber : MonoBehaviour
             destroyWhenLastClientLeaves = true
         });
 
-        laser.transform.rotation = laserOrientation.normalized;
+        //laser.transform.rotation = laserOrientation.normalized;
         laser.transform.position = roomRefPlayer2;
         //laser.transform.position -= sliceDirection.eulerAngles.normalized;
 

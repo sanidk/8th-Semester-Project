@@ -5,11 +5,11 @@ using Normal.Realtime;
 
 public class LaserMovement : MonoBehaviour
 {
-    float lifeSpan = 5;
+    float lifeSpan = 10;
     float startTime;
     float endTime;
     public Quaternion direction;
-    float speed = 0.01f;
+    float speed = 0.1f;
     public Vector3 roomRefPlayer2 = new Vector3(2, 1, 0);
 
     // Start is called before the first frame update
@@ -17,6 +17,9 @@ public class LaserMovement : MonoBehaviour
     {
         startTime = Time.time;
         transform.position = roomRefPlayer2;
+        transform.position-= transform.forward;
+
+        transform.rotation = direction;
     }
 
     // Update is called once per frame
@@ -27,9 +30,12 @@ public class LaserMovement : MonoBehaviour
         }
 
         if (Time.time > startTime + lifeSpan) { 
-        Realtime.Destroy(gameObject);
+            Realtime.Destroy(gameObject);
         }
 
-        transform.position += direction.eulerAngles * Time.deltaTime * speed;
+        
+
+
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 }
