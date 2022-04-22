@@ -144,6 +144,7 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("ENTER: "+other.gameObject.name);
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
         if (GameManagerLogic.isServer)
         {
@@ -172,13 +173,14 @@ public class Lighsaber : MonoBehaviour
             float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.localScale.z / 2);
             float valZ = sliceStart.z;
 
-            float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
-            float y = map(valY, oldMinY, oldMaxY, newMinY, newMaxY);
-            float z = map(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
+            float x = map2(valX, oldMinX, oldMaxX, newMinX, newMaxX);
+            float y = map2(valY, oldMinY, oldMaxY, newMinY, newMaxY);
+            float z = map2(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
 
 
             relativeSliceStart = new Vector3(x, y, z);
         }
+
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
@@ -257,15 +259,15 @@ public class Lighsaber : MonoBehaviour
         }
     }
 
-    //public float map(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue)
-    //{
+    public float map2(float Value, float OldMin, float OldMax, float NewMin, float NewMax)
+    {
 
-    //    float OldRange = (OldMax - OldMin);
-    //    float NewRange = (NewMax - NewMin);
-    //    float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((Value - OldMin) * NewRange) / OldRange) + NewMin;
 
-    //    return (NewValue);
-    //}
+        return (NewValue);
+    }
 
     public static float map(float value, float leftMin, float leftMax, float rightMin, float rightMax)
     {
@@ -274,6 +276,8 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        print("EXIT: " + other.gameObject.name);
+
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
             if (!GameManagerLogic.isServer) {
