@@ -9,6 +9,7 @@ public class LaserMovement : MonoBehaviour
     float startTime;
     float endTime;
     public Quaternion direction;
+    public Vector3 startPosition;
     float speed = 0.1f;
     public Vector3 roomRefPlayer2 = new Vector3(2, 1, 0);
 
@@ -16,8 +17,8 @@ public class LaserMovement : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        transform.position = roomRefPlayer2;
-        transform.position-= transform.forward;
+        transform.position = startPosition;
+        //transform.position-= transform.forward;
 
         transform.rotation = direction;
     }
