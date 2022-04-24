@@ -5,9 +5,9 @@ using Normal.Realtime;
 
 public class GameManagerLogic : MonoBehaviour
 {
-    public GameObject roomServer;
-    public GameObject roomClient;
-    public GameObject roomActive;
+    public static GameObject roomServer;
+    public static GameObject roomClient;
+    public static GameObject roomActive;
 
     public GameLogic syncVariablesObject;
 
@@ -29,6 +29,13 @@ public class GameManagerLogic : MonoBehaviour
     public GameObject spawnPlayer1;
     public GameObject spawnPlayer2;
 
+    public static GameObject representationCubeLaserReferencePlayer1;
+    public static GameObject representationCubeLaserReferencePlayer2;
+
+    public static GameObject representationCubeSpawnLocationPlayer1;
+    public static GameObject representationCubeSpawnLocationPlayer2;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +43,14 @@ public class GameManagerLogic : MonoBehaviour
         gridManagerPlayer1 = roomPlayer1.GetComponentInChildren<GridManager>();
         gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();
 
+        representationCubeLaserReferencePlayer1 = GameObject.Find("RepresentationCubeLaserReferencePlayer1");
+        representationCubeLaserReferencePlayer2 = GameObject.Find("RepresentationCubeLaserReferencePlayer2");
+        representationCubeSpawnLocationPlayer1 = GameObject.Find("representationCubeSpawnLocationPlayer1");
+        representationCubeSpawnLocationPlayer2 = GameObject.Find("representationCubeSpawnLocationPlayer2");
+
         syncVariablesObject = GetComponent<GameLogic>();
+
+
     }
 
     // Update is called once per frame
@@ -55,11 +69,6 @@ public class GameManagerLogic : MonoBehaviour
         {
             avatars = manager.avatars;
 
-        }
-
-        if (!CheckIfServerExist())
-        {
-            AssignServer();
         }
 
 
@@ -85,7 +94,12 @@ public class GameManagerLogic : MonoBehaviour
                 }
 
             }
+        } else
+        {
+            AssignServer();
         }
+
+        CheckIfCorrectRoom();
 
         if (!isServer) return;
           
@@ -105,6 +119,22 @@ public class GameManagerLogic : MonoBehaviour
 
         }
 
+    }
+
+    void CheckIfCorrectRoom() 
+    {
+        if (isServer && roomActive != roomServer) {
+            roomActive = roomServer;
+            VRRig.transform.position = spawnPlayer1.transform.position;
+            VRRig.transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+
+        if (!isServer && roomActive != roomClient)
+        {
+            roomActive = roomClient;
+            VRRig.transform.position = spawnPlayer2.transform.position;
+            VRRig.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
     }
 
     bool CheckIfAllPlayersReady()

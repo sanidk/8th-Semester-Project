@@ -59,12 +59,14 @@ public class Lighsaber : MonoBehaviour
     private int streak;
     public Material bladeMat;
 
+    GameObject opponentRoom;
     public GameObject roomRefPlayer1;
     public GameObject roomRefPlayer2;
 
     Vector3 relativeSliceStart;
     void Start()
     {
+
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         //Init mesh and triangles
@@ -144,38 +146,44 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
-        //if (GameManagerLogic.isServer)
-        // {
 
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
+        if (!GameManagerLogic.isServer)
+        {
+            return;
+        }
 
-        //Vector3 tipCollision = other.ClosestPoint(_triggerEnterTipPosition);
-        //Vector3 baseCollision = other.ClosestPoint(_triggerEnterBasePosition);
         Vector3 tipCollision = _triggerEnterTipPosition;
         Vector3 baseCollision = _triggerEnterBasePosition;
 
         Vector3 sliceStart = (tipCollision + baseCollision) / 2;
-        //print("intersect: "+sliceStart);
+
+        if (other.gameObject.GetComponentInParent<GameObject>().CompareTag("Player1")) {
+            opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer2;
+        } else if (other.gameObject.GetComponentInParent<GameObject>().CompareTag("Player2"))
+        {
+            opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer1;
+        }
+
 
         float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
         float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
-        float newMinX = roomRefPlayer2.transform.position.x - (roomRefPlayer2.transform.lossyScale.x / 2);
-        float newMaxX = roomRefPlayer2.transform.position.x + (roomRefPlayer2.transform.lossyScale.x / 2);
+        float newMinX = opponentRoom.transform.position.x - (opponentRoom.transform.lossyScale.x / 2);
+        float newMaxX = opponentRoom.transform.position.x + (opponentRoom.transform.lossyScale.x / 2);
         float valX = sliceStart.x;
 
         float oldMinY = other.transform.position.y - (other.transform.lossyScale.y / 2);
         float oldMaxY = other.transform.position.y + (other.transform.lossyScale.y / 2);
-        float newMinY = roomRefPlayer2.transform.position.y - (roomRefPlayer2.transform.lossyScale.y / 2);
-        float newMaxY = roomRefPlayer2.transform.position.y + (roomRefPlayer2.transform.lossyScale.y / 2);
+        float newMinY = opponentRoom.transform.position.y - (opponentRoom.transform.lossyScale.y / 2);
+        float newMaxY = opponentRoom.transform.position.y + (opponentRoom.transform.lossyScale.y / 2);
         float valY = sliceStart.y;
 
         float oldMinZ = other.transform.position.z - (other.transform.lossyScale.z / 2);
         float oldMaxZ = other.transform.position.z + (other.transform.lossyScale.z / 2);
-        float newMinZ = roomRefPlayer2.transform.position.z - (roomRefPlayer2.transform.lossyScale.z / 2);
-        float newMaxZ = roomRefPlayer2.transform.position.z + (roomRefPlayer2.transform.lossyScale.z / 2);
+        float newMinZ = opponentRoom.transform.position.z - (opponentRoom.transform.lossyScale.z / 2);
+        float newMaxZ = opponentRoom.transform.position.z + (opponentRoom.transform.lossyScale.z / 2);
         float valZ = sliceStart.z;
 
         float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
@@ -184,10 +192,7 @@ public class Lighsaber : MonoBehaviour
 
 
         relativeSliceStart = new Vector3(x, y, z);
-        //print("relative: " + relativeSliceStart);
-        //}
 
-        
 
 
         if (!other.GetComponent<Sliceable>())
@@ -263,16 +268,6 @@ public class Lighsaber : MonoBehaviour
         }
     }
 
-    public float map2(float Value, float OldMin, float OldMax, float NewMin, float NewMax)
-    {
-
-        float OldRange = (OldMax - OldMin);
-        float NewRange = (NewMax - NewMin);
-        float NewValue = (((Value - OldMin) * NewRange) / OldRange) + NewMin;
-
-        return (NewValue);
-    }
-
     public static float map(float value, float leftMin, float leftMax, float rightMin, float rightMax)
     {
         return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
@@ -283,9 +278,10 @@ public class Lighsaber : MonoBehaviour
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
-            // if (!GameManagerLogic.isServer) {
-            //return;
-            //}
+            
+            if (!GameManagerLogic.isServer) {
+                return;
+            }
 
             _triggerExitTipPosition = _tip.transform.position;
 
@@ -321,9 +317,9 @@ public class Lighsaber : MonoBehaviour
             Vector3 startPos = _triggerEnterTipPosition;
 
 
-            Debug.DrawRay(startPos, normal, Color.green, 10);
-            Debug.DrawRay(startPos, side1, Color.red, 10);
-            Debug.DrawRay(startPos, side2, Color.blue, 10);
+            //Debug.DrawRay(startPos, normal, Color.green, 10);
+            //Debug.DrawRay(startPos, side1, Color.red, 10);
+            //Debug.DrawRay(startPos, side2, Color.blue, 10);
 
 
             Quaternion sliceDirection = Quaternion.LookRotation(side1);
@@ -332,6 +328,37 @@ public class Lighsaber : MonoBehaviour
 
             //Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
             StartCoroutine(spawnLaser(sliceDirection, relativeSliceStart, normal));
+
+
+
+
+
+            //START SLICING
+
+            GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+
+            //Destroy(other.gameObject); - Commented, Instead Despawn.
+            //if (GameManagerLogic.isServer)
+            //{
+            //other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
+            //}
+
+            //other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+            //StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
+
+
+            Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+            Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+            rigidbody.AddForce(newNormal, ForceMode.Impulse);
+
+            //maybe make ienumerater to wait a few seconds before despawning ball
+            //other.getcomponent<BallBehaviour>().Despawn(); ish
+            //Also script or function to delete object after few second?
+
+            Realtime.Destroy(other.gameObject);
+
 
 
         }

@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject lightSaber;
     bool lightSaberSpawned;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,17 +24,20 @@ public class PlayerBehaviour : MonoBehaviour
         playerStat._isReady = true;
 
         gameManager = GameObject.Find("GameManager");
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
-        
+
         if (playerStat._backupVariable1)
         {
             GameManagerLogic.isServer = true;
-        } else
+        }
+        else
         {
             GameManagerLogic.isServer = false;
         }
@@ -44,7 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
-                gameManager.GetComponent<GameManagerLogic>().roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                spawnSendLaserCubeTrap(true);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -54,7 +59,8 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
-                gameManager.GetComponent<GameManagerLogic>().roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                spawnSendLaserCubeTrap(false);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -84,6 +90,41 @@ public class PlayerBehaviour : MonoBehaviour
         {
             playerStat._isReady = true;
         }
+
+
+    }
+
+    private void spawnSendLaserCubeTrap(bool isServer) {
+
+        Vector3 position;
+        Quaternion rotation;
+        string tag;
+        GameObject room;
+        
+        if (isServer)
+        {
+            room = GameManagerLogic.representationCubeSpawnLocationPlayer1;
+            position = room.transform.position;
+            rotation = room.transform.rotation;
+            tag = "Player1";
+        }
+        else {
+            room = GameManagerLogic.representationCubeSpawnLocationPlayer2;
+            position = room.transform.position;
+            rotation = room.transform.rotation;
+            tag = "Player2";
+        }
+
+
+        GameObject representationCube = Realtime.Instantiate("RepresentationCube", position, rotation, new Realtime.InstantiateOptions
+        {
+            ownedByClient = true,
+            preventOwnershipTakeover = true,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+        });
+
+        representationCube.tag = tag;
 
 
     }

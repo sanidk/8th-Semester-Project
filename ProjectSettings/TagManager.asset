@@ -8,6 +8,8 @@ TagManager:
   - PostFX
   - Trap
   - RepresentationCube
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
