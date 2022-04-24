@@ -160,12 +160,7 @@ public class Lighsaber : MonoBehaviour
 
         Vector3 sliceStart = (tipCollision + baseCollision) / 2;
 
-        if (other.gameObject.GetComponentInParent<GameObject>().CompareTag("Player1")) {
-            opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer2;
-        } else if (other.gameObject.GetComponentInParent<GameObject>().CompareTag("Player2"))
-        {
-            opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer1;
-        }
+        
 
 
         float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);

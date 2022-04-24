@@ -72,7 +72,7 @@ public class GameManagerLogic : MonoBehaviour
 
         }
 
-        if (manager.avatars == null) {
+        if (avatars == null) {
             return;
         }
 

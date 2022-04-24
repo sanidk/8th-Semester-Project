@@ -23,7 +23,7 @@ public class TrapDeploy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridManager = GetComponent<GridManager>();
+        //gridManager = GetComponent<GridManager>();
         meshRenderer = GetComponent<MeshRenderer>();
         floorMat = Resources.Load<Material>("Floor");
         warningMat = Resources.Load<Material>("PulseMat");

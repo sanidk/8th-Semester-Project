@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
-    public int streakToSendTrap = 10;
+    int streakToSendTrap = 2;
 
     PlayerStat playerStat;
     GameObject gameManager;
@@ -31,6 +31,8 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         if (playerStat._backupVariable1)
@@ -49,7 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                spawnSendLaserCubeTrap(true);
+                spawnSendLaserCubeTrap(1);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -60,7 +62,7 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomInt = Random.Range(0, 4);
                 int randomTrap = Random.Range(0, 2);
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                spawnSendLaserCubeTrap(false);
+                spawnSendLaserCubeTrap(2);
                 playerStat._scoreStreak = 0;
             }
         }
@@ -94,38 +96,41 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
 
-    private void spawnSendLaserCubeTrap(bool isServer) {
+    private void spawnSendLaserCubeTrap(int playerOwner) {
+
 
         Vector3 position;
         Quaternion rotation;
-        string tag;
+
         GameObject room;
         
-        if (isServer)
+        if (playerOwner == 1)
         {
             room = GameManagerLogic.representationCubeSpawnLocationPlayer1;
             position = room.transform.position;
             rotation = room.transform.rotation;
-            tag = "Player1";
         }
-        else {
+        else if (playerOwner == 2)
+        {
             room = GameManagerLogic.representationCubeSpawnLocationPlayer2;
             position = room.transform.position;
             rotation = room.transform.rotation;
-            tag = "Player2";
+            playerOwner = 2;
+        } else
+        {
+            return;
         }
 
 
         GameObject representationCube = Realtime.Instantiate("RepresentationCube", position, rotation, new Realtime.InstantiateOptions
         {
-            ownedByClient = true,
-            preventOwnershipTakeover = true,
+            ownedByClient = false,
+            preventOwnershipTakeover = false,
             destroyWhenOwnerLeaves = false,
             destroyWhenLastClientLeaves = true
         });
 
-        representationCube.tag = tag;
-
+        representationCube.GetComponent<RepresentationCube>().playerOwner = playerOwner;
 
     }
 
