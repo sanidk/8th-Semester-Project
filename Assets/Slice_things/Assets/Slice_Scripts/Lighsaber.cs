@@ -158,7 +158,7 @@ public class Lighsaber : MonoBehaviour
         Vector3 baseCollision = _triggerEnterBasePosition;
 
         Vector3 sliceStart = (tipCollision + baseCollision) / 2;
-        print("intersect: "+sliceStart);
+        //print("intersect: "+sliceStart);
 
         float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
         float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
@@ -184,7 +184,7 @@ public class Lighsaber : MonoBehaviour
 
 
         relativeSliceStart = new Vector3(x, y, z);
-        print("relative: " + relativeSliceStart);
+        //print("relative: " + relativeSliceStart);
         //}
 
         
@@ -327,6 +327,7 @@ public class Lighsaber : MonoBehaviour
 
 
             Quaternion sliceDirection = Quaternion.LookRotation(side1);
+            print(sliceDirection.eulerAngles);
 
 
             //Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
@@ -342,7 +343,7 @@ public class Lighsaber : MonoBehaviour
     }
 
 
-    IEnumerator spawnLaser(Quaternion sliceDirection , Vector3 sliceStart, Vector3 normal) {
+    IEnumerator spawnLaser(Quaternion sliceDirection, Vector3 sliceStart, Vector3 normal) {
         yield return new WaitForSeconds(1);
         GameObject laser = Realtime.Instantiate("Laser", sliceStart, sliceDirection, new Realtime.InstantiateOptions
         {
@@ -359,8 +360,13 @@ public class Lighsaber : MonoBehaviour
         //laser.transform.position = relativeSliceStart;
         //laser.transform.position = sliceStart;
         Quaternion slope = Quaternion.FromToRotation(Vector3.up, normal);
-        print(slope.eulerAngles);
+        //print(slope.eulerAngles);
         laser.transform.rotation *= Quaternion.Euler(0, 0, slope.eulerAngles.x);
+        if (sliceDirection.eulerAngles.x != 90 && sliceDirection.eulerAngles.x != 270) {
+        laser.transform.rotation *= Quaternion.Euler(0, 0, 90);
+
+        }
+
 
     }
 
