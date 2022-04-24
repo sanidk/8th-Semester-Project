@@ -63,12 +63,17 @@ public class GameManagerLogic : MonoBehaviour
         if (manager == null)
         {
             manager = networkManager.GetComponent<RealtimeAvatarManager>();
-            
+
+
         }
         else
         {
             avatars = manager.avatars;
 
+        }
+
+        if (manager.avatars == null) {
+            return;
         }
 
 
