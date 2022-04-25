@@ -145,5 +145,5 @@ public class ColouredObject : MonoBehaviour
         meshRenderer.material = materialOfObject;
         isColorsSet = true;*/
 
-    }
+    
 }
