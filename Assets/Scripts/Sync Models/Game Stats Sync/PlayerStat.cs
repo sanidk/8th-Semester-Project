@@ -64,7 +64,16 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_scoreStreak != _previousScoreStreak) { 
+            _playerStatSync.SetScoreStreak(_scoreStreak);
+            _previousScoreStreak = _scoreStreak;
+        }
+
+        if (_backupVariable1 != _previousBackupVariable1)
+        {
+            _playerStatSync.SetBackupVariable1(_backupVariable1);
+            _previousBackupVariable1 = _backupVariable1;
+        }
     }
 
     // Remap function taken from unity forum (Don't know if we need this)

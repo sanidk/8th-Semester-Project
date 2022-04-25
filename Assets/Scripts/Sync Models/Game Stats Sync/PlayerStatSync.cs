@@ -249,4 +249,11 @@ public class PlayerStatSync : RealtimeComponent<PlayerStatSyncModel>
         model.lives = value;
     }
 
+    public void SetBackupVariable1(bool value)
+    {
+        model.backupVariable1 = value;
+    }
+
+
+
 }
