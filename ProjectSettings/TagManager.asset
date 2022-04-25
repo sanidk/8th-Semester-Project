@@ -10,7 +10,6 @@ TagManager:
   - RepresentationCube
   - Player1
   - Player2
-  - Cube
   layers:
   - Default
   - TransparentFX

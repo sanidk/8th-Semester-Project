@@ -208,7 +208,7 @@ public class Lighsaber : MonoBehaviour
             return;
         }
         //audioSource.PlayOneShot(audioWhenHit);
-        if (!other.gameObject.CompareTag("Cube")) {
+        if (other.gameObject.CompareTag("RepresentationCube")) {
             return;
         }
         if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
@@ -229,7 +229,7 @@ public class Lighsaber : MonoBehaviour
         streak++;
         //if (!playerObject.GetComponent<PlayerStat>()) { return; }
         //playerObject.GetComponent<PlayerStat>()._scoreStreak = streak;
-        //playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+        playerObject.GetComponent<PlayerStat>()._scoreStreak++;
         other.GetComponent<CubeFeedback>().cubeHit = false;
         other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
         //No score variable to increase in Playerstat?
@@ -378,11 +378,6 @@ public class Lighsaber : MonoBehaviour
         }
         else
         {
-            if (other.gameObject.CompareTag("Cube"))
-            {
-                playerObject.GetComponent<PlayerStat>()._scoreStreak++;
-            }
-            
             SliceCube(other);
         }
 
