@@ -155,7 +155,7 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+       
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
@@ -210,7 +210,9 @@ public class Lighsaber : MonoBehaviour
             return;
         }
         //audioSource.PlayOneShot(audioWhenHit);
-
+        if (other.gameObject.CompareTag("RepresentationCube")) {
+            return;
+        }
         if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
         {
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
@@ -285,6 +287,10 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.GetComponent<Sliceable>())
+        {
+            return;
+        }
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
