@@ -58,8 +58,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
             {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
