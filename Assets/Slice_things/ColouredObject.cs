@@ -97,7 +97,7 @@ public class ColouredObject : MonoBehaviour
     
     void Update()
     {
-        if (isColorsSet)
+        if (!isColorsSet)
         {
             return;
         }
@@ -129,7 +129,6 @@ public class ColouredObject : MonoBehaviour
                 isColorsSet = true;
             }
         }
-
         /*
         colorOfObject = materialOfObject.color;
         meshRenderer.material = materialOfObject;
