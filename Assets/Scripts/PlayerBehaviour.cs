@@ -33,8 +33,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         
 
-        
-
         if (playerStat._backupVariable1)
         {
             GameManagerLogic.isServer = true;
@@ -44,7 +42,10 @@ public class PlayerBehaviour : MonoBehaviour
             GameManagerLogic.isServer = false;
         }
 
-        if (GameManagerLogic.isServer)
+
+
+
+        if (GameManagerLogic.isServer && playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
@@ -55,7 +56,7 @@ public class PlayerBehaviour : MonoBehaviour
                 playerStat._scoreStreak = 0;
             }
         }
-        else if (!GameManagerLogic.isServer)
+        else if (GameManagerLogic.isServer && !playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
