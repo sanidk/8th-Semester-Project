@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5282509297753460246}
   - component: {fileID: -4556820939019127693}
   - component: {fileID: 2859692457693259098}
+  - component: {fileID: 6659982126898768835}
   m_Layer: 0
   m_Name: Cube_Prefab
   m_TagString: Untagged
@@ -112,6 +113,8 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: -1476681173032774168}
+  - componentID: 2
+    component: {fileID: 6659982126898768835}
   _childViews: []
 --- !u!114 &-1476681173032774168
 MonoBehaviour:
@@ -321,3 +324,15 @@ MonoBehaviour:
   scoreStreakV2: 0
   colour: {r: 0, g: 0, b: 0, a: 0}
   cubeHit: 0
+--- !u!114 &6659982126898768835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925936870069599928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8264814f35047f6a93c893467f70fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
