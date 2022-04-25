@@ -47,6 +47,9 @@ public class GameManagerLogic : MonoBehaviour
         representationCubeLaserReferencePlayer2 = GameObject.Find("LaserReferencePlayer2");
         representationCubeSpawnLocationPlayer1 = GameObject.Find("representationCubeSpawnLocationPlayer1");
         representationCubeSpawnLocationPlayer2 = GameObject.Find("representationCubeSpawnLocationPlayer2");
+        roomServer = GameObject.Find("RoomPlayer1");
+        roomClient = GameObject.Find("RoomPlayer2");
+
 
         syncVariablesObject = GetComponent<GameLogic>();
 
