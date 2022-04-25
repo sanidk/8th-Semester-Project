@@ -82,17 +82,17 @@ public class ColouredObject : MonoBehaviour
         return materialOfObject.color;
     }
 
-    public Color ColorOfObject
-    {
-        get
-        {
-            return colorOfObject;
-        }
-        set
-        {
-            colorOfObject = value;
-        }
-    }
+    //public Color ColorOfObject
+    //{
+    //    get
+    //    {
+    //        return colorOfObject;
+    //    }
+    //    set
+    //    {
+    //        colorOfObject = value;
+    //    }
+    //}
 
     
     void Update()

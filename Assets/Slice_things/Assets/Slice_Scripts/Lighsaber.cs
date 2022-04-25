@@ -239,6 +239,9 @@ public class Lighsaber : MonoBehaviour
         //No score variable to increase in Playerstat?
         switch ((int)playerObject.GetComponent<PlayerStat>()._scoreStreak)
         {
+            case 0:
+                print("0");
+                break;
             case 1:
                 bladeMat.SetColor("_EmissionColor", _colour * 2f);
                 _blade.GetComponent<MeshRenderer>().material = bladeMat;
