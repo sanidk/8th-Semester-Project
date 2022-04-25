@@ -61,9 +61,7 @@ public class Lighsaber : MonoBehaviour
     public Material bladeMat;
 
     GameObject opponentRoom;
-    public GameObject roomRefPlayer1;
-    public GameObject roomRefPlayer2;
-
+    
     Vector3 relativeSliceStart;
     void Start()
     {
