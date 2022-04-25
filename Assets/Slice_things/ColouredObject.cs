@@ -24,7 +24,7 @@ public class ColouredObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+
         if (GameManagerLogic.isServer)
         {
             return;
@@ -32,7 +32,7 @@ public class ColouredObject : MonoBehaviour
         if (!GetComponent<MeshRenderer>()) { return; }
         meshRenderer = GetComponent<MeshRenderer>();
         materialOfObject = new Material(materialOfObject);
-        colorSyncTest = GetComponent<ColorSyncTest>();*/
+        colorSyncTest = GetComponent<ColorSyncTest>();
 
         //randomNumber = Random.Range(0, 3);
         //if (randomNumber == 0) { materialOfObject.color = green; }
@@ -46,7 +46,7 @@ public class ColouredObject : MonoBehaviour
 
 
         //Use custom colors:
-        /*randomNumber = Random.Range(0, 4);
+        randomNumber = Random.Range(0, 4);
         if (randomNumber == 0) {
             colorSyncTest._color = Color.green; 
         }
@@ -58,22 +58,12 @@ public class ColouredObject : MonoBehaviour
         }
         else { 
             colorSyncTest._color = Color.yellow; 
-        }*/
+        }
+
+        
 
 
-        if (!GetComponent<MeshRenderer>()) { return; }
-        meshRenderer = GetComponent<MeshRenderer>();
-        materialOfObject = new Material(materialOfObject);
-
-        randomNumber = Random.Range(0, 4);
-        if (randomNumber == 0) { materialOfObject.color = Color.green; }
-        else if (randomNumber == 1) { materialOfObject.color = Color.blue; }
-        else if (randomNumber == 2) { materialOfObject.color = Color.red; }
-        else { materialOfObject.color = Color.yellow; }
-        colorOfObject = materialOfObject.color;
-        meshRenderer.material = materialOfObject;
-
-
+        
 
 
 
@@ -84,7 +74,7 @@ public class ColouredObject : MonoBehaviour
         //    else { materialOfObject.color = Color.yellow; }
         //    colorOfObject = materialOfObject.color;
         //    meshRenderer.material = materialOfObject;
-
+        
     }
 
     public Color getColorOfObject()
@@ -104,7 +94,7 @@ public class ColouredObject : MonoBehaviour
     //    }
     //}
 
-    /*
+    
     void Update()
     {
         if (isColorsSet)
@@ -138,7 +128,7 @@ public class ColouredObject : MonoBehaviour
                 meshRenderer.material = materialOfObject;
                 isColorsSet = true;
             }
-        }*/
+        }
 
         /*
         colorOfObject = materialOfObject.color;
