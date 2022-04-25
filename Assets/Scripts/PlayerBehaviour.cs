@@ -39,7 +39,7 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomTrap = Random.Range(0, 2);
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 spawnSendLaserCubeTrap(1);
-                playerStat._scoreStreak = 1;
+                playerStat._scoreStreak = 0;
             }
         }
         else if (GameManagerLogic.isServer && !playerStat._backupVariable1)
@@ -50,7 +50,7 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomTrap = Random.Range(0, 2);
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 spawnSendLaserCubeTrap(2);
-                playerStat._scoreStreak = 1;
+                playerStat._scoreStreak = 0;
             }
         }
 
