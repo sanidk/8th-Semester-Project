@@ -24,15 +24,15 @@ public class ColouredObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!GetComponent<MeshRenderer>()) { return; }
-        meshRenderer = GetComponent<MeshRenderer>();
-        materialOfObject = new Material(materialOfObject);
-        colorSyncTest = GetComponent<ColorSyncTest>();
 
         if (GameManagerLogic.isServer)
         {
             return;
         }
+        if (!GetComponent<MeshRenderer>()) { return; }
+        meshRenderer = GetComponent<MeshRenderer>();
+        materialOfObject = new Material(materialOfObject);
+        colorSyncTest = GetComponent<ColorSyncTest>();
 
         //randomNumber = Random.Range(0, 3);
         //if (randomNumber == 0) { materialOfObject.color = green; }
@@ -44,7 +44,7 @@ public class ColouredObject : MonoBehaviour
         //colorOfObject = materialOfObject.color;
         meshRenderer.material = materialOfObject;*/
 
-        
+
         //Use custom colors:
         randomNumber = Random.Range(0, 4);
         if (randomNumber == 0) {
