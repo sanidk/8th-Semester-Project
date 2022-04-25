@@ -154,7 +154,7 @@ public class GameManagerLogic : MonoBehaviour
 
         bool isTeamsReady = true;
 
-        for (int i = 0; i < avatars.Count; i++)
+        for (int i = 0; i < avatars.Count; i++) // maybe for each loop instead
         {
             RealtimeAvatar player = avatars[i];
 

@@ -31,20 +31,6 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (playerStat._backupVariable1)
-        {
-            GameManagerLogic.isServer = true;
-        }
-        else
-        {
-            GameManagerLogic.isServer = false;
-        }
-
-
-
-
         if (GameManagerLogic.isServer && playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
@@ -69,6 +55,17 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+
+        if (playerStat._backupVariable1)
+        {
+            GameManagerLogic.isServer = true;
+        }
+        else
+        {
+            GameManagerLogic.isServer = false;
+        }
+
+
         if (GameManagerLogic.isPlayersReady && !lightSaberSpawned)
         {
             lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
