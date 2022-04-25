@@ -57,7 +57,7 @@ public class ColouredObject : MonoBehaviour
             colorSyncTest._color = Color.red;
         }
         else { 
-            materialOfObject.color = colorSyncTest._color = Color.yellow; 
+            colorSyncTest._color = Color.yellow; 
         }
 
         
@@ -107,24 +107,32 @@ public class ColouredObject : MonoBehaviour
             if (colorSyncTest._color == Color.green)
             {
                 materialOfObject.color = Color.green;
+                meshRenderer.material = materialOfObject;
+                isColorsSet = true;
             }
             else if (colorSyncTest._color == Color.red)
             {
                 materialOfObject.color = Color.red;
+                meshRenderer.material = materialOfObject;
+                isColorsSet = true;
             }
             else if (colorSyncTest._color == Color.blue)
             {
                 materialOfObject.color = Color.blue;
+                meshRenderer.material = materialOfObject;
+                isColorsSet = true;
             }
             else if (colorSyncTest._color == Color.yellow)
             {
                 materialOfObject.color = Color.yellow;
+                meshRenderer.material = materialOfObject;
+                isColorsSet = true;
             }
         }
-
+        /*
         colorOfObject = materialOfObject.color;
         meshRenderer.material = materialOfObject;
-        isColorsSet = true;
+        isColorsSet = true;*/
 
     }
 }
