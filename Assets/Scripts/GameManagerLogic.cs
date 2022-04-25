@@ -43,8 +43,8 @@ public class GameManagerLogic : MonoBehaviour
         gridManagerPlayer1 = roomPlayer1.GetComponentInChildren<GridManager>();
         gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();
 
-        representationCubeLaserReferencePlayer1 = GameObject.Find("RepresentationCubeLaserReferencePlayer1");
-        representationCubeLaserReferencePlayer2 = GameObject.Find("RepresentationCubeLaserReferencePlayer2");
+        representationCubeLaserReferencePlayer1 = GameObject.Find("LaserReferencePlayer1");
+        representationCubeLaserReferencePlayer2 = GameObject.Find("LaserReferencePlayer2");
         representationCubeSpawnLocationPlayer1 = GameObject.Find("representationCubeSpawnLocationPlayer1");
         representationCubeSpawnLocationPlayer2 = GameObject.Find("representationCubeSpawnLocationPlayer2");
 
