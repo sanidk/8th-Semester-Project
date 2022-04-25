@@ -54,6 +54,19 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
+        if (GameManagerLogic.isServer && GameManagerLogic.isPlayersReady && !lightSaberSpawned)
+        {
+            lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+            lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
+            lightSaberSpawned = true;
+        }
+
         if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         if (playerStat._backupVariable1)
@@ -66,18 +79,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
 
-        if (GameManagerLogic.isPlayersReady && !lightSaberSpawned)
-        {
-            lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
-            {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            });
-            lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
-            lightSaberSpawned = true;
-        }
+        
 
 
     }
