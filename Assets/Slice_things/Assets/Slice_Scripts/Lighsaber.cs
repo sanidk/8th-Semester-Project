@@ -371,7 +371,7 @@ public class Lighsaber : MonoBehaviour
             //other.getcomponent<BallBehaviour>().Despawn(); ish
             //Also script or function to delete object after few second?
 
-            Realtime.Destroy(other.gameObject);
+            Realtime.Destroy(other.gameObject.GetComponentInParent<GameObject>());
 
 
 
