@@ -107,7 +107,7 @@ public class GameManagerLogic : MonoBehaviour
             AssignServer();
         }
 
-        CheckIfCorrectRoom();
+        //CheckIfCorrectRoom();
 
         if (!isServer) return;
           
