@@ -166,40 +166,42 @@ public class Lighsaber : MonoBehaviour
 
         //opponentRoom = GameManagerLogic.opponent
 
-        //if (GameManagerLogic.isServer) {
-        //    if (playerNumber == 1)
-        //    {
-        //        opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer2;
-        //    }
-        //    else {
-        //        opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer1;
-        //    }
-        //    float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
-        //    float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
-        //    float newMinX = opponentRoom.transform.position.x - (opponentRoom.transform.lossyScale.x / 2);
-        //    float newMaxX = opponentRoom.transform.position.x + (opponentRoom.transform.lossyScale.x / 2);
-        //    float valX = sliceStart.x;
+        if (GameManagerLogic.isServer)
+        {
+            if (playerNumber == 1)
+            {
+                opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer2;
+            }
+            else
+            {
+                opponentRoom = GameManagerLogic.representationCubeLaserReferencePlayer1;
+            }
+            float oldMinX = other.transform.position.x - (other.transform.lossyScale.x / 2);
+            float oldMaxX = other.transform.position.x + (other.transform.lossyScale.x / 2);
+            float newMinX = opponentRoom.transform.position.x - (opponentRoom.transform.lossyScale.x / 2);
+            float newMaxX = opponentRoom.transform.position.x + (opponentRoom.transform.lossyScale.x / 2);
+            float valX = sliceStart.x;
 
-        //    float oldMinY = other.transform.position.y - (other.transform.lossyScale.y / 2);
-        //    float oldMaxY = other.transform.position.y + (other.transform.lossyScale.y / 2);
-        //    float newMinY = opponentRoom.transform.position.y - (opponentRoom.transform.lossyScale.y / 2);
-        //    float newMaxY = opponentRoom.transform.position.y + (opponentRoom.transform.lossyScale.y / 2);
-        //    float valY = sliceStart.y;
+            float oldMinY = other.transform.position.y - (other.transform.lossyScale.y / 2);
+            float oldMaxY = other.transform.position.y + (other.transform.lossyScale.y / 2);
+            float newMinY = opponentRoom.transform.position.y - (opponentRoom.transform.lossyScale.y / 2);
+            float newMaxY = opponentRoom.transform.position.y + (opponentRoom.transform.lossyScale.y / 2);
+            float valY = sliceStart.y;
 
-        //    float oldMinZ = other.transform.position.z - (other.transform.lossyScale.z / 2);
-        //    float oldMaxZ = other.transform.position.z + (other.transform.lossyScale.z / 2);
-        //    float newMinZ = opponentRoom.transform.position.z - (opponentRoom.transform.lossyScale.z / 2);
-        //    float newMaxZ = opponentRoom.transform.position.z + (opponentRoom.transform.lossyScale.z / 2);
-        //    float valZ = sliceStart.z;
+            float oldMinZ = other.transform.position.z - (other.transform.lossyScale.z / 2);
+            float oldMaxZ = other.transform.position.z + (other.transform.lossyScale.z / 2);
+            float newMinZ = opponentRoom.transform.position.z - (opponentRoom.transform.lossyScale.z / 2);
+            float newMaxZ = opponentRoom.transform.position.z + (opponentRoom.transform.lossyScale.z / 2);
+            float valZ = sliceStart.z;
 
-        //    float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
-        //    float y = map(valY, oldMinY, oldMaxY, newMinY, newMaxY);
-        //    float z = map(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
+            float x = map(valX, oldMinX, oldMaxX, newMinX, newMaxX);
+            float y = map(valY, oldMinY, oldMaxY, newMinY, newMaxY);
+            float z = map(valZ, oldMinZ, oldMaxZ, newMinZ, newMaxZ);
 
 
-        //    relativeSliceStart = new Vector3(x, y, z);
+            relativeSliceStart = new Vector3(x, y, z);
 
-        //}
+        }
 
 
 
