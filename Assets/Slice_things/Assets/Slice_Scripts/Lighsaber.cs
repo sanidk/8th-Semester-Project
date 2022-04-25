@@ -211,17 +211,21 @@ public class Lighsaber : MonoBehaviour
         if (other.gameObject.CompareTag("RepresentationCube")) {
             return;
         }
-        if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
-        {
-            _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
-            _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
-            bladeMat.SetColor("_EmissionColor", _colour);
-            _blade.GetComponent<MeshRenderer>().material = bladeMat;
-            streak = 1;
-            playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
-            //other.GetComponent<CubeFeedback>().colour = _colour;
-            return;
+
+        if (GameManagerLogic.isServer) {
+            if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
+            {
+                _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
+                _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
+                bladeMat.SetColor("_EmissionColor", _colour);
+                _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                streak = 1;
+                playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
+                //other.GetComponent<CubeFeedback>().colour = _colour;
+                return;
+            }
         }
+        
 
 
         //audioSource.PlayOneShot(scoreTemporary);
