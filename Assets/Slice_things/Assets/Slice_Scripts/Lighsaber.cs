@@ -219,7 +219,7 @@ public class Lighsaber : MonoBehaviour
         if (_colour != other.gameObject.GetComponent<ColouredObject>().getColorOfObject())
         {
             _colour = other.gameObject.GetComponent<ColouredObject>().getColorOfObject();
-            _blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
+            //_blade.GetComponent<MeshRenderer>().sharedMaterial.color = _colour;
             bladeMat.SetColor("_EmissionColor", _colour);
             _blade.GetComponent<MeshRenderer>().material = bladeMat;
             streak = 1;
