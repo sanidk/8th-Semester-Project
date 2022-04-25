@@ -150,11 +150,6 @@ public class Lighsaber : MonoBehaviour
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
-
         Vector3 tipCollision = _triggerEnterTipPosition;
         Vector3 baseCollision = _triggerEnterBasePosition;
 

@@ -16,7 +16,8 @@ public class LaserMovement : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        //transform.position = startPosition;
+        startPosition = transform.position;
+        transform.position = startPosition-transform.forward;
         //transform.position-= transform.forward;
 
         //transform.rotation = direction;

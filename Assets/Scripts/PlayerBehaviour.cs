@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
-    int streakToSendTrap = 2;
+    public int streakToSendTrap = 2;
 
     PlayerStat playerStat;
     GameObject gameManager;
