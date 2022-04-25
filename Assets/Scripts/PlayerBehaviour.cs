@@ -7,7 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
-    public int streakToSendTrap = 2;
+    private int streakToSendTrap = 3;
 
     PlayerStat playerStat;
     GameObject gameManager;
@@ -24,7 +24,6 @@ public class PlayerBehaviour : MonoBehaviour
         playerStat._isReady = true;
 
         gameManager = GameObject.Find("GameManager");
-        
 
         
     }
