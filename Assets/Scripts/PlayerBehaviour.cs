@@ -33,7 +33,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         
 
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+        
 
         if (playerStat._backupVariable1)
         {
@@ -67,6 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
+        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
         if (GameManagerLogic.isPlayersReady && !lightSaberSpawned)
         {
             lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
