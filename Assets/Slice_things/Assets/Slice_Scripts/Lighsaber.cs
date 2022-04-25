@@ -456,12 +456,15 @@ public class Lighsaber : MonoBehaviour
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
 
         //Destroy(other.gameObject); - Commented, Instead Despawn.
-        
+        if (GameManagerLogic.isServer)
+        {
+            other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
+        }
 
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        StartCoroutine(reEnableMeshRenderer(other.gameObject, 2, other));
+        StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
 
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
@@ -473,16 +476,11 @@ public class Lighsaber : MonoBehaviour
         //Also script or function to delete object after few second?
     }
 
-    IEnumerator reEnableMeshRenderer(GameObject obj, float time, Collider other) { 
-        yield return new WaitForSeconds(time);
-        if (GameManagerLogic.isServer)
-        {
-            other.GetComponent<BallBehaviour>().DespawnBall(); // Despawn - Relocate the full ball
-        }
+    IEnumerator reEnableMeshRenderer(GameObject obj, float time) { 
         yield return new WaitForSeconds(time);
         obj.GetComponent<MeshRenderer>().enabled = true;
         obj.GetComponent<BoxCollider>().enabled = true;
-        
+
 
     }
 }
