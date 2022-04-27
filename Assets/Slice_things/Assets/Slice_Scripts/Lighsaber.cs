@@ -224,7 +224,7 @@ public class Lighsaber : MonoBehaviour
 
             if (GetComponent<RealtimeView>().isOwnedLocallySelf)
             {
-                playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
+                //playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
             }
             
             //other.GetComponent<CubeFeedback>().colour = _colour;
@@ -240,8 +240,8 @@ public class Lighsaber : MonoBehaviour
 
         if (GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
-            playerObject.GetComponent<PlayerStat>()._scoreStreak++;
-            other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
+            //playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+            //other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
         }
         
         other.GetComponent<CubeFeedback>().cubeHit = false;
