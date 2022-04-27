@@ -253,6 +253,27 @@ public class PlayerStatSync : RealtimeComponent<PlayerStatSyncModel>
     {
         model.backupVariable1 = value;
     }
+    public void SetBackupVariable2(bool value)
+    {
+        model.backupVariable2 = value;
+    }
+    public void SetBackupVariable3(float value)
+    {
+        model.backupVariable3 = value;
+    }
+    public void SetBackupVariable4(float value)
+    {
+        model.backupVariable4 = value;
+    }
+    public void SetBackupVariable5(float value)
+    {
+        model.backupVariable5 = value;
+    }
+    public void SetBackupVariable6(float value)
+    {
+        model.backupVariable6 = value;
+    }
+
 
 
 

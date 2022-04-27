@@ -69,8 +69,33 @@ public class PlayerStat : MonoBehaviour
         {
             return;
         }*/
-
-        if (_scoreStreak != _previousScoreStreak) { 
+        if (_isReady != _previousIsReady)
+        {
+            _playerStatSync.SetIsReady(_isReady);
+            _previousIsReady = _isReady;
+        }
+        if (_weaponColor != _previousWeaponColor)
+        {
+            _playerStatSync.SetWeaponColor(_weaponColor);
+            _previousWeaponColor = _weaponColor;
+        }
+        if (_trapsSent != _previousTrapsSent)
+        {
+            _playerStatSync.SetTrapsSent(_trapsSent);
+            _previousTrapsSent = _trapsSent;
+        }
+        if (_currentLevel != _previousCurrentLevel)
+        {
+            _playerStatSync.SetCurrentLevel(_currentLevel);
+            _previousCurrentLevel = _currentLevel;
+        }
+        if (_lives != _previousLives)
+        {
+            _playerStatSync.SetLives(_lives);
+            _previousLives = _lives;
+        }
+        if (_scoreStreak != _previousScoreStreak)
+        {
             _playerStatSync.SetScoreStreak(_scoreStreak);
             _previousScoreStreak = _scoreStreak;
         }
@@ -80,6 +105,32 @@ public class PlayerStat : MonoBehaviour
             _playerStatSync.SetBackupVariable1(_backupVariable1);
             _previousBackupVariable1 = _backupVariable1;
         }
+        if (_backupVariable2 != _previousBackupVariable2)
+        {
+            _playerStatSync.SetBackupVariable2(_backupVariable2);
+            _previousBackupVariable2 = _backupVariable2;
+        }
+        if (_backupVariable3 != _previousBackupVariable3)
+        {
+            _playerStatSync.SetBackupVariable3(_backupVariable3);
+            _previousBackupVariable3 = _backupVariable3;
+        }
+        if (_backupVariable4 != _previousBackupVariable4)
+        {
+            _playerStatSync.SetBackupVariable4(_backupVariable4);
+            _previousBackupVariable4 = _backupVariable4;
+        }
+        if (_backupVariable5 != _previousBackupVariable5)
+        {
+            _playerStatSync.SetBackupVariable5(_backupVariable5);
+            _previousBackupVariable5 = _backupVariable5;
+        }
+        if (_backupVariable6 != _previousBackupVariable6)
+        {
+            _playerStatSync.SetBackupVariable6(_backupVariable6);
+            _previousBackupVariable6 = _backupVariable6;
+        }
+
     }
 
     // Remap function taken from unity forum (Don't know if we need this)
