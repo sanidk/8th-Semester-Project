@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManagerLogic.isServer && playerStat._backupVariable1)
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
@@ -42,7 +42,7 @@ public class PlayerBehaviour : MonoBehaviour
                 playerStat._scoreStreak = 0;
             }
         }
-        else if (GameManagerLogic.isServer && !playerStat._backupVariable1)
+        else if (GetComponent<RealtimeView>().isOwnedLocallySelf && !playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
@@ -58,7 +58,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
             {
-                ownedByClient = false,
+                ownedByClient = true,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
