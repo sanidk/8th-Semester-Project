@@ -201,7 +201,9 @@ public class Lighsaber : MonoBehaviour
 
         }
 
-
+        if (!other.CompareTag("Cube")) {
+            return;
+        }
 
         if (!other.GetComponent<Sliceable>())
         {
@@ -211,6 +213,7 @@ public class Lighsaber : MonoBehaviour
         if (other.gameObject.CompareTag("RepresentationCube")) {
             return;
         }
+
         if (_colour != other.gameObject.GetComponent<ColorSync>().GetColor())
         {
             _colour = other.gameObject.GetComponent<ColorSync>().GetColor();
