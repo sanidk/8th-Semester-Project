@@ -54,8 +54,9 @@ public class TrapDeploy : MonoBehaviour
 
     public void spawnTrap(int typeOfTrap)
     {
-        /*
+        
         selectedTrap = typeOfTrap;
+        /*
         if (selectedTrap == 0) {
             this.GetComponentInParent<MeshRenderer>().material = warningMat;
         } else if (selectedTrap == 1) {

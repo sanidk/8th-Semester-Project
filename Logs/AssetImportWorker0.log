@@ -15,12 +15,12 @@ C:/Users/Mikkel/Documents/GitHub/8th-Semester-Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53758
+64168
 Successfully changed project path to: C:/Users/Mikkel/Documents/GitHub/8th-Semester-Project
 C:/Users/Mikkel/Documents/GitHub/8th-Semester-Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 196.02 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 1.30 ms.
+Refreshing native plugins compatible for Editor in 139.64 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.96 ms.
 Initialize engine version: 2020.3.18f1 (a7d1c678663c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/Users/Mikkel/Documents/GitHub/8th-Semester-Project/Assets
@@ -36,48 +36,48 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56192
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56552
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003784 seconds.
+Registered in 0.002827 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 181.73 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.08 ms.
+Refreshing native plugins compatible for Editor in 144.66 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.14 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  7.471 seconds
+- Completed reload, in  2.746 seconds
 Domain Reload Profiling:
-	ReloadAssembly (7472ms)
-		BeginReloadAssembly (91ms)
+	ReloadAssembly (2747ms)
+		BeginReloadAssembly (67ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (1189ms)
-			LoadAssemblies (88ms)
+		EndReloadAssembly (817ms)
+			LoadAssemblies (64ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (443ms)
+			SetupTypeCache (213ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (453ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (461ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (182ms)
-				BeforeProcessingInitializeOnLoad (13ms)
-				ProcessInitializeOnLoadAttributes (217ms)
-				ProcessInitializeOnLoadMethodAttributes (35ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (145ms)
+				BeforeProcessingInitializeOnLoad (14ms)
+				ProcessInitializeOnLoadAttributes (184ms)
+				ProcessInitializeOnLoadMethodAttributes (111ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010487 seconds.
+Registered in 0.014458 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 155.24 ms, found 7 plugins.
+Refreshing native plugins compatible for Editor in 154.41 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.09 ms.
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
@@ -85,29 +85,29 @@ Preloading 1 native plugins for Editor in 0.09 ms.
 [XR] Unable to register input lifecyle provider: [1]
 [XR] OVRP version 1.69.0
 Mono: successfully reloaded assembly
-- Completed reload, in  2.627 seconds
+- Completed reload, in  4.450 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2628ms)
-		BeginReloadAssembly (284ms)
+	ReloadAssembly (4453ms)
+		BeginReloadAssembly (480ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (11ms)
+			DisableScriptedObjects (21ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (31ms)
-		EndReloadAssembly (2206ms)
-			LoadAssemblies (204ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (3705ms)
+			LoadAssemblies (302ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (918ms)
+			SetupTypeCache (2178ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (102ms)
-			SetupLoadedEditorAssemblies (766ms)
+			RebuildScriptCaches (105ms)
+			SetupLoadedEditorAssemblies (848ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (155ms)
-				BeforeProcessingInitializeOnLoad (153ms)
-				ProcessInitializeOnLoadAttributes (424ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
+				BeforeProcessingInitializeOnLoad (175ms)
+				ProcessInitializeOnLoadAttributes (489ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
 				AfterProcessingInitializeOnLoad (8ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -116,15 +116,15 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 1.49 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 7.74 ms, found 7 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
 Unloading 4519 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 201.0 MB.
-System memory in use after: 201.2 MB.
+System memory in use before: 200.6 MB.
+System memory in use after: 200.8 MB.
 
 Unloading 58 unused Assets to reduce memory usage. Loaded Objects now: 4968.
-Total: 4.852500 ms (FindLiveObjects: 0.567400 ms CreateObjectMapping: 0.452200 ms MarkObjects: 3.687200 ms  DeleteObjects: 0.144700 ms)
+Total: 6.902700 ms (FindLiveObjects: 0.720400 ms CreateObjectMapping: 0.574200 ms MarkObjects: 5.398900 ms  DeleteObjects: 0.206700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -139,533 +139,121 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.022982 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.030336 seconds .
+  path: Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/3rd Person Controller.prefab
+  artifactKey: Guid(2314ce3a3eecf4816bad3c9eca4de2e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/3rd Person Controller.prefab using Guid(2314ce3a3eecf4816bad3c9eca4de2e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d8cef348f00538c8b9cbdf3ed95f8ed') in 0.551385 seconds 
+  Import took 0.566526 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.039130 seconds.
+  Time since last request: 0.000341 seconds.
   path: Assets/Scripts/TrapDeploy.cs
   artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000589 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.010845 seconds .
+Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c78d31579971af15a9d06e3f8393bb4') in 0.009142 seconds 
+  Import took 0.023974 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.185478 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000477 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.013109 seconds .
+  Time since last request: 0.000263 seconds.
+  path: Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button01_mask_anim.fbx
+  artifactKey: Guid(a297026597cd6f24eaafc30c8acd3660) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button01_mask_anim.fbx using Guid(a297026597cd6f24eaafc30c8acd3660) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edef487b2094aaf635f2e9ef92941a16') in 0.116240 seconds 
+  Import took 0.130243 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.026571 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001205 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.015921 seconds .
+  Time since last request: 0.000259 seconds.
+  path: Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button02_mask_anim.fbx
+  artifactKey: Guid(6f4e8596675a1264cbfe36244078507f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button02_mask_anim.fbx using Guid(6f4e8596675a1264cbfe36244078507f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b817dfd46d37648a85df2527f0fcb79d') in 0.043122 seconds 
+  Import took 0.058227 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.027096 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000930 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.017272 seconds .
+  Time since last request: 0.000289 seconds.
+  path: Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Constructor.FBX
+  artifactKey: Guid(449b48f7eb5d87a4baaa5fb73f875a59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Constructor.FBX using Guid(449b48f7eb5d87a4baaa5fb73f875a59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2eae841ba194e27eff5a6891ce8cc931') in 0.161641 seconds 
+  Import took 0.196537 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.019753 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000695 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.015572 seconds .
+  Time since last request: 0.000254 seconds.
+  path: Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Materials/constructor_done.mat
+  artifactKey: Guid(ca49380a71a2bb64c830d06bd421b9d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Materials/constructor_done.mat using Guid(ca49380a71a2bb64c830d06bd421b9d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c38aca7bc0b7b9e658688115b793e362') in 0.057991 seconds 
+  Import took 0.075971 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.033320 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000468 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.022780 seconds .
+  Time since last request: 0.000399 seconds.
+  path: Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button03_mask_anim.fbx
+  artifactKey: Guid(0a0d4a0431d8f1247b902263d54324d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_button03_mask_anim.fbx using Guid(0a0d4a0431d8f1247b902263d54324d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71427e3ab0fb0878fe50645014292f02') in 0.068237 seconds 
+  Import took 0.083623 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.015828 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000614 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014957 seconds .
+  Time since last request: 0.000277 seconds.
+  path: Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_anim.fbx
+  artifactKey: Guid(1bbe91ce7bea2ba4ea9a1d8e71dccffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/SampleFramework/Core/TouchControllers/Animations/l_controller_neutral_anim.fbx using Guid(1bbe91ce7bea2ba4ea9a1d8e71dccffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07cdd3ddb79bb15a20b0eede283c1a89') in 0.030182 seconds 
+  Import took 0.042165 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.039572 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001899 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.043912 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.101229 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000717 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.025967 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.043803 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001409 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.024495 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.007116 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001675 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.029047 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014112 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000730 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.015001 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018715 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001044 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014837 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019533 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001233 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014090 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.022518 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000617 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.017006 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.020692 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001452 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014648 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019061 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000705 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.012822 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.020437 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000631 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.012076 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.023607 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000590 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014792 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.020384 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.002217 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.016414 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.026870 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000455 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.026414 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018132 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000503 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.018398 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.031349 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001422 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014436 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.028536 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000758 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.015012 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017914 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000534 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014620 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018305 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000549 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014515 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019159 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000583 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014987 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.016317 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000472 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014324 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019244 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000559 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014988 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.023224 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001165 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.015244 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018521 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000901 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014374 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019460 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000738 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.030682 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.013911 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000814 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014683 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017674 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000625 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014289 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018002 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000530 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014894 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.021418 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000748 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.014461 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018301 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000955 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.013583 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.018445 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.001240 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.020647 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.019386 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000592 seconds  code(4) message(Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z')
-  ERROR: Build asset version error: assets/scripts/trapdeploy.cs in SourceAssetDB has modification time of '2022-04-27T08:20:35.0544954Z' while content on disk has modification time of '2022-04-27T08:21:48.6378343Z'
-  Import took 0.017192 seconds .
+  Time since last request: 0.000290 seconds.
+  path: Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Textures/constructor_diffuse.png
+  artifactKey: Guid(97b050d43ac7c4d2b9f6cbb587650761) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Oculus/Spatializer/scenes/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Textures/constructor_diffuse.png using Guid(97b050d43ac7c4d2b9f6cbb587650761) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '825b4d0332e5af77f2ab24da034aa860') in 0.133515 seconds 
+  Import took 0.146739 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.011738 seconds.
+Registered in 0.010513 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.09 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.15 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.952 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1952ms)
-		BeginReloadAssembly (273ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (68ms)
-		EndReloadAssembly (1580ms)
-			LoadAssemblies (229ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (646ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (65ms)
-			SetupLoadedEditorAssemblies (561ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (142ms)
-				ProcessInitializeOnLoadAttributes (388ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (10ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.40 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
-Unloading 4314 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 185.2 MB.
-System memory in use after: 185.5 MB.
-
-Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 4971.
-Total: 9.193200 ms (FindLiveObjects: 0.749800 ms CreateObjectMapping: 0.764900 ms MarkObjects: 7.573200 ms  DeleteObjects: 0.102700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012985 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.25 ms, found 7 plugins.
+Refreshing native plugins compatible for Editor in 1.37 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.12 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.948 seconds
+- Completed reload, in  1.896 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1949ms)
-		BeginReloadAssembly (189ms)
+	ReloadAssembly (1897ms)
+		BeginReloadAssembly (297ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (9ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (67ms)
-		EndReloadAssembly (1615ms)
-			LoadAssemblies (221ms)
+			CreateAndSetChildDomain (130ms)
+		EndReloadAssembly (1496ms)
+			LoadAssemblies (148ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (605ms)
+			SetupTypeCache (633ms)
 			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (81ms)
-			SetupLoadedEditorAssemblies (523ms)
+			RebuildScriptCaches (65ms)
+			SetupLoadedEditorAssemblies (451ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (125ms)
-				ProcessInitializeOnLoadAttributes (368ms)
-				ProcessInitializeOnLoadMethodAttributes (10ms)
-				AfterProcessingInitializeOnLoad (10ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (324ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (8ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
 Platform modules already initialized, skipping
 Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.40 ms, found 7 plugins.
+Refreshing native plugins compatible for Editor in 1.62 ms, found 7 plugins.
 Preloading 1 native plugins for Editor in 0.11 ms.
 Unloading 4314 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 185.3 MB.
-System memory in use after: 185.6 MB.
+System memory in use before: 205.5 MB.
+System memory in use after: 205.8 MB.
 
-Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 4974.
-Total: 5.150600 ms (FindLiveObjects: 0.469600 ms CreateObjectMapping: 0.288700 ms MarkObjects: 4.348100 ms  DeleteObjects: 0.042900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 26.851597 seconds.
-  path: Assets/Scripts/TrapDeploy.cs
-  artifactKey: Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TrapDeploy.cs using Guid(44f68c249234a854eb18740395f7705d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd25aedfdd4ca804b270458a1418050ee') in 0.008457 seconds 
-  Import took 0.021953 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012001 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.50 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.19 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.292 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3293ms)
-		BeginReloadAssembly (178ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (57ms)
-		EndReloadAssembly (2942ms)
-			LoadAssemblies (232ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (875ms)
-			ReleaseScriptCaches (11ms)
-			RebuildScriptCaches (992ms)
-			SetupLoadedEditorAssemblies (570ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (112ms)
-				ProcessInitializeOnLoadAttributes (420ms)
-				ProcessInitializeOnLoadMethodAttributes (10ms)
-				AfterProcessingInitializeOnLoad (11ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
-Platform modules already initialized, skipping
-Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
-Refreshing native plugins compatible for Editor in 1.48 ms, found 7 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
-Unloading 4314 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 185.3 MB.
-System memory in use after: 185.6 MB.
-
-Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 4977.
-Total: 4.917400 ms (FindLiveObjects: 0.466000 ms CreateObjectMapping: 0.358900 ms MarkObjects: 4.050100 ms  DeleteObjects: 0.040800 ms)
+Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 5057.
+Total: 4.787700 ms (FindLiveObjects: 0.466300 ms CreateObjectMapping: 0.304300 ms MarkObjects: 3.976300 ms  DeleteObjects: 0.039700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
