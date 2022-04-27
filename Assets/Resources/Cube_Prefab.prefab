@@ -176,10 +176,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de81fa600796b3468e652fc0c56335d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridManager: {fileID: 0}
+  playerNumber: 0
   currentPos: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
+  speed: 0.05
   gridPosition: 0
   isBallActive: 0
+  bombMat: {fileID: 2100000, guid: 63313199196ee3e40a9f18e36401dc13, type: 2}
+  mineMat: {fileID: 2100000, guid: 49dc294cc6d653e42b349ea8be287753, type: 2}
+  oneColorMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
+  sizeSpeedMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
+  randomizeColorMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
+  shieldMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
+  overlayObject: {fileID: 833622301056728408, guid: 3892e2cc07268c940ad1ef7c6159b0c0, type: 3}
+  modifier: 0
+  oldModifier: 0
 --- !u!114 &-4852979306208655646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +207,7 @@ MonoBehaviour:
   redMaterial: {fileID: 2100000, guid: cb4eef434e859c94d90d4623d9005064, type: 2}
   greenMaterial: {fileID: 2100000, guid: 71b51ccdae36ea94eb770ab0b8d44092, type: 2}
   blueMaterial: {fileID: 2100000, guid: d6bb86e2af660084bbaf7a1d45ef989e, type: 2}
+  _colorSync: {fileID: 0}
   materialOfObject: {fileID: 2100000, guid: 12f23d215b59e4c49a4a09f14e3eab1e, type: 2}
 --- !u!54 &5282509297753460246
 Rigidbody:

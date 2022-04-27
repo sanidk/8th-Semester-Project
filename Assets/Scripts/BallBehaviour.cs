@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class BallBehaviour : MonoBehaviour
 {
     //public int playerOwnership;
     GameObject gameManager;
-    GameObject gridManager;
+    public GameObject gridManager;
+    public int playerNumber;
 
     Vector3 startPos;
     Vector3 minPos;
@@ -16,7 +18,7 @@ public class BallBehaviour : MonoBehaviour
     public Vector3 dir;
     float randomDirectionAmount = 0.5f;
     
-    float speed = .05f;
+    public float speed = .05f;
     public int gridPosition;
 
     bool isBallSpawned;
@@ -24,10 +26,33 @@ public class BallBehaviour : MonoBehaviour
 
     public static float cooldown = 3;
 
+    Vector3 OppositePosition;
+    Quaternion OppositeRotation;
+
+    public Material bombMat;
+    public Material mineMat;
+    public Material oneColorMat;
+    public Material sizeSpeedMat;
+    public Material randomizeColorMat;
+    public Material shieldMat;
+
+    public GameObject overlayObject;
+
+    bool isPowerup;
+    bool isBomb;
+    bool isMine;
+
+
+    public int modifier;
+    public int oldModifier;
+
+    GameObject overlay;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        
 
         //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         //transform.rotation = Quaternion.Euler(rotation);
@@ -41,7 +66,7 @@ public class BallBehaviour : MonoBehaviour
     {
         gridPosition = gridNumber;
         isBallActive = true;
-
+        
         yield return new WaitForSeconds(cooldown);
 
         isBallSpawned = true;
@@ -56,6 +81,90 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
+        
+        if (playerNumber == 1)
+        {
+            OppositePosition = GameManagerLogic.representationCubeSpawnLocationPlayer2.transform.position;
+            OppositeRotation = GameManagerLogic.representationCubeSpawnLocationPlayer2.transform.rotation;
+
+        } else if (playerNumber == 2){
+            OppositePosition = GameManagerLogic.representationCubeSpawnLocationPlayer1.transform.position;
+            OppositeRotation = GameManagerLogic.representationCubeSpawnLocationPlayer1.transform.rotation;
+        }
+
+        if (overlay != null)
+        {
+            Destroy(overlay);
+
+        }
+
+        switch (modifier)
+        {
+            case 0:
+                //nothing happens - regular cube
+                break;
+            case 1:
+                //bomb
+                Realtime.Instantiate("Bomb", OppositePosition, OppositeRotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = false,
+                    preventOwnershipTakeover = false,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+                break;
+            case 2:
+                //mine
+                Realtime.Instantiate("Mine", OppositePosition, OppositeRotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = false,
+                    preventOwnershipTakeover = false,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+                break;
+            case 3:
+                //One Color All
+                gridManager.GetComponent<GridManager>().SetOneColorAll(5);
+                
+                break;
+            case 4:
+                //Transform size and speed
+                gridManager.GetComponent<GridManager>().SetDecreaseSizeAndSpeed(5);
+                if (playerNumber == 1)
+                {
+                    GameManagerLogic.roomClient.GetComponent<GridManager>().SetIncreaseSizeAndSpeed(5);
+                }
+
+                break;
+            case 5:
+                gridManager.GetComponent<GridManager>().RandomColor();
+                if (playerNumber == 1)
+                {
+                    GameManagerLogic.roomClient.GetComponent<GridManager>().RandomColor();
+                }
+                //randomize own and opponent colors
+
+                break;
+            case 6:
+                //shield
+
+                break;
+            case 7:
+                //maybe a random question mark trap that can summon a trap for yourself or opponent or mystery item
+
+                break;
+            case 8:
+
+                break;
+
+            
+
+
+
+
+        }
+        modifier = 0;
         //maybe request permission to be able to move the box/ball
         StartCoroutine(resetBallPosition(gameObject, 1));
         
@@ -67,6 +176,8 @@ public class BallBehaviour : MonoBehaviour
 
     }
 
+    
+
     IEnumerator resetBallPosition(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
@@ -76,11 +187,59 @@ public class BallBehaviour : MonoBehaviour
         isBallSpawned = false;
         isBallActive = false;
 
+        
+
+    }
+
+    public void SetModifier(int mod)
+    {
+        modifier = mod;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (modifier != oldModifier)
+        {
+            if (modifier != 0)
+            {
+                overlay = Instantiate(overlayObject, transform.position, transform.rotation);
+
+
+                overlay.transform.localScale = transform.localScale * 1.01f * 2;
+                overlay.transform.SetParent(gameObject.transform);
+                oldModifier = modifier;
+            }
+
+            switch (modifier)
+            {
+
+                case 1:
+                    overlay.GetComponent<MeshRenderer>().material = bombMat;
+                    break;
+                case 2:
+                    overlay.GetComponent<MeshRenderer>().material = mineMat;
+                    break;
+                case 3:
+                    overlay.GetComponent<MeshRenderer>().material = oneColorMat;
+                    break;
+                case 4:
+                    overlay.GetComponent<MeshRenderer>().material = sizeSpeedMat;
+                    break;
+                case 5:
+                    overlay.GetComponent<MeshRenderer>().material = randomizeColorMat;
+                    break;
+                case 6:
+                    overlay.GetComponent<MeshRenderer>().material = shieldMat;
+                    break;
+
+
+            }
+        }
+        
+
+
         if (!GameManagerLogic.isServer) {
             return;
         }

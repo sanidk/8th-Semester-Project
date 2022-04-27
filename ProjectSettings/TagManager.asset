@@ -11,6 +11,9 @@ TagManager:
   - Player1
   - Player2
   - Cube
+  - Bomb
+  - Mine
+  - PowerUp
   layers:
   - Default
   - TransparentFX

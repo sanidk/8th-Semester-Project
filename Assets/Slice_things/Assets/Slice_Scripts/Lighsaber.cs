@@ -162,6 +162,8 @@ public class Lighsaber : MonoBehaviour
 
         Vector3 sliceStart = (tipCollision + baseCollision) / 2;
 
+
+
         //opponentRoom = GameManagerLogic.opponent
 
         if (GameManagerLogic.isServer)
@@ -200,6 +202,9 @@ public class Lighsaber : MonoBehaviour
             relativeSliceStart = new Vector3(x, y, z);
 
         }
+
+        
+
 
         if (!other.CompareTag("Cube")) {
             return;
@@ -309,6 +314,22 @@ public class Lighsaber : MonoBehaviour
         {
             return;
         }
+
+
+        if (other.gameObject.CompareTag("Mine"))
+        {
+            //playerObject.GetComponent<PlayerStat>()._lives--;
+            other.gameObject.GetComponent<BombBehaviour>().Trigger();
+        }
+
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            other.gameObject.GetComponent<BombBehaviour>().Despawn();
+        }
+
+        
+
+
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 

@@ -10,6 +10,8 @@ public class GridManager : MonoBehaviour
     Realtime realtime;
     RealtimeComponent rc;
 
+    public int playerNumber;
+
 
     //GRID
     public bool gridGraphicToggle;
@@ -69,6 +71,8 @@ public class GridManager : MonoBehaviour
         spawnzonesArray = new Vector3[gridSize];
         spawnzonesInUseArray = new bool[gridSize];
 
+        
+        
         
         gridStart = transform.position;
         int index = 0;
@@ -215,14 +219,28 @@ public class GridManager : MonoBehaviour
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-
+            ballsArray[i].GetComponent<BallBehaviour>().playerNumber = playerNumber;
             ballsArray[i].transform.SetParent(gameObject.transform);
+
+            ballsArray[i].GetComponent<BallBehaviour>().gridManager = transform.gameObject;
+            if (Random.Range(0, 2) == 0)
+            {
+                ballsArray[i].GetComponent<BallBehaviour>().SetModifier(Random.Range(1, 6));
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManagerLogic.isServer)
+        {
+            playerNumber = 1;
+        }
+        else
+        {
+            playerNumber = 2;
+        }
 
         if (instantiateBigGrid) {
             InstantiateBigTrapGrid();
@@ -245,6 +263,8 @@ public class GridManager : MonoBehaviour
             {
                 GameObject ball = ballsArray[i];
                 
+                
+                
 
                 if (!ball.GetComponent<BallBehaviour>().isBallActive)
                 {
@@ -255,7 +275,9 @@ public class GridManager : MonoBehaviour
                     //ball.GetComponent<BallBehaviour>().isBallActive = true;
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
                     
-                    
+
+
+
                 }
             }
 
@@ -274,6 +296,114 @@ public class GridManager : MonoBehaviour
     //    int gridNumber = Random.Range(0, spawnzonesArray.Length);
     //    return gridNumber;
     //}
+
+    public void SetOneColorAll(float seconds)
+    {
+        StartCoroutine(oneColorAll(seconds));
+    }
+
+    public IEnumerator oneColorAll(float seconds)
+    {
+        Color color;
+
+        int randomNumber = Random.Range(0, 4);
+        if (randomNumber == 0)
+        {
+            //materialOfObject.color = Color.green;
+            color = Color.green;
+        }
+        else if (randomNumber == 1)
+        {
+            //materialOfObject.color = Color.blue;
+            color = Color.blue;
+        }
+        else if (randomNumber == 2)
+        {
+            //materialOfObject.color = Color.red;
+            color = Color.red;
+        }
+        else
+        {
+            //materialOfObject.color = Color.yellow;
+            color = Color.yellow;
+        }
+
+
+        for (int i = 0; i<ballsArray.Length; i++)
+        {
+            ballsArray[i].GetComponent<ColouredObject>()._colorSync.SetColor(color);
+        }
+
+
+        yield return new WaitForSeconds(seconds);
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].GetComponent<ColouredObject>().SetRandomColor();
+        }
+
+    }
+
+    public void RandomColor()
+    {
+        
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].GetComponent<ColouredObject>().SetRandomColor();
+        }
+
+    }
+
+    public void SetIncreaseSizeAndSpeed(float seconds)
+    {
+        StartCoroutine(IncreaseSizeAndSpeed(seconds));
+    }
+
+    public void SetDecreaseSizeAndSpeed(float seconds)
+    {
+        StartCoroutine(DecreaseSizeAndSpeed(seconds));
+    }
+
+    public IEnumerator IncreaseSizeAndSpeed(float seconds)
+    {
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.transform.localScale *= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+
+        }
+
+        yield return new WaitForSeconds(seconds);
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.transform.localScale /= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
+        }
+
+    }
+
+    public IEnumerator DecreaseSizeAndSpeed(float seconds)
+    {
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.transform.localScale /= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
+
+        }
+
+        yield return new WaitForSeconds(seconds);
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.transform.localScale *= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+        }
+
+    }
 
     public void sendTrap(int trapNumber, int typeOfTrap) {
 

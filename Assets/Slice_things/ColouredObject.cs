@@ -14,7 +14,7 @@ public class ColouredObject : MonoBehaviour
     Color blue = new Color(72, 79, 217, 1);
     Color red = new Color(214, 84, 97, 1);
     //add yellow custom color
-    private ColorSync _colorSync;
+    public ColorSync _colorSync;
     private bool colorSet;
 
 
@@ -75,23 +75,32 @@ public class ColouredObject : MonoBehaviour
         if(!GameManagerLogic.isServer && !GameManagerLogic.isPlayersReady) { return;  }
         //Debug.Log("Server set and players ready - colored objects caluse:");
 
+        SetRandomColor();
+        colorSet = true;
+    }
+
+    public void SetRandomColor()
+    {
         randomNumber = Random.Range(0, 4);
-        if (randomNumber == 0) {
+        if (randomNumber == 0)
+        {
             //materialOfObject.color = Color.green;
             _colorSync.SetColor(Color.green);
         }
-        else if (randomNumber == 1) {
+        else if (randomNumber == 1)
+        {
             //materialOfObject.color = Color.blue;
             _colorSync.SetColor(Color.blue);
         }
-        else if (randomNumber == 2) {
+        else if (randomNumber == 2)
+        {
             //materialOfObject.color = Color.red;
             _colorSync.SetColor(Color.red);
         }
-        else {
+        else
+        {
             //materialOfObject.color = Color.yellow;
             _colorSync.SetColor(Color.yellow);
         }
-        colorSet = true;
     }
 }
