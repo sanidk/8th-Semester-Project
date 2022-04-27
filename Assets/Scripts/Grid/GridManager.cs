@@ -229,6 +229,12 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (instantiateBigGrid) {
+            InstantiateBigTrapGrid();
+            instantiateBigGrid = false;
+        }
+
         if (!realtime.connected) return;
         if (!GameManagerLogic.isServer) return;
 
@@ -237,11 +243,6 @@ public class GridManager : MonoBehaviour
             InstantiateBalls();
             instantiateBalls = false;
             //spawnBalls = true;
-        }
-
-        if (instantiateBigGrid) {
-            InstantiateBigTrapGrid();
-            instantiateBigGrid = false;
         }
 
         if (spawnBalls)
