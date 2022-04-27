@@ -54,6 +54,7 @@ public class TrapDeploy : MonoBehaviour
 
     public void spawnTrap(int typeOfTrap)
     {
+        /*
         selectedTrap = typeOfTrap;
         if (selectedTrap == 0) {
             this.GetComponentInParent<MeshRenderer>().material = warningMat;
@@ -73,6 +74,7 @@ public class TrapDeploy : MonoBehaviour
                 this.transform.parent.Find("Trap1").GetComponentInParent<MeshRenderer>().material = warningMat;
             }
         }
+        */
 
         if (typeOfTrap == 0) {
             tempTrap = Realtime.Instantiate("SpearTrap", new Vector3(transform.position.x, transform.position.y - 0.35f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
@@ -117,11 +119,6 @@ public class TrapDeploy : MonoBehaviour
             tempTrap.transform.GetChild(0).gameObject.AddComponent<PendulumMovement>();
             yield return new WaitForSecondsRealtime(1.5f);
         }
-
-        this.transform.parent.Find("Trap0").GetComponentInParent<MeshRenderer>().material = floorMat;
-        this.transform.parent.Find("Trap1").GetComponentInParent<MeshRenderer>().material = floorMat;
-        this.transform.parent.Find("Trap2").GetComponentInParent<MeshRenderer>().material = floorMat;
-        this.transform.parent.Find("Trap3").GetComponentInParent<MeshRenderer>().material = floorMat;
 
         Realtime.Destroy(tempTrap);
     }
