@@ -246,55 +246,56 @@ public class Lighsaber : MonoBehaviour
         
         other.GetComponent<CubeFeedback>().cubeHit = false;
 
-        
-        //No score variable to increase in Playerstat?
-        
-        //switch ((int)GetComponent<PlayerStat>()._scoreStreak)
-        //{
-        //    case 1:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 2f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 2:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 3f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 3:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 4f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 4:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 5f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 5:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 6f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 6:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 7f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 7:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 8f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 8:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 9f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 9:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 11f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //    case 10:
-        //        bladeMat.SetColor("_EmissionColor", _colour * 15f);
-        //        _blade.GetComponent<MeshRenderer>().material = bladeMat;
-        //        break;
-        //}
 
-        
-        
+        //No score variable to increase in Playerstat?
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+        {
+            switch ((int)GetComponent<PlayerStat>()._scoreStreak)
+            {
+                case 1:
+                    bladeMat.SetColor("_EmissionColor", _colour * 2f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 2:
+                    bladeMat.SetColor("_EmissionColor", _colour * 3f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 3:
+                    bladeMat.SetColor("_EmissionColor", _colour * 4f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 4:
+                    bladeMat.SetColor("_EmissionColor", _colour * 5f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 5:
+                    bladeMat.SetColor("_EmissionColor", _colour * 6f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 6:
+                    bladeMat.SetColor("_EmissionColor", _colour * 7f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 7:
+                    bladeMat.SetColor("_EmissionColor", _colour * 8f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 8:
+                    bladeMat.SetColor("_EmissionColor", _colour * 9f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 9:
+                    bladeMat.SetColor("_EmissionColor", _colour * 11f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+                case 10:
+                    bladeMat.SetColor("_EmissionColor", _colour * 15f);
+                    _blade.GetComponent<MeshRenderer>().material = bladeMat;
+                    break;
+            }
+        }
+
+
     }
 
     public static float map(float value, float leftMin, float leftMax, float rightMin, float rightMax)
