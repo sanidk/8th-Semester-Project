@@ -64,7 +64,7 @@ public class PlayerBehaviour : MonoBehaviour
                 destroyWhenLastClientLeaves = true
             });
             lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
-            lightSaber.transform.SetParent(transform);
+            //lightSaber.transform.SetParent(transform);
             lightSaberSpawned = true;
         }
 
