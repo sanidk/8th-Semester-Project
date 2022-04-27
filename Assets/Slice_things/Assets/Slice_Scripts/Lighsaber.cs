@@ -222,7 +222,7 @@ public class Lighsaber : MonoBehaviour
             _blade.GetComponent<MeshRenderer>().material = bladeMat;
             streak = 1;
 
-            if (GameManagerLogic.isServer)
+            if (GetComponent<RealtimeView>().isOwnedLocallySelf)
             {
                 playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
             }
@@ -238,7 +238,7 @@ public class Lighsaber : MonoBehaviour
         //if (!playerObject.GetComponent<PlayerStat>()) { return; }
         //playerObject.GetComponent<PlayerStat>()._scoreStreak = streak;
 
-        if (GameManagerLogic.isServer)
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
             playerObject.GetComponent<PlayerStat>()._scoreStreak++;
             other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;

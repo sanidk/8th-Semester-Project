@@ -54,7 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (GameManagerLogic.isServer && GameManagerLogic.isPlayersReady && !lightSaberSpawned)
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf && GameManagerLogic.isPlayersReady && !lightSaberSpawned)
         {
             lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
             {

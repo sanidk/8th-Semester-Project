@@ -64,10 +64,11 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (!GameManagerLogic.isServer)
         {
             return;
-        }
+        }*/
 
         if (_scoreStreak != _previousScoreStreak) { 
             _playerStatSync.SetScoreStreak(_scoreStreak);
