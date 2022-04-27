@@ -10,6 +10,8 @@ public class BallBehaviour : MonoBehaviour
     public GameObject gridManager;
     public int playerNumber;
 
+    ModifierSync modifierSync;
+
     Vector3 startPos;
     Vector3 minPos;
     Vector3 maxPos;
@@ -51,8 +53,8 @@ public class BallBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        modifierSync = GetComponent<ModifierSync>();
+
 
         //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         //transform.rotation = Quaternion.Euler(rotation);
@@ -200,6 +202,8 @@ public class BallBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        modifier = modifierSync.GetModifier();
+
         if (modifier != oldModifier)
         {
             if (modifier != 0)
