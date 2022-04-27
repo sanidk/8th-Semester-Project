@@ -15,6 +15,7 @@ public class BallBehaviour : MonoBehaviour
     Vector3 startPos;
     Vector3 minPos;
     Vector3 maxPos;
+    float cubeSize;
     public Vector3 currentPos;
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     public Vector3 dir;
@@ -74,9 +75,10 @@ public class BallBehaviour : MonoBehaviour
         isBallSpawned = true;
         transform.position = pos;
         startPos = pos;
+        
         float spacing = GridManager.gridSpacing / 2;
-        maxPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
-        minPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
+        maxPos = new Vector3(startPos.x + spacing - transform.lossyScale.x, startPos.y + spacing - transform.lossyScale.y, startPos.z + spacing - transform.lossyScale.z);
+        minPos = new Vector3(startPos.x - spacing + transform.lossyScale.x, startPos.y - spacing + transform.lossyScale.y, startPos.z - spacing + transform.lossyScale.z);
 
 
     }
@@ -86,19 +88,16 @@ public class BallBehaviour : MonoBehaviour
         
         if (playerNumber == 1)
         {
-            OppositePosition = GameManagerLogic.representationCubeSpawnLocationPlayer2.transform.position;
-            OppositeRotation = GameManagerLogic.representationCubeSpawnLocationPlayer2.transform.rotation;
+            OppositePosition = GameManagerLogic.roomClient.transform.position;
+            OppositeRotation = GameManagerLogic.roomClient.transform.rotation;
 
-        } else if (playerNumber == 2){
-            OppositePosition = GameManagerLogic.representationCubeSpawnLocationPlayer1.transform.position;
-            OppositeRotation = GameManagerLogic.representationCubeSpawnLocationPlayer1.transform.rotation;
-        }
-
-        if (overlay != null)
+        } else if (playerNumber == 2)
         {
-            Destroy(overlay);
-
+            OppositePosition = GameManagerLogic.roomServer.transform.position;
+            OppositeRotation = GameManagerLogic.roomServer.transform.rotation;
         }
+
+        
 
         switch (modifier)
         {
@@ -132,24 +131,27 @@ public class BallBehaviour : MonoBehaviour
                 break;
             case 4:
                 //Transform size and speed
-                gridManager.GetComponent<GridManager>().SetDecreaseSizeAndSpeed(5);
+                gridManager.GetComponent<GridManager>().SetEasierToHit(5);
                 if (playerNumber == 1)
                 {
-                    GameManagerLogic.roomClient.GetComponent<GridManager>().SetIncreaseSizeAndSpeed(5);
+                    GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().SetHarderToHit(5);
+                }
+                if (playerNumber == 2)
+                {
+                    GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().SetHarderToHit(5);
                 }
 
                 break;
             case 5:
-                gridManager.GetComponent<GridManager>().RandomColor();
-                if (playerNumber == 1)
-                {
-                    GameManagerLogic.roomClient.GetComponent<GridManager>().RandomColor();
-                }
+                
+                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().RandomColor();
+                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().RandomColor();
+
                 //randomize own and opponent colors
 
                 break;
             case 6:
-                //shield
+                //shield maybe use backupvar 2 for shield bool
 
                 break;
             case 7:
@@ -166,7 +168,14 @@ public class BallBehaviour : MonoBehaviour
 
 
         }
-        modifier = 0;
+
+        if (overlay != null)
+        {
+            Destroy(overlay.gameObject);
+
+        }
+
+        GetComponent<ModifierSync>().SetModifier(0);
         //maybe request permission to be able to move the box/ball
         StartCoroutine(resetBallPosition(gameObject, 1));
         
@@ -204,17 +213,19 @@ public class BallBehaviour : MonoBehaviour
     {
         modifier = modifierSync.GetModifier();
 
-        if (modifier != oldModifier)
+        if (modifier != oldModifier && modifier != 0)
         {
-            if (modifier != 0)
+            if (overlay != null)
             {
-                overlay = Instantiate(overlayObject, transform.position, transform.rotation);
-
-
-                overlay.transform.localScale = transform.localScale * 1.01f * 2;
-                overlay.transform.SetParent(gameObject.transform);
-                oldModifier = modifier;
+                Destroy(overlay.gameObject);
             }
+            overlay = Instantiate(overlayObject, transform.position, transform.rotation);
+
+
+            overlay.transform.localScale = transform.localScale * 1.01f * 2;
+            overlay.transform.SetParent(gameObject.transform);
+            oldModifier = modifier;
+            
 
             switch (modifier)
             {

@@ -310,22 +310,15 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        
+
         if (!other.GetComponent<Sliceable>())
         {
             return;
         }
 
 
-        if (other.gameObject.CompareTag("Mine"))
-        {
-            //playerObject.GetComponent<PlayerStat>()._lives--;
-            other.gameObject.GetComponent<BombBehaviour>().Trigger();
-        }
-
-        if (other.gameObject.CompareTag("Bomb"))
-        {
-            other.gameObject.GetComponent<BombBehaviour>().Despawn();
-        }
+        
 
         
 
@@ -422,6 +415,17 @@ public class Lighsaber : MonoBehaviour
             SliceCube(other);
         }
 
+        if (other.gameObject.CompareTag("Mine"))
+        {
+            //playerObject.GetComponent<PlayerStat>()._lives--;
+            other.gameObject.GetComponent<BombBehaviour>().Trigger();
+        }
+
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            other.gameObject.GetComponent<BombBehaviour>().Despawn();
+        }
+
     }
 
 
@@ -499,6 +503,9 @@ public class Lighsaber : MonoBehaviour
 
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        Destroy(other.gameObject.GetComponent<BallBehaviour>().overlayObject.gameObject);
+        //other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+
 
         StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
 

@@ -189,9 +189,9 @@ MonoBehaviour:
   isBallActive: 0
   bombMat: {fileID: 2100000, guid: 63313199196ee3e40a9f18e36401dc13, type: 2}
   mineMat: {fileID: 2100000, guid: 49dc294cc6d653e42b349ea8be287753, type: 2}
-  oneColorMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
-  sizeSpeedMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
-  randomizeColorMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
+  oneColorMat: {fileID: 2100000, guid: 0304877cfcffa6c47a5388f2eeb57ab1, type: 2}
+  sizeSpeedMat: {fileID: 2100000, guid: e192813d7552ec14ea50bd8aaa525296, type: 2}
+  randomizeColorMat: {fileID: 2100000, guid: 92fd968687e862640889b3932011cf2d, type: 2}
   shieldMat: {fileID: 2100000, guid: 2c1fc45f2a72d154d81a6fe920297cb3, type: 2}
   overlayObject: {fileID: 833622301056728408, guid: 3892e2cc07268c940ad1ef7c6159b0c0, type: 3}
   modifier: 0

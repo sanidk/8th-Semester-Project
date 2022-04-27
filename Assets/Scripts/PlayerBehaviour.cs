@@ -25,7 +25,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         gameManager = GameObject.Find("GameManager");
 
-        
+        GameManagerLogic.PlayerObject = transform.gameObject;
+
+
+
     }
 
     // Update is called once per frame

@@ -274,8 +274,11 @@ public class GridManager : MonoBehaviour
                     //SetSpawnzonesInUseArray(gridNumber, true);
                     //ball.GetComponent<BallBehaviour>().isBallActive = true;
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
-                    
 
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
+                    }
 
 
                 }
@@ -355,42 +358,22 @@ public class GridManager : MonoBehaviour
 
     }
 
-    public void SetIncreaseSizeAndSpeed(float seconds)
+    public void SetEasierToHit(float seconds)
     {
-        StartCoroutine(IncreaseSizeAndSpeed(seconds));
+        StartCoroutine(EasierToHit(seconds));
     }
 
-    public void SetDecreaseSizeAndSpeed(float seconds)
+    public void SetHarderToHit(float seconds)
     {
-        StartCoroutine(DecreaseSizeAndSpeed(seconds));
+        StartCoroutine(HarderToHit(seconds));
     }
 
-    public IEnumerator IncreaseSizeAndSpeed(float seconds)
+    public IEnumerator EasierToHit(float seconds)
     {
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.transform.localScale *= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
-
-        }
-
-        yield return new WaitForSeconds(seconds);
-
-        for (int i = 0; i < ballsArray.Length; i++)
-        {
-            ballsArray[i].transform.transform.localScale /= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
-        }
-
-    }
-
-    public IEnumerator DecreaseSizeAndSpeed(float seconds)
-    {
-
-        for (int i = 0; i < ballsArray.Length; i++)
-        {
-            ballsArray[i].transform.transform.localScale /= 2;
+            ballsArray[i].transform.localScale *= 2;
             ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
 
         }
@@ -399,8 +382,28 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.transform.localScale *= 2;
+            ballsArray[i].transform.transform.localScale /= 2;
             ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+        }
+
+    }
+
+    public IEnumerator HarderToHit(float seconds)
+    {
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.localScale /= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+
+        }
+
+        yield return new WaitForSeconds(seconds);
+
+        for (int i = 0; i < ballsArray.Length; i++)
+        {
+            ballsArray[i].transform.localScale *= 2;
+            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
         }
 
     }

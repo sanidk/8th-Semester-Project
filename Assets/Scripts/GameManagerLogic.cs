@@ -9,6 +9,8 @@ public class GameManagerLogic : MonoBehaviour
     public static GameObject roomClient;
     public static GameObject roomActive;
 
+    public static GameObject PlayerObject;
+
     public GameLogic syncVariablesObject;
 
     public GameObject networkManager;

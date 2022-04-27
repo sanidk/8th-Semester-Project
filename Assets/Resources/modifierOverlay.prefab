@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 1618354489151163902}
   - component: {fileID: 7184975379208395189}
   - component: {fileID: 1661243257178515602}
-  - component: {fileID: -426249597702944890}
-  - component: {fileID: 5567449640205564107}
   m_Layer: 0
   m_Name: modifierOverlay
   m_TagString: Untagged
@@ -97,44 +95,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-426249597702944890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833622301056728408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -363599832, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _realtime: {fileID: 0}
-  _sceneViewUUID: 
-  _viewUUID: 
-  _sceneViewPreventOwnershipTakeover: 0
-  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
-  _sceneViewDestroyWhenOwnerOrLastClientLeavesMigrated: 0
-  _sceneViewDestroyWhenLastClientLeaves: 1
-  _components:
-  - componentID: 1
-    component: {fileID: 5567449640205564107}
-  _childViews: []
---- !u!114 &5567449640205564107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833622301056728408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1029778088, guid: c424820a8880b8845bda10ec0b41507e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolate: 1
-  _syncPosition: 1
-  _syncRotation: 1
-  _syncScale: 1
-  _syncVelocity: 1
-  _maintainOwnershipWhileSleeping: 0

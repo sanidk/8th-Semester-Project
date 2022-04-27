@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 207595119017403326}
   - component: {fileID: 4526487306220763041}
   - component: {fileID: 5176783160876333136}
-  - component: {fileID: 8770859615183769337}
+  - component: {fileID: 3122170065058798209}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Bomb
@@ -100,8 +100,8 @@ MonoBehaviour:
   _useGravity: 0
   _shareVertices: 0
   _smoothVertices: 0
---- !u!64 &8770859615183769337
-MeshCollider:
+--- !u!135 &3122170065058798209
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,10 +110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4711208715938537054, guid: d79ff299b948b2547b8727711a8ffe75, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.010000002
+  m_Center: {x: -0.0000000013969839, y: -0.000000002328306, z: 0}
 --- !u!1 &2881965798943090056
 GameObject:
   m_ObjectHideFlags: 0

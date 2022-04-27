@@ -132,13 +132,6 @@ public class BombBehaviour : MonoBehaviour
         Despawn();
     }
 
-    public void Despawn()
-    {
-        
-
-        Realtime.Destroy(gameObject);
-    }
-
     private void Explode()
     {
         //throw new System.NotImplementedException();
@@ -146,6 +139,15 @@ public class BombBehaviour : MonoBehaviour
         Despawn();
         //remove life by explosion.
     }
+
+    public void Despawn()
+    {
+        
+
+        Realtime.Destroy(gameObject);
+    }
+
+    
 
 
 }
