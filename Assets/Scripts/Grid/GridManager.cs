@@ -44,6 +44,8 @@ public class GridManager : MonoBehaviour
     public int trapNameDesignator = 0;
     public int smallTrapNameDesignator = 0;
 
+    bool instantiateBigGrid = true;
+
     //SPAWNING
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     bool instantiateBalls = true;
@@ -142,38 +144,6 @@ public class GridManager : MonoBehaviour
             }
         }
 
-
-        // Big trap grid
-
-        trapCubePrefab = Resources.Load("trapCube") as GameObject;
-
-        trapCubeList = new List<GameObject>();
-        trapDeploy = GetComponent<TrapDeploy>();
-
-        trapGridSpacing = gridLength / trapGridResolution;
-        trapGridSize = (int)Mathf.Pow(trapGridResolution, 2);
-
-        for (int i = 0; i < trapGridResolution; i++) {
-            for (int j = 0; j < trapGridResolution; j++) {
-
-                float xpos = gridStart.x + (trapGridSpacing / 2) + (i * trapGridSpacing);
-                float zpos = gridStart.z + (trapGridSpacing / 2) + (j * trapGridSpacing);
-
-                trapCubeList.Add(Instantiate(trapCubePrefab, new Vector3(xpos, -0.03f, zpos), transform.rotation));
-            }
-        }
-        
-        foreach(GameObject trapCube in trapCubeList) {
-            trapCube.name = "Trap" + trapNameDesignator;
-            trapCube.AddComponent<TrapDeploy>();
-            trapCube.AddComponent<RealtimeView>();
-            trapCube.AddComponent<RealtimeTransform>();
-            trapCube.transform.SetParent(gameObject.transform);
-            trapNameDesignator++;
-        }
-
-        // Big trap grid end
-
         // Small trap grid
 
         smallTrapCubePrefab = Resources.Load("smallTrapCube") as GameObject;
@@ -206,6 +176,39 @@ public class GridManager : MonoBehaviour
 
     }
 
+    void InstantiateBigTrapGrid() {
+        trapCubePrefab = Resources.Load("trapCube") as GameObject;
+
+        trapCubeList = new List<GameObject>();
+        trapDeploy = GetComponent<TrapDeploy>();
+
+        trapGridSpacing = gridLength / trapGridResolution;
+        trapGridSize = (int)Mathf.Pow(trapGridResolution, 2);
+
+        for (int i = 0; i < trapGridResolution; i++) {
+            for (int j = 0; j < trapGridResolution; j++) {
+
+                float xpos = gridStart.x + (trapGridSpacing / 2) + (i * trapGridSpacing);
+                float zpos = gridStart.z + (trapGridSpacing / 2) + (j * trapGridSpacing);
+
+                trapCubeList.Add(Realtime.Instantiate("trapCube", new Vector3(xpos, -0.03f, zpos), transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            }));
+            }
+        }   
+        
+        foreach(GameObject trapCube in trapCubeList) {
+            trapCube.name = "Trap" + trapNameDesignator;
+            trapCube.AddComponent<TrapDeploy>();
+            trapCube.transform.SetParent(gameObject.transform);
+            trapNameDesignator++;
+        }
+    }
+
     void InstantiateBalls()
     {
         for (int i = 0; i < ballsAmountMax; i++)
@@ -234,6 +237,11 @@ public class GridManager : MonoBehaviour
             InstantiateBalls();
             instantiateBalls = false;
             //spawnBalls = true;
+        }
+
+        if (instantiateBigGrid) {
+            InstantiateBigTrapGrid();
+            instantiateBigGrid = false;
         }
 
         if (spawnBalls)
