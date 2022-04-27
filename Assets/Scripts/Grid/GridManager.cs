@@ -191,13 +191,7 @@ public class GridManager : MonoBehaviour
                 float xpos = gridStart.x + (trapGridSpacing / 2) + (i * trapGridSpacing);
                 float zpos = gridStart.z + (trapGridSpacing / 2) + (j * trapGridSpacing);
 
-                trapCubeList.Add(Realtime.Instantiate("trapCube", new Vector3(xpos, -0.03f, zpos), transform.rotation, new Realtime.InstantiateOptions
-            {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            }));
+                trapCubeList.Add(Instantiate(trapCubePrefab, new Vector3(xpos, -0.03f, zpos), transform.rotation));
             }
         }   
         
