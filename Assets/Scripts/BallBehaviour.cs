@@ -126,7 +126,8 @@ public class BallBehaviour : MonoBehaviour
                 break;
             case 3:
                 //One Color All
-                gridManager.GetComponent<GridManager>().SetOneColorAll(5);
+                Color color = GetComponent<ColorSync>().GetColor();
+                gridManager.GetComponent<GridManager>().SetOneColorAll(5, color);
                 
                 break;
             case 4:
@@ -158,13 +159,7 @@ public class BallBehaviour : MonoBehaviour
                 //maybe a random question mark trap that can summon a trap for yourself or opponent or mystery item
 
                 break;
-            case 8:
-
-                break;
-
-            
-
-
+           
 
 
         }

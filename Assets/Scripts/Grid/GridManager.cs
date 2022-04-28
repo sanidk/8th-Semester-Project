@@ -300,36 +300,14 @@ public class GridManager : MonoBehaviour
     //    return gridNumber;
     //}
 
-    public void SetOneColorAll(float seconds)
-    {
-        StartCoroutine(oneColorAll(seconds));
+    public void SetOneColorAll(float seconds, Color color) {
+        StartCoroutine(oneColorAll(seconds, color));
     }
 
-    public IEnumerator oneColorAll(float seconds)
+    public IEnumerator oneColorAll(float seconds, Color color)
     {
-        Color color;
 
-        int randomNumber = Random.Range(0, 4);
-        if (randomNumber == 0)
-        {
-            //materialOfObject.color = Color.green;
-            color = Color.green;
-        }
-        else if (randomNumber == 1)
-        {
-            //materialOfObject.color = Color.blue;
-            color = Color.blue;
-        }
-        else if (randomNumber == 2)
-        {
-            //materialOfObject.color = Color.red;
-            color = Color.red;
-        }
-        else
-        {
-            //materialOfObject.color = Color.yellow;
-            color = Color.yellow;
-        }
+        
 
 
         for (int i = 0; i<ballsArray.Length; i++)
