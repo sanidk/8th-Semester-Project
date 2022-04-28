@@ -194,6 +194,7 @@ public class BallBehaviour : MonoBehaviour
         yield return new WaitForSeconds(time);
         obj.GetComponent<MeshRenderer>().enabled = true;
         obj.GetComponent<BoxCollider>().enabled = true;
+        GetComponentInChildren<MeshRenderer>().enabled = true;
         transform.position = instantiatePosition;
         isBallSpawned = false;
         isBallActive = false;
