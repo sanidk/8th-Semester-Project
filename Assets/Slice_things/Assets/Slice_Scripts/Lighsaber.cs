@@ -231,6 +231,8 @@ public class Lighsaber : MonoBehaviour
             if (GetComponent<RealtimeView>().isOwnedLocallySelf)
             {
                 playerObject.GetComponent<PlayerStat>()._scoreStreak = 1;
+                other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
+                other.GetComponent<CubeFeedback>().cubeHit = false;
             }
             
             //other.GetComponent<CubeFeedback>().colour = _colour;
@@ -248,6 +250,29 @@ public class Lighsaber : MonoBehaviour
         {
             playerObject.GetComponent<PlayerStat>()._scoreStreak++;
             other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
+            if (playerObject.GetComponent<PlayerStat>()._scoreStreak >= 10)
+            {
+                if (swordColour() == Color.red)
+                {
+                    playerObject.GetComponent<PlayerStat>()._backupVariable3 = 1f;
+                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
+                }
+                else if (swordColour() == Color.yellow)
+                {
+                    playerObject.GetComponent<PlayerStat>()._backupVariable4 = 1f;
+                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
+                }
+                else if (swordColour() == Color.green)
+                {
+                    playerObject.GetComponent<PlayerStat>()._backupVariable5 = 1f;
+                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
+                }
+                else if (swordColour() == Color.blue)
+                {
+                    playerObject.GetComponent<PlayerStat>()._backupVariable6 = 1f;
+                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
+                }
+            }
         }
         
         other.GetComponent<CubeFeedback>().cubeHit = false;
@@ -521,5 +546,10 @@ public class Lighsaber : MonoBehaviour
 
         }
 
+    }
+
+    public Color swordColour()
+    {
+        return _colour;
     }
 }

@@ -7,13 +7,14 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     public GameObject networkManager;
-    private int streakToSendTrap = 3;
+    private int streakToSendTrap = 10;
 
     PlayerStat playerStat;
     GameObject gameManager;
     RealtimeAvatarManager manager;
     public Dictionary<int, RealtimeAvatar> avatars;
     GameObject lightSaber;
+    GameObject ProgressPillar;
     bool lightSaberSpawned;
 
 
@@ -68,6 +69,16 @@ public class PlayerBehaviour : MonoBehaviour
             });
             lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
             //lightSaber.transform.SetParent(transform);
+            ProgressPillar = Realtime.Instantiate("ProgressPillar", transform.position + new Vector3(0, 0, 2.5f), Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+            {
+
+                ownedByClient = true,
+                preventOwnershipTakeover = false,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+            ProgressPillar.GetComponent<ProgressPillar>().player = gameObject;
+            ProgressPillar.GetComponent<ProgressPillar>().lightSaber = lightSaber;
             lightSaberSpawned = true;
         }
 
