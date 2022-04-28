@@ -49,7 +49,7 @@ public class BallBehaviour : MonoBehaviour
     public int modifier;
     public int oldModifier;
 
-    GameObject overlay;
+    public GameObject overlay;
 
     // Start is called before the first frame update
     void Start()

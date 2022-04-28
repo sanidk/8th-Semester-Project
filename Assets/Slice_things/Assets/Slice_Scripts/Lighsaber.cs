@@ -503,7 +503,7 @@ public class Lighsaber : MonoBehaviour
 
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
-        Destroy(other.gameObject.GetComponent<BallBehaviour>().overlayObject.gameObject);
+        Destroy(other.gameObject.GetComponent<BallBehaviour>().overlay.gameObject);
         //other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
 
 
