@@ -103,7 +103,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void spawnSendLaserCubeTrap(int playerOwner) {
 
-
         Vector3 position;
         Quaternion rotation;
 

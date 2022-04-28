@@ -59,7 +59,7 @@ public class GridManager : MonoBehaviour
     float speedModifier = 4;
     float sizeModifier = 1.5f;
 
-    List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
+    public List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
 
 
     // Start is called before the first frame update
@@ -110,46 +110,94 @@ public class GridManager : MonoBehaviour
         int depthcounter = 1;
         int heightcounter = 0;
 
-
-        for (int x = 0; x < spawnzonesArray.Length; x++)
+        if (transform.parent.gameObject.name == "RoomPlayer1")
         {
-            widthcounter++;
-            
-
-
-            if (depthcounter < 0 || depthcounter > 5)
+            for (int x = 0; x < spawnzonesArray.Length; x++)
             {
-                spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+                widthcounter++;
+
+
+
+                if (depthcounter < 0 || depthcounter > 5)
+                {
+                    spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+                }
+                else if (widthcounter < 3 || widthcounter > 6)
+                {
+                    spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+                }
+
+
+
+                if (widthcounter == gridResolution)
+                {
+                    heightcounter++;
+                    widthcounter = 0;
+
+                }
+
+                if (heightcounter == gridResolution)
+                {
+                    depthcounter++;
+                    heightcounter = 0;
+                }
+
+
             }
-            else if (widthcounter < 3 || widthcounter > 6) {
-                spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
-            }
 
-
-
-            if (widthcounter == gridResolution)
+            for (int x = 0; x < spawnzonesArrayWithoutMiddle.Count; x++)
             {
-                heightcounter++;
-                widthcounter = 0;
-                
+                if (gridGraphicToggle)
+                {
+                    GameObject cube = Instantiate(cubePrefab, new Vector3(spawnzonesArrayWithoutMiddle[x].x, spawnzonesArrayWithoutMiddle[x].y, spawnzonesArrayWithoutMiddle[x].z), transform.rotation);
+                    cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
+                }
             }
-
-            if (heightcounter == gridResolution) {
-                depthcounter++;
-                heightcounter = 0;
-            }
-
-
-        }
-
-        for (int x = 0; x < spawnzonesArrayWithoutMiddle.Count; x++)
+        } else if (transform.parent.gameObject.name == "RoomPlayer2")
         {
-            if (gridGraphicToggle)
+            for (int x = 0; x < spawnzonesArray.Length; x++)
             {
-                GameObject cube = Instantiate(cubePrefab, new Vector3(spawnzonesArrayWithoutMiddle[x].x, spawnzonesArrayWithoutMiddle[x].y, spawnzonesArrayWithoutMiddle[x].z), transform.rotation);
-                cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
+                widthcounter++;
+
+
+
+                if (depthcounter < 3 || depthcounter > gridResolution)
+                {
+                    spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+                }
+                else if (widthcounter < 3 || widthcounter > 6)
+                {
+                    spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
+                }
+
+
+
+                if (widthcounter == gridResolution)
+                {
+                    heightcounter++;
+                    widthcounter = 0;
+
+                }
+
+                if (heightcounter == gridResolution)
+                {
+                    depthcounter++;
+                    heightcounter = 0;
+                }
+
+
+            }
+
+            for (int x = 0; x < spawnzonesArrayWithoutMiddle.Count; x++)
+            {
+                if (gridGraphicToggle)
+                {
+                    GameObject cube = Instantiate(cubePrefab, new Vector3(spawnzonesArrayWithoutMiddle[x].x, spawnzonesArrayWithoutMiddle[x].y, spawnzonesArrayWithoutMiddle[x].z), transform.rotation);
+                    cube.transform.localScale = new Vector3(gridSpacing, gridSpacing, gridSpacing);
+                }
             }
         }
+        
 
         // Small trap grid
 

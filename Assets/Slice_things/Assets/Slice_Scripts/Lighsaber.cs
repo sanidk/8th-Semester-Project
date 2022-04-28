@@ -101,7 +101,7 @@ public class Lighsaber : MonoBehaviour
             playerNumber = 1;
         }
         else {
-            playerNumber = 0;
+            playerNumber = 2;
         }
 
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;

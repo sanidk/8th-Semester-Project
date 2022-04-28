@@ -86,19 +86,24 @@ public class BallBehaviour : MonoBehaviour
     public void DespawnBall()
     {
         //GetComponent<RealtimeTransform>().RequestOwnership();
-
+        GridManager oppositeGridManager = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>();
         if (playerNumber == 1)
         {
             OppositePosition = GameManagerLogic.roomClient.transform.position;
             OppositeRotation = GameManagerLogic.roomClient.transform.rotation;
+            oppositeGridManager = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>();
 
         } else if (playerNumber == 2)
         {
             OppositePosition = GameManagerLogic.roomServer.transform.position;
             OppositeRotation = GameManagerLogic.roomServer.transform.rotation;
+            oppositeGridManager = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>();
         }
 
-        
+        int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
+        Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
+
+
 
         switch (modifier)
         {
@@ -107,23 +112,33 @@ public class BallBehaviour : MonoBehaviour
                 break;
             case 1:
                 //bomb
-                Realtime.Instantiate("Bomb", OppositePosition, OppositeRotation, new Realtime.InstantiateOptions
+                
+
+                GameObject bomb = Realtime.Instantiate("Bomb", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
                 {
                     ownedByClient = false,
                     preventOwnershipTakeover = false,
                     destroyWhenOwnerLeaves = false,
                     destroyWhenLastClientLeaves = true
                 });
+
+                bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
+
                 break;
             case 2:
                 //mine
-                Realtime.Instantiate("Mine", OppositePosition, OppositeRotation, new Realtime.InstantiateOptions
+
+
+                GameObject mine = Realtime.Instantiate("Mine", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
                 {
                     ownedByClient = false,
                     preventOwnershipTakeover = false,
                     destroyWhenOwnerLeaves = false,
                     destroyWhenLastClientLeaves = true
                 });
+
+                mine.GetComponent<BombBehaviour>().midPos = OppositePosition;
+
                 break;
             case 3:
                 //One Color All

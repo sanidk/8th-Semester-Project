@@ -11,7 +11,7 @@ public class BombBehaviour : MonoBehaviour
     //public int playerOwnership;
     GameObject gameManager;
     GameObject gridManager;
-
+    public Vector3 midPos;
     Vector3 startPos;
     Vector3 minPos;
     Vector3 maxPos;
@@ -43,8 +43,8 @@ public class BombBehaviour : MonoBehaviour
         spawnTime = Time.time;
 
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
-        maxPos = new Vector3(startPos.x + spacing, startPos.y + spacing, startPos.z + spacing);
-        minPos = new Vector3(startPos.x - spacing, startPos.y - spacing, startPos.z - spacing);
+        maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
+        minPos = new Vector3(midPos.x - spacing, midPos.y - spacing, midPos.z - spacing);
 
     }
 
