@@ -30,7 +30,7 @@ public class BombBehaviour : MonoBehaviour
     public static float cooldown = 3;
 
     float spawnTime;
-    public float eventTime = 10;
+    public float eventTime = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +60,8 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                //EXPLODE
+                //
+                Despawn();
             }
 
             if (gameObject.CompareTag("Mine"))
