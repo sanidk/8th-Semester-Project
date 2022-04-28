@@ -56,6 +56,9 @@ public class GridManager : MonoBehaviour
     int ballsAmountMax = 50;
     GameObject[] ballsArray;
 
+    float speedModifier = 4;
+    float sizeModifier = 1.5f;
+
     List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
 
 
@@ -233,11 +236,11 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManagerLogic.isServer)
+        if (gameObject.transform.parent.name == "RoomPlayer1")
         {
             playerNumber = 1;
         }
-        else
+        else if (gameObject.transform.parent.name == "RoomPlayer2")
         {
             playerNumber = 2;
         }
@@ -351,8 +354,8 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.localScale *= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
+            ballsArray[i].transform.localScale *= sizeModifier;
+            ballsArray[i].GetComponent<BallBehaviour>().speed /= speedModifier;
 
         }
 
@@ -360,8 +363,8 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.transform.localScale /= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+            ballsArray[i].transform.transform.localScale /= sizeModifier;
+            ballsArray[i].GetComponent<BallBehaviour>().speed *= speedModifier;
         }
 
     }
@@ -371,8 +374,8 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.localScale /= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed *= 2;
+            ballsArray[i].transform.localScale /= sizeModifier;
+            ballsArray[i].GetComponent<BallBehaviour>().speed *= speedModifier;
 
         }
 
@@ -380,8 +383,8 @@ public class GridManager : MonoBehaviour
 
         for (int i = 0; i < ballsArray.Length; i++)
         {
-            ballsArray[i].transform.localScale *= 2;
-            ballsArray[i].GetComponent<BallBehaviour>().speed /= 2;
+            ballsArray[i].transform.localScale *= sizeModifier;
+            ballsArray[i].GetComponent<BallBehaviour>().speed /= speedModifier;
         }
 
     }

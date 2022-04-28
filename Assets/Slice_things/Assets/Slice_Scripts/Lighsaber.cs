@@ -210,6 +210,7 @@ public class Lighsaber : MonoBehaviour
             return;
         }
 
+        
         if (!other.GetComponent<Sliceable>())
         {
             return;
@@ -299,8 +300,6 @@ public class Lighsaber : MonoBehaviour
                     break;
             }
         }
-
-
     }
 
     public static float map(float value, float leftMin, float leftMax, float rightMin, float rightMax)
@@ -311,18 +310,10 @@ public class Lighsaber : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         
-
-        if (!other.GetComponent<Sliceable>())
-        {
-            return;
-        }
-
-
-        
-
-        
-
-
+        //if (!other.GetComponent<Sliceable>())
+        //{
+        //    return;
+        //}
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
@@ -453,9 +444,7 @@ public class Lighsaber : MonoBehaviour
 
         }
 
-
     }
-
 
 
     void SliceCube(Collider other) {
@@ -503,9 +492,10 @@ public class Lighsaber : MonoBehaviour
 
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<BoxCollider>().enabled = false;
-        other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-        Destroy(other.gameObject.GetComponent<BallBehaviour>().overlay.gameObject);
-        //other.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        
+        Destroy(other.gameObject.GetComponent<BallBehaviour>().overlay);
+
+        //other.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
 
         StartCoroutine(reEnableMeshRenderer(other.gameObject, 2));
@@ -524,7 +514,12 @@ public class Lighsaber : MonoBehaviour
         yield return new WaitForSeconds(time);
         obj.GetComponent<MeshRenderer>().enabled = true;
         obj.GetComponent<BoxCollider>().enabled = true;
+        if (obj.GetComponent<BallBehaviour>().overlay != null)
+        {
+            obj.GetComponent<BallBehaviour>().overlay.GetComponent<MeshRenderer>().enabled = true;
+            obj.GetComponent<BallBehaviour>().overlay.GetComponent<SphereCollider>().enabled = true;
 
+        }
 
     }
 }

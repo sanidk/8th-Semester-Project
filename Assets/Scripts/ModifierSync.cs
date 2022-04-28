@@ -6,10 +6,15 @@ using Normal.Realtime;
 public class ModifierSync : RealtimeComponent<ModifierSyncModel>
 {
 
-    BallBehaviour _ballBehaviour;
+    public BallBehaviour _ballBehaviour;
 
     // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    void Awake()
     {
         _ballBehaviour = GetComponent<BallBehaviour>();
     }

@@ -85,7 +85,8 @@ public class BallBehaviour : MonoBehaviour
 
     public void DespawnBall()
     {
-        
+        //GetComponent<RealtimeTransform>().RequestOwnership();
+
         if (playerNumber == 1)
         {
             OppositePosition = GameManagerLogic.roomClient.transform.position;
@@ -137,7 +138,7 @@ public class BallBehaviour : MonoBehaviour
                 {
                     GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().SetHarderToHit(5);
                 }
-                if (playerNumber == 2)
+                else if (playerNumber == 2)
                 {
                     GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().SetHarderToHit(5);
                 }
@@ -190,6 +191,9 @@ public class BallBehaviour : MonoBehaviour
         obj.GetComponent<MeshRenderer>().enabled = true;
         obj.GetComponent<BoxCollider>().enabled = true;
         GetComponentInChildren<MeshRenderer>().enabled = true;
+        GetComponentInChildren<SphereCollider>().enabled = true;
+
+        //obj.GetComponent
         transform.position = instantiatePosition;
         isBallSpawned = false;
         isBallActive = false;
@@ -220,7 +224,6 @@ public class BallBehaviour : MonoBehaviour
 
             overlay.transform.localScale = transform.localScale * 1.01f * 2;
             overlay.transform.SetParent(gameObject.transform);
-            oldModifier = modifier;
             
 
             switch (modifier)
@@ -247,8 +250,11 @@ public class BallBehaviour : MonoBehaviour
 
 
             }
+
+            oldModifier = modifier;
+
         }
-        
+
 
 
         if (!GameManagerLogic.isServer) {
