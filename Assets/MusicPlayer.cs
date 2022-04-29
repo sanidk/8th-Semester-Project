@@ -12,6 +12,7 @@ public class MusicPlayer : MonoBehaviour
     bool isLoopPlayed;
     bool isBuildPlayed;
     bool isBuildStopped;
+    bool isMainPlaying;
 
 
 
@@ -39,10 +40,12 @@ public class MusicPlayer : MonoBehaviour
             
         }
 
-        if (isBuildPlayed && !build.isPlaying)
+        if (isBuildPlayed && !build.isPlaying && !isMainPlaying)
         {
+            isMainPlaying = true;
             //isBuildStopped = true;
             main.Play();
+
         }
 
         
