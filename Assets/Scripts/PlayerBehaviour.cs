@@ -35,8 +35,11 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)
         {
+            
+
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
                 int randomInt = Random.Range(0, 4);
