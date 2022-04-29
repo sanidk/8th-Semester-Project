@@ -42,22 +42,22 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 if (playerStat._backupVariable3 == 1f)
                 {
-                    randomTrap = 1;
+                    randomTrap = 0;
                     playerStat._backupVariable3 = 0;
                 }
                 else if (playerStat._backupVariable4 == 1f)
                 {
-                    randomTrap = 2;
+                    randomTrap = 1;
                     playerStat._backupVariable4 = 0;
                 }
                 else if (playerStat._backupVariable5 == 1f)
                 {
-                    randomTrap = 3;
+                    randomTrap = 2;
                     playerStat._backupVariable5 = 0;
                 }
                 else if (playerStat._backupVariable6 == 1f)
                 {
-                    randomTrap = 4;
+                    randomTrap = 3;
                     playerStat._backupVariable6 = 0;
                 }
                 int randomInt = Random.Range(0, 4);
@@ -75,22 +75,22 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     if (playerStat._backupVariable3 == 1f)
                     {
-                        randomTrap = 1;
+                        randomTrap = 0;
                         playerStat._backupVariable3 = 0;
                     }
                     else if (playerStat._backupVariable4 == 1f)
                     {
-                        randomTrap = 2;
+                        randomTrap = 1;
                         playerStat._backupVariable4 = 0;
                     }
                     else if (playerStat._backupVariable5 == 1f)
                     {
-                        randomTrap = 3;
+                        randomTrap = 2;
                         playerStat._backupVariable5 = 0;
                     }
                     else if (playerStat._backupVariable6 == 1f)
                     {
-                        randomTrap = 4;
+                        randomTrap = 3;
                         playerStat._backupVariable6 = 0;
                     }
                 int randomInt = Random.Range(0, 4);
