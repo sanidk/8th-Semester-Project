@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 6637459861319256577}
   - component: {fileID: 4632969977605942658}
   - component: {fileID: 8969845770555046301}
-  - component: {fileID: 395678877107795564}
   - component: {fileID: 7637601585443591357}
   - component: {fileID: 6488347338184590196}
   - component: {fileID: 6488347338184590195}
@@ -169,23 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &395678877107795564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6488347338184590193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74b9b79e7d79c048a3f5f2f0e37119d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isSolid: 1
-  _reverseWindTriangles: 0
-  _useGravity: 0
-  _shareVertices: 0
-  _smoothVertices: 0
 --- !u!135 &7637601585443591357
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -253,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+  midPos: {x: 0, y: 0, z: 0}
   currentPos: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
   gridPosition: 0

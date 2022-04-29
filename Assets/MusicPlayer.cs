@@ -9,7 +9,7 @@ public class MusicPlayer : MonoBehaviour
     public AudioSource build;
     public AudioSource main;
 
-    float volume = 0.5f;
+    float volume = 0.3f;
 
     bool isLoopPlayed;
     bool isBuildPlayed;
