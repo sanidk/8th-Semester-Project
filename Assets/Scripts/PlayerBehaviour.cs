@@ -16,7 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject lightSaber;
     GameObject ProgressPillar;
     bool lightSaberSpawned;
-    int randomTrap
+    int randomTrap;
 
 
     // Start is called before the first frame update
@@ -71,31 +71,29 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
-                if (playerStat._scoreStreak >= streakToSendTrap)
+                if (playerStat._backupVariable3 == 1f)
                 {
-                    if (playerStat._backupVariable3 == 1f)
-                    {
-                        randomTrap = 0;
-                        playerStat._backupVariable3 = 0;
-                    }
-                    else if (playerStat._backupVariable4 == 1f)
-                    {
-                        randomTrap = 1;
-                        playerStat._backupVariable4 = 0;
-                    }
-                    else if (playerStat._backupVariable5 == 1f)
-                    {
-                        randomTrap = 2;
-                        playerStat._backupVariable5 = 0;
-                    }
-                    else if (playerStat._backupVariable6 == 1f)
-                    {
-                        randomTrap = 3;
-                        playerStat._backupVariable6 = 0;
-                    }
+                    randomTrap = 0;
+                    playerStat._backupVariable3 = 0;
+                }
+                else if (playerStat._backupVariable4 == 1f)
+                {
+                    randomTrap = 1;
+                    playerStat._backupVariable4 = 0;
+                }
+                else if (playerStat._backupVariable5 == 1f)
+                {
+                    randomTrap = 2;
+                    playerStat._backupVariable5 = 0;
+                }
+                else if (playerStat._backupVariable6 == 1f)
+                {
+                    randomTrap = 3;
+                    playerStat._backupVariable6 = 0;
+                }
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
-                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 spawnSendLaserCubeTrap(2);
                 playerStat._scoreStreak = 0;
             }
