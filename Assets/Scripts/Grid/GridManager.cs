@@ -57,7 +57,7 @@ public class GridManager : MonoBehaviour
     GameObject[] ballsArray;
 
     float speedModifier = 4;
-    float sizeModifier = 1.5f;
+    float sizeModifier = 1.25f;
 
     public List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
 
@@ -117,12 +117,12 @@ public class GridManager : MonoBehaviour
                 widthcounter++;
 
 
-
+                
                 if (depthcounter < 0 || depthcounter > 5)
                 {
                     spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
                 }
-                else if (widthcounter < 3 || widthcounter > 6)
+                else if ((widthcounter < 3 || widthcounter > 6) && depthcounter > 3)
                 {
                     spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
                 }
@@ -160,12 +160,12 @@ public class GridManager : MonoBehaviour
                 widthcounter++;
 
 
-
+                
                 if (depthcounter < 3 || depthcounter > gridResolution)
                 {
                     spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
                 }
-                else if (widthcounter < 3 || widthcounter > 6)
+                else if ((widthcounter < 3 || widthcounter > 6) && depthcounter < 5)
                 {
                     spawnzonesArrayWithoutMiddle.Add(spawnzonesArray[x]);
                 }
