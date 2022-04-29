@@ -274,10 +274,13 @@ public class GridManager : MonoBehaviour
             ballsArray[i].transform.SetParent(gameObject.transform);
 
             ballsArray[i].GetComponent<BallBehaviour>().gridManager = transform.gameObject;
+            
+            /*
             if (Random.Range(0, 2) == 0)
             {
                 ballsArray[i].GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6)); //1-7
             }
+            */
         }
     }
 
