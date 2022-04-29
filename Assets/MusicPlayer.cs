@@ -9,6 +9,8 @@ public class MusicPlayer : MonoBehaviour
     public AudioSource build;
     public AudioSource main;
 
+    float volume = 0.5f;
+
     bool isLoopPlayed;
     bool isBuildPlayed;
     bool isBuildStopped;
@@ -20,7 +22,11 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        intro.volume = volume;
+        introloop.volume = volume;
+        build.volume = volume;
+        main.volume = volume;
+
     }
 
     // Update is called once per frame
