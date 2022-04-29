@@ -60,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && GameManagerLogic.isPlayersReady && !lightSaberSpawned)
         {
-            lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            lightSaber = Realtime.Instantiate("Lighsaber_final_final", transform.position + new Vector3(0, 1f, 0), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = true,
                 preventOwnershipTakeover = false,
