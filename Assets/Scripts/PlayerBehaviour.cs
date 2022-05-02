@@ -44,7 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
         //{
         //    return;
         //}
-        if (Application.platform == RuntimePlatform.Android)
+        if (Application.platform != RuntimePlatform.Android)
         {
             playerNumber = 0;
         } else if (playerStat._backupVariable1)
