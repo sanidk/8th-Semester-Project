@@ -334,11 +334,26 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+
         //if (!other.GetComponent<Sliceable>())
         //{
         //    return;
         //}
+        if (Application.platform != RuntimePlatform.Android)
+        {
+            if (other.CompareTag("Cube")){
+                if (playerObject.GetComponent<PlayerBehaviour>().playerNumber == 1)
+                {
+                    TelemetryData.cubes1++;
+                }
+                else if (playerObject.GetComponent<PlayerBehaviour>().playerNumber == 2)
+                {
+                    TelemetryData.cubes2++;
+                }
+
+            }
+        }
+       
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
@@ -429,6 +444,7 @@ public class Lighsaber : MonoBehaviour
         else
         {
             SliceCube(other);
+            
         }
 
         if (other.gameObject.CompareTag("Mine"))

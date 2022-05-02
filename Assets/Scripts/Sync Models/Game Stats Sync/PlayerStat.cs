@@ -93,6 +93,21 @@ public class PlayerStat : MonoBehaviour
         {
             _playerStatSync.SetLives(_lives);
             _previousLives = _lives;
+
+            if (Application.platform != RuntimePlatform.Android)
+            {
+                
+                    if (GetComponent<PlayerBehaviour>().playerNumber == 1)
+                    {
+                        TelemetryData.lives1 = _lives;
+                    }
+                    else if (GetComponent<PlayerBehaviour>().playerNumber == 2)
+                    {
+                        TelemetryData.lives2 = _lives;
+                }
+
+                
+            }
         }
         if (_scoreStreak != _previousScoreStreak)
         {

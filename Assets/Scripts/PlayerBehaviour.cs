@@ -5,7 +5,7 @@ using Normal.Realtime;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-
+    public int playerNumber;
     public GameObject networkManager;
     private int streakToSendTrap = 10;
 
@@ -22,6 +22,10 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if (Application.platform != RuntimePlatform.Android)
+        //{
+        //    return;
+        //}
         playerStat = GetComponent<PlayerStat>();
         playerStat._isReady = true;
 
@@ -36,6 +40,21 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Application.platform != RuntimePlatform.Android)
+        //{
+        //    return;
+        //}
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            playerNumber = 0;
+        } else if (playerStat._backupVariable1)
+        {
+            playerNumber = 1;
+        } else if (!playerStat._backupVariable1)
+        {
+            playerNumber = 2;
+        }
+
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
