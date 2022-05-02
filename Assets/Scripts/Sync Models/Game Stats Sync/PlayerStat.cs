@@ -113,6 +113,21 @@ public class PlayerStat : MonoBehaviour
         {
             _playerStatSync.SetScoreStreak(_scoreStreak);
             _previousScoreStreak = _scoreStreak;
+
+            if (Application.platform != RuntimePlatform.Android)
+            {
+                
+                if (GetComponent<PlayerBehaviour>().playerNumber == 1)
+                {
+                    TelemetryData.cubes1++;
+                }
+                else if (GetComponent<PlayerBehaviour>().playerNumber == 2)
+                {
+                    TelemetryData.cubes2++;
+                }
+
+                
+            }
         }
 
         if (_backupVariable1 != _previousBackupVariable1)

@@ -339,20 +339,7 @@ public class Lighsaber : MonoBehaviour
         //{
         //    return;
         //}
-        if (Application.platform != RuntimePlatform.Android)
-        {
-            if (other.CompareTag("Cube")){
-                if (playerObject.GetComponent<PlayerBehaviour>().playerNumber == 1)
-                {
-                    TelemetryData.cubes1++;
-                }
-                else if (playerObject.GetComponent<PlayerBehaviour>().playerNumber == 2)
-                {
-                    TelemetryData.cubes2++;
-                }
-
-            }
-        }
+        
        
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
