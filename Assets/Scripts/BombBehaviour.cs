@@ -21,6 +21,8 @@ public class BombBehaviour : MonoBehaviour
     public Vector3 dir;
     float randomDirectionAmount = 0.5f;
 
+    bool isMatReset;
+
     float speed = .05f;
     public int gridPosition;
     float spacing = 1f;
@@ -32,10 +34,15 @@ public class BombBehaviour : MonoBehaviour
     bool explode;
     float spawnTime;
     public float eventTime = 5;
-
+    Material mat;
+    Material originalMat;
     // Start is called before the first frame update
     void Start()
     {
+        originalMat = gameObject.GetComponent<MeshRenderer>().material;
+        mat = new Material(originalMat);
+        gameObject.GetComponent<MeshRenderer>().material = mat;
+
         if (!GameManagerLogic.isServer)
         {
             return;
@@ -52,6 +59,26 @@ public class BombBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
+        if (!isMatReset && Time.time > spawnTime + 2)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = originalMat;
+            GetComponent<SphereCollider>().enabled = true;
+            isMatReset = true;
+        } else
+        {
+            float sineAlpha = Mathf.Sin(Time.time*2);
+            Color color = new Color(originalMat.color.r, originalMat.color.g, originalMat.color.b, sineAlpha);
+            
+            mat.color = color;
+        }
+
+
+        
+
+
         if (!GameManagerLogic.isServer)
         {
             return;
