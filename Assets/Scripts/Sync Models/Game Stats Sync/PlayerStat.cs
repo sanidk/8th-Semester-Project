@@ -27,8 +27,8 @@ public class PlayerStat : MonoBehaviour
     public int _previousCurrentLevel = default;
 
     [SerializeField]
-    public int _lives = default;
-    public int _previousLives = default;
+    public int _lives = 3;
+    public int _previousLives = 3;
 
     //backup variable 1 used as isServer
     [SerializeField]
