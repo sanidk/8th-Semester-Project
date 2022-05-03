@@ -40,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
         {
             return;
         }
@@ -60,11 +60,20 @@ public class PlayerBehaviour : MonoBehaviour
         if (playerStat._backupVariable1)
         {
             playerNumber = 1;
+            gameObject.tag = "Player1";
+            gameObject.transform.Find("Head").tag = "Player1";
+            gameObject.transform.Find("Left Hand").tag = "Player1";
+            gameObject.transform.Find("Right Hand").tag = "Player1";
+
 
         }
         else if (!playerStat._backupVariable1)
         {
             playerNumber = 2;
+            gameObject.tag = "Player2";
+            gameObject.transform.Find("Head").tag = "Player2";
+            gameObject.transform.Find("Left Hand").tag = "Player2";
+            gameObject.transform.Find("Right Hand").tag = "Player2";
         }
 
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)

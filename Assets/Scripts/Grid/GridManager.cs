@@ -12,6 +12,7 @@ public class GridManager : MonoBehaviour
 
     public int playerNumber;
 
+    GameObject gameManagerObject;
 
     //GRID
     public bool gridGraphicToggle;
@@ -65,6 +66,8 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerObject = GameObject.Find("GameManager");
+
         realtime = realtimeGameObject.GetComponent<Realtime>();
         rc = GetComponent<RealtimeComponent>();
 

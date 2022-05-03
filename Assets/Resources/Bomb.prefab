@@ -179,8 +179,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.010000002
-  m_Center: {x: -0.0000000013969839, y: -0.000000002328306, z: 0}
+  m_Radius: 0.07789875
+  m_Center: {x: 0, y: -0.00025160212, z: -7.2732027e-19}
 --- !u!114 &6488347338184590196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ddd2318d27ee8488ba42b7fca8aae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSide: 0
+  playerOwner: 0
   midPos: {x: 0, y: 0, z: 0}
   currentPos: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}

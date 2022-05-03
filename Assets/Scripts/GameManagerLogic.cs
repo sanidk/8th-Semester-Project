@@ -14,6 +14,9 @@ public class GameManagerLogic : MonoBehaviour
     public bool isDebuggingModeEnabledSerializedField;
 
     public static GameObject PlayerObject;
+    public static GameObject player1;
+    public static GameObject player2;
+
 
     public GameLogic syncVariablesObject;
 
@@ -68,11 +71,13 @@ public class GameManagerLogic : MonoBehaviour
     {
         isDebuggingModeEnabled = isDebuggingModeEnabledSerializedField;
 
-        if (isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        if (!isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
         {
             VRRig.transform.position = new Vector3(0, -200, 0);
             return;
         }
+
+
 
         //maybe make delays in the loop so it doesnt check all the time
         isThisClientActingServer = isServer;
@@ -94,6 +99,21 @@ public class GameManagerLogic : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < avatars.Count; i++)
+        {
+            RealtimeAvatar player = avatars[i];
+
+            if (player.gameObject.GetComponent<PlayerStat>()._backupVariable1)
+            {
+                player1 = player.gameObject;
+            }
+            else if (!player.gameObject.GetComponent<PlayerStat>()._backupVariable1)
+            {
+                player2 = player.gameObject;
+            }
+
+        }
+
 
         if (CheckIfServerExist())
         {
@@ -104,6 +124,7 @@ public class GameManagerLogic : MonoBehaviour
                     VRRig.transform.position = spawnPlayer1.transform.position;
                     VRRig.transform.rotation = Quaternion.Euler(0, 90, 0);
                     roomActive = roomServer;
+
                 }
                 
             }

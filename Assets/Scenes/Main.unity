@@ -1712,6 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6257c5846a3224ca7cf75fcb4a7be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebuggingModeEnabledSerializedField: 1
   syncVariablesObject: {fileID: 0}
   networkManager: {fileID: 750047679}
   isThisClientActingServer: 0

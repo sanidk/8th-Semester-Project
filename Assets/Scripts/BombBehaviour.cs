@@ -6,7 +6,8 @@ using Normal.Realtime;
 public class BombBehaviour : MonoBehaviour
 {
 
-    public int playerSide;
+    public int playerOwner;
+    public Dictionary<int, RealtimeAvatar> avatars;
 
     //public int playerOwnership;
     GameObject gameManager;
@@ -28,7 +29,7 @@ public class BombBehaviour : MonoBehaviour
     public bool isBallActive = false;
 
     public static float cooldown = 3;
-
+    bool explode;
     float spawnTime;
     public float eventTime = 5;
 
@@ -60,7 +61,7 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                //
+                explode = true;
                 Despawn();
             }
 
@@ -120,35 +121,67 @@ public class BombBehaviour : MonoBehaviour
         if (gameObject.CompareTag("Bomb"))
         {
             //print("Bomb");
-            Despawn();
+            //explode = true;
+            
             //DISARM
+            Despawn();
         }
 
         if (gameObject.CompareTag("Mine"))
         {
             //print("Mine");
-            Explode();
+            if (playerOwner == 1)
+            {
+                GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+                Despawn();
+            }
+            else if (playerOwner == 2)
+            {
+                GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                Despawn();
+            }
+            //explode = true;
         }
 
         Despawn();
     }
 
-    private void Explode()
-    {
-        //throw new System.NotImplementedException();
-
-        Despawn();
-        //remove life by explosion.
-    }
 
     public void Despawn()
     {
-        
 
         Realtime.Destroy(gameObject);
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.CompareTag("Mine"))
+        {
+            if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+            {
+                other.gameObject.GetComponent<PlayerStat>()._lives--;
+                Despawn();
+            }
+        }
+        
+    }
+
+    private void onTriggerStay(Collider other)
+    {
+        
+        if (explode && other.CompareTag("Player1") || other.CompareTag("Player2"))
+        {
+            explode = false;
+            other.gameObject.GetComponent<PlayerStat>()._lives--;
+            Despawn();
+
+
+        }
+
+        
+    }
+
+
 
 
 }

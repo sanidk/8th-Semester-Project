@@ -6,7 +6,7 @@ using Normal.Realtime;
 public class BallBehaviour : MonoBehaviour
 {
     //public int playerOwnership;
-    GameObject gameManager;
+    public GameObject gameManager;
     public GameObject gridManager;
     public int playerNumber;
 
@@ -55,8 +55,7 @@ public class BallBehaviour : MonoBehaviour
     void Start()
     {
         modifierSync = GetComponent<ModifierSync>();
-
-
+        
         //Vector3 rotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         //transform.rotation = Quaternion.Euler(rotation);
 
@@ -121,6 +120,9 @@ public class BallBehaviour : MonoBehaviour
                     destroyWhenOwnerLeaves = false,
                     destroyWhenLastClientLeaves = true
                 });
+
+
+                bomb.GetComponent<BombBehaviour>().playerOwner = playerNumber;
 
                 bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
 
