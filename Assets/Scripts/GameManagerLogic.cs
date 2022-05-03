@@ -9,6 +9,10 @@ public class GameManagerLogic : MonoBehaviour
     public static GameObject roomClient;
     public static GameObject roomActive;
 
+    [SerializeField]
+    public static bool isDebuggingModeEnabled;
+    public bool isDebuggingModeEnabledSerializedField;
+
     public static GameObject PlayerObject;
 
     public GameLogic syncVariablesObject;
@@ -42,6 +46,7 @@ public class GameManagerLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         gridManagerPlayer1 = roomPlayer1.GetComponentInChildren<GridManager>();
         gridManagerPlayer2 = roomPlayer2.GetComponentInChildren<GridManager>();
 
@@ -61,6 +66,14 @@ public class GameManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isDebuggingModeEnabled = isDebuggingModeEnabledSerializedField;
+
+        if (isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            VRRig.transform.position = new Vector3(0, -200, 0);
+            return;
+        }
+
         //maybe make delays in the loop so it doesnt check all the time
         isThisClientActingServer = isServer;
         isPlayersReady = syncVariablesObject._isPlayersReadyToStartGame;
