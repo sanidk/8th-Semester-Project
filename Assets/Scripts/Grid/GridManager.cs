@@ -449,11 +449,12 @@ public class GridManager : MonoBehaviour
 
     }
 
+    /*
     public void sendSmallTrap(int trapNumber) {
         smallTrapCubeList[trapNumber].GetComponent<TrapDeploy>().spawnSmallTrap();
     }
 
-    /*
+    
     public void sendTrap(int playerNum, int trapNumber) {
     
     

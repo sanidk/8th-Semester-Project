@@ -10,8 +10,10 @@ public class FistTrapBehaviour : MonoBehaviour
         
     }
 
-    void OnTriggerEnter() {
-        this.GetComponent<Rigidbody>().useGravity = false;
-        this.GetComponent<Rigidbody>().isKinematic = true;   
+    void OnTriggerEnter(Collider other) {
+        if (other.name == "FloorPlayer1" || other.name == "FloorPlayer2") {
+            this.GetComponent<Rigidbody>().useGravity = false;
+            this.GetComponent<Rigidbody>().isKinematic = true;   
+        }
     } 
 }
