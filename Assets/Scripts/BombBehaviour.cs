@@ -43,12 +43,12 @@ public class BombBehaviour : MonoBehaviour
         mat = new Material(originalMat);
         gameObject.GetComponent<MeshRenderer>().material = mat;
 
+        spawnTime = Time.time;
         if (!GameManagerLogic.isServer)
         {
             return;
         }
 
-        spawnTime = Time.time;
 
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
         maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
