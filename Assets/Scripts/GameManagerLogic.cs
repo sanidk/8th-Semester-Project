@@ -193,6 +193,7 @@ public class GameManagerLogic : MonoBehaviour
         for (int i = 0; i < avatars.Count; i++) // maybe for each loop instead
         {
             RealtimeAvatar player = avatars[i];
+            
 
             if (!player.gameObject.GetComponent<PlayerStat>()._isReady)
             {

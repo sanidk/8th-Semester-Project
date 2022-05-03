@@ -18,6 +18,8 @@ public class PlayerBehaviour : MonoBehaviour
     bool lightSaberSpawned;
     int randomTrap;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class PlayerBehaviour : MonoBehaviour
         //{
         //    return;
         //}
+
+        
         playerStat = GetComponent<PlayerStat>();
         playerStat._isReady = true;
 
@@ -44,6 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             return;
         }
+
+
         //if (Application.platform != RuntimePlatform.Android)
         //{
         //    playerNumber = 0;

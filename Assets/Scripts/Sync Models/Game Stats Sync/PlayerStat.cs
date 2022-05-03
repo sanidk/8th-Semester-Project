@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStat : MonoBehaviour
 {
     public PlayerStatSync _playerStatSync;
+    GameObject livesUIObject;
 
     [SerializeField]
     public bool _isReady = default;
@@ -27,8 +28,8 @@ public class PlayerStat : MonoBehaviour
     public int _previousCurrentLevel = default;
 
     [SerializeField]
-    public int _lives = 5;
-    public int _previousLives = 5;
+    public int _lives = default;
+    public int _previousLives = default;
 
     //backup variable 1 used as isServer
     [SerializeField]
@@ -59,6 +60,7 @@ public class PlayerStat : MonoBehaviour
     void Awake()
     {
         _playerStatSync = GetComponent<PlayerStatSync>();
+        livesUIObject = GameObject.Find("Lives");
     }   
 
     // Update is called once per frame
@@ -95,6 +97,8 @@ public class PlayerStat : MonoBehaviour
         {
             _playerStatSync.SetLives(_lives);
             _previousLives = _lives;
+
+            livesUIObject.GetComponent<livesUIManager>().lives = _lives;
 
             if (Application.platform != RuntimePlatform.Android)
             {
