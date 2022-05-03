@@ -6,8 +6,8 @@ using Normal.Realtime;
 
 public class TelemetryData : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Dictionary<int, RealtimeAvatar> avatars;
+
     public static int cubes1;
     public static int cubes2;
     public static int lives1;
@@ -24,18 +24,18 @@ public class TelemetryData : MonoBehaviour
 
 
     string headPosPath1 = @"C:\TelemetryData\headPosPath1.txt";
-    string leftHandPosPath1 = @"C:\TelemetryData/leftHandPosPath1.txt";
-    string rightHandPosPath1 = @"C:\TelemetryData/rightHandPosPath1.txt";
-    string trapsSentPath1 = @"C:\TelemetryData/trapsSentPath1.txt";
-    string cubesPath1 = @"C:\TelemetryData/cubesPath1.txt";
-    string livesPath1 = @"C:\TelemetryData/livesPath1.txt";
+    string leftHandPosPath1 = @"C:\TelemetryData\leftHandPosPath1.txt";
+    string rightHandPosPath1 = @"C:\TelemetryData\rightHandPosPath1.txt";
+    string trapsSentPath1 = @"C:\TelemetryData\trapsSentPath1.txt";
+    string cubesPath1 = @"C:\TelemetryData\cubesPath1.txt";
+    string livesPath1 = @"C:\TelemetryData\livesPath1.txt";
 
     string headPosPath2 = @"C:\TelemetryData\headPosPath2.txt";
-    string leftHandPosPath2 = @"C:\TelemetryData/leftHandPosPath2.txt";
-    string rightHandPosPath2 = @"C:\TelemetryData/rightHandPosPath2.txt";
-    string trapsSentPath2= @"C:\TelemetryData/trapsSentPath2.txt";
-    string cubesPath2 = @"C:\TelemetryData/cubesPath2.txt";
-    string livesPath2 = @"C:\TelemetryData/livesPath2.txt";
+    string leftHandPosPath2 = @"C:\TelemetryData\leftHandPosPath2.txt";
+    string rightHandPosPath2 = @"C:\TelemetryData\rightHandPosPath2.txt";
+    string trapsSentPath2= @"C:\TelemetryData\trapsSentPath2.txt";
+    string cubesPath2 = @"C:\TelemetryData\cubesPath2.txt";
+    string livesPath2 = @"C:\TelemetryData\livesPath2.txt";
 
 
     void Start()
@@ -72,7 +72,7 @@ public class TelemetryData : MonoBehaviour
             return;
         }
 
-        if (!GameManagerLogic.isPlayersReady)
+        if (!GetComponent<GameLogic>()._isPlayersReadyToStartGame)
         {
             return;
         }
@@ -82,7 +82,10 @@ public class TelemetryData : MonoBehaviour
         for (int i = 0; i < avatars.Count; i++) // maybe for each loop instead
         {
             RealtimeAvatar player = avatars[i];
-
+            if (player.isOwnedLocallySelf)
+            {
+                return;
+            }
             int playerNumber = player.gameObject.GetComponent<PlayerBehaviour>().playerNumber;
 
             Vector3 headPos = player.gameObject.transform.Find("Head").transform.position;
@@ -140,7 +143,6 @@ public class TelemetryData : MonoBehaviour
             }
 
         }
-        //File.AppendAllText(numberOfUsersInteractingPath, Time.time.ToString() + " : " + i + " : " + numberOfUsersInteracting[i] + "\n");
     }
 }
 

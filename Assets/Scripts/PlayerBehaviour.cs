@@ -40,19 +40,26 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //if (Application.platform != RuntimePlatform.Android)
         //{
-        //    return;
-        //}
-        if (Application.platform != RuntimePlatform.Android)
-        {
-            playerNumber = 0;
+        //    playerNumber = 0;
 
-        } else if (playerStat._backupVariable1)
+        //} else if (playerStat._backupVariable1)
+        //{
+        //    playerNumber = 1;
+
+        //} else if (!playerStat._backupVariable1)
+        //{
+        //    playerNumber = 2;
+        //}
+
+        if (playerStat._backupVariable1)
         {
             playerNumber = 1;
 
-        } else if (!playerStat._backupVariable1)
+        }
+        else if (!playerStat._backupVariable1)
         {
             playerNumber = 2;
         }
