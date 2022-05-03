@@ -27,8 +27,8 @@ public class PlayerStat : MonoBehaviour
     public int _previousCurrentLevel = default;
 
     [SerializeField]
-    public int _lives = 3;
-    public int _previousLives = 3;
+    public int _lives = 5;
+    public int _previousLives = 5;
 
     //backup variable 1 used as isServer
     [SerializeField]
@@ -64,6 +64,8 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         /*
         if (!GameManagerLogic.isServer)
         {
