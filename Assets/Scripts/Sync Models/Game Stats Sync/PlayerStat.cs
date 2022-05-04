@@ -100,14 +100,16 @@ public class PlayerStat : MonoBehaviour
             _playerStatSync.SetLives(_lives);
             _previousLives = _lives;
 
-            
+            if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+            {
+                livesUIObject.GetComponent<livesUIManager>().lives = _lives;
+            }
 
             if (Application.platform != RuntimePlatform.Android)
             {
                 if (GetComponent<RealtimeView>().isOwnedLocallySelf)
                 {
-                    livesUIObject.GetComponent<livesUIManager>().lives = _lives;
-
+                    
                     if (GetComponent<PlayerBehaviour>().playerNumber == 1)
                     {
                         TelemetryData.lives1 = _lives;
