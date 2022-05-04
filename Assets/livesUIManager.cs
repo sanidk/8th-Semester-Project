@@ -43,7 +43,7 @@ public class livesUIManager : MonoBehaviour
 
     IEnumerator looseLife(float time, int life)
     {
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < lives+1; i++)
         { 
             hearts[i].SetActive(true);
         }
