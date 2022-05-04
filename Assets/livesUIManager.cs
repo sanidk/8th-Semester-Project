@@ -12,8 +12,8 @@ public class livesUIManager : MonoBehaviour
 
     GameObject[] hearts = new GameObject[5];
 
-    public int lives;
-    public int livesOld;
+    public int lives = 5;
+    public int livesOld = 5;
 
 
     // Start is called before the first frame update
@@ -44,13 +44,13 @@ public class livesUIManager : MonoBehaviour
     IEnumerator looseLife(float time, int life)
     {
         for (int i = 0; i < lives+1; i++)
-        { 
+        {
             hearts[i].SetActive(true);
         }
 
         for (int i = 0; i < 5; i++)
         {
-            hearts[life].SetActive(!heart5.activeSelf);
+            hearts[life].SetActive(!hearts[life].activeSelf);
             yield return new WaitForSeconds(time);
         }
 
