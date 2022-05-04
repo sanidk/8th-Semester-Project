@@ -96,12 +96,12 @@ public class Lighsaber : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GameManagerLogic.isServer)
+        if (playerObject == null)
         {
-            playerNumber = 1;
+            playerNumber = 2;
         }
         else {
-            playerNumber = 2;
+            playerNumber = 1;
         }
 
         //if (!gameObject.GetComponentInParent<RealtimeTransform>().isOwnedLocallySelf) return;
@@ -165,7 +165,7 @@ public class Lighsaber : MonoBehaviour
 
 
         //opponentRoom = GameManagerLogic.opponent
-
+        
         if (GameManagerLogic.isServer)
         {
             if (playerNumber == 1)
@@ -210,15 +210,9 @@ public class Lighsaber : MonoBehaviour
             return;
         }
 
-        
-        if (!other.GetComponent<Sliceable>())
-        {
-            return;
-        }
+       
         //audioSource.PlayOneShot(audioWhenHit);
-        if (other.gameObject.CompareTag("RepresentationCube")) {
-            return;
-        }
+        
 
         if (_colour != other.gameObject.GetComponent<ColorSync>().GetColor())
         {
@@ -355,9 +349,7 @@ public class Lighsaber : MonoBehaviour
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
             
-            if (!GameManagerLogic.isServer) {
-                return;
-            }
+            
 
             _triggerExitTipPosition = _tip.transform.position;
 
@@ -403,8 +395,8 @@ public class Lighsaber : MonoBehaviour
 
 
             //Quaternion laserOrientation = Quaternion.FromToRotation(Vector3.up, normal) * Quaternion.AngleAxis(90, Vector3.right);
-            StartCoroutine(spawnLaser(sliceDirection, relativeSliceStart, normal));
 
+            
 
 
 
@@ -432,6 +424,11 @@ public class Lighsaber : MonoBehaviour
             //maybe make ienumerater to wait a few seconds before despawning ball
             //other.getcomponent<BallBehaviour>().Despawn(); ish
             //Also script or function to delete object after few second?
+            if (!GameManagerLogic.isServer)
+            {
+                return;
+            }
+            StartCoroutine(spawnLaser(sliceDirection, relativeSliceStart, normal));
 
             Realtime.Destroy(other.gameObject.transform.parent.gameObject);
 

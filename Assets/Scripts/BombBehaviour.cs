@@ -37,7 +37,7 @@ public class BombBehaviour : MonoBehaviour
     public static float cooldown = 3;
     bool explode;
     float spawnTime;
-    public float eventTime = 5;
+    float eventTime = 10;
     Material mat;
     Material originalMat;
     // Start is called before the first frame update
@@ -48,11 +48,11 @@ public class BombBehaviour : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = mat;
         audioSource = GetComponent<AudioSource>();
         spawnTime = Time.time;
+
         if (!GameManagerLogic.isServer)
         {
             return;
         }
-
 
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
         maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
@@ -67,11 +67,11 @@ public class BombBehaviour : MonoBehaviour
         if (!isMatReset && Time.time > spawnTime + 2)
         {
             gameObject.GetComponent<MeshRenderer>().material = originalMat;
-            GetComponent<SphereCollider>().enabled = true;
+            GetComponent<Collider>().enabled = true;
             isMatReset = true;
         } else
         {
-            float sineAlpha = Mathf.Sin(Time.time*2);
+            float sineAlpha = Mathf.Sin(Time.time*4);
             Color color = new Color(originalMat.color.r, originalMat.color.g, originalMat.color.b, sineAlpha);
             
             mat.color = color;

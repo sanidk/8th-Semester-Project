@@ -27,6 +27,14 @@ public class CollisionDetection : MonoBehaviour
                 playerStat._lives--;
                 StartCoroutine(resetCondition(3));
             }
+
+            if (other.tag == "Laser" && !wasHit)
+            {
+                wasHit = true;
+                playerStat = GetComponent<PlayerStat>();
+                playerStat._lives--;
+                StartCoroutine(resetCondition(3));
+            }
         }
 
         

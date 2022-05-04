@@ -7,6 +7,7 @@ public class PlayerStat : MonoBehaviour
 {
     public PlayerStatSync _playerStatSync;
     GameObject livesUIObject;
+    
 
     [SerializeField]
     public bool _isReady = default;
@@ -67,7 +68,7 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
         /*
         if (!GameManagerLogic.isServer)
