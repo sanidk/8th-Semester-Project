@@ -119,7 +119,7 @@ public class PlayerBehaviour : MonoBehaviour
                 }
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
-                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 spawnSendLaserCubeTrap(1);
                 playerStat._scoreStreak = 0;
             }

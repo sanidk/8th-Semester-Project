@@ -281,7 +281,7 @@ public class Lighsaber : MonoBehaviour
         //No score variable to increase in Playerstat?
         if (GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
-            switch ((int)GetComponent<PlayerStat>()._scoreStreak)
+            switch ((int)playerObject.GetComponent<PlayerStat>()._scoreStreak)
             {
                 case 1:
                     bladeMat.SetColor("_EmissionColor", _colour * 2f);
