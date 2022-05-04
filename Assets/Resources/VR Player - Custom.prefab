@@ -7078,8 +7078,8 @@ MonoBehaviour:
   _previousScoreStreak: 0
   _trapsSent: 0
   _previousTrapsSent: 0
-  _currentLevel: 0
-  _previousCurrentLevel: 0
+  _currentLevel: 1
+  _previousCurrentLevel: 1
   _lives: 5
   _previousLives: 5
   _backupVariable1: 0
