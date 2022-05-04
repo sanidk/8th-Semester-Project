@@ -56,11 +56,10 @@ public class livesUIManager : MonoBehaviour
 
         yield return new WaitForSeconds(time * 4);
         
-        for (int i = 0; i < lives; i++)
+        for (int i = 0; i < hearts.Length; i++)
         {
             hearts[i].SetActive(false);
         }
-        
-        
+          
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class PlayerStat : MonoBehaviour
 {
@@ -98,11 +99,14 @@ public class PlayerStat : MonoBehaviour
             _playerStatSync.SetLives(_lives);
             _previousLives = _lives;
 
-            livesUIObject.GetComponent<livesUIManager>().lives = _lives;
+            
 
             if (Application.platform != RuntimePlatform.Android)
             {
-                
+                if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+                {
+                    livesUIObject.GetComponent<livesUIManager>().lives = _lives;
+
                     if (GetComponent<PlayerBehaviour>().playerNumber == 1)
                     {
                         TelemetryData.lives1 = _lives;
@@ -110,7 +114,9 @@ public class PlayerStat : MonoBehaviour
                     else if (GetComponent<PlayerBehaviour>().playerNumber == 2)
                     {
                         TelemetryData.lives2 = _lives;
+                    }
                 }
+                    
 
                 
             }

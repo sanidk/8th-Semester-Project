@@ -185,6 +185,11 @@ public class BombBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!GameManagerLogic.isServer)
+        {
+            return;
+        }
+
         if (gameObject.CompareTag("Mine"))
         {
             if (other.CompareTag("Player1") || other.CompareTag("Player2"))
@@ -198,7 +203,10 @@ public class BombBehaviour : MonoBehaviour
 
     private void onTriggerStay(Collider other)
     {
-        
+        if (!GameManagerLogic.isServer)
+        {
+            return;
+        }
         if (explode && other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             explode = false;
