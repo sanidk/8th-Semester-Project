@@ -339,8 +339,18 @@ public class Lighsaber : MonoBehaviour
         //{
         //    return;
         //}
-        
-       
+
+        if (other.gameObject.CompareTag("Mine"))
+        {
+            //playerObject.GetComponent<PlayerStat>()._lives--;
+            other.gameObject.GetComponent<BombBehaviour>().Trigger();
+        }
+
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            other.gameObject.GetComponent<BombBehaviour>().Trigger();
+            //other.gameObject.GetComponent<BombBehaviour>().Despawn();
+        }
 
         if (other.gameObject.CompareTag("RepresentationCube")) {
 
@@ -434,17 +444,7 @@ public class Lighsaber : MonoBehaviour
             
         }
 
-        if (other.gameObject.CompareTag("Mine"))
-        {
-            //playerObject.GetComponent<PlayerStat>()._lives--;
-            other.gameObject.GetComponent<BombBehaviour>().Trigger();
-        }
-
-        if (other.gameObject.CompareTag("Bomb"))
-        {
-            other.gameObject.GetComponent<BombBehaviour>().Trigger();
-            //other.gameObject.GetComponent<BombBehaviour>().Despawn();
-        }
+        
 
     }
 
