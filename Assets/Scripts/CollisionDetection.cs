@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class CollisionDetection : MonoBehaviour
 {
@@ -17,12 +18,18 @@ public class CollisionDetection : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Trap" && !wasHit) {
-        wasHit = true;
-        playerStat = GetComponent<PlayerStat>();
-        playerStat._lives--;
-        StartCoroutine(resetCondition(3));
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+        {
+            if (other.tag == "Trap" && !wasHit)
+            {
+                wasHit = true;
+                playerStat = GetComponent<PlayerStat>();
+                playerStat._lives--;
+                StartCoroutine(resetCondition(3));
+            }
         }
+
+        
     }
 
     IEnumerator resetCondition(float godFrames) {

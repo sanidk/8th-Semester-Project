@@ -159,7 +159,7 @@ public class BombBehaviour : MonoBehaviour
         if (gameObject.CompareTag("Mine"))
         {
             //print("Mine");
-            StartCoroutine(PlayExplodeSound());
+            //StartCoroutine(PlayExplodeSound());
             if (playerOwner == 1)
             {
                 GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
@@ -203,7 +203,7 @@ public class BombBehaviour : MonoBehaviour
         {
             explode = false;
             other.gameObject.GetComponent<PlayerStat>()._lives--;
-            StartCoroutine(PlayExplodeSound());
+            //StartCoroutine(PlayExplodeSound());
             Despawn();
 
 
@@ -211,13 +211,13 @@ public class BombBehaviour : MonoBehaviour
 
         
     }
-    IEnumerator PlayExplodeSound()
-    {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(explosionClip);
+    //IEnumerator PlayExplodeSound()
+    //{
+    //    audioSource.loop = false;
+    //    audioSource.PlayOneShot(explosionClip);
 
-        yield return null;
-    }
+    //    yield return null;
+    //}
     
 
 
