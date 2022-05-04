@@ -18,7 +18,10 @@ public class PlayerBehaviour : MonoBehaviour
     bool lightSaberSpawned;
     int randomTrap;
 
-    
+    GameObject roomOwned;
+    GameObject roomServer;
+    GameObject roomClient;
+
 
 
     // Start is called before the first frame update
@@ -36,6 +39,9 @@ public class PlayerBehaviour : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
 
         GameManagerLogic.PlayerObject = transform.gameObject;
+        roomServer = GameObject.Find("RoomPlayer1");
+        roomClient = GameObject.Find("RoomPlayer2");
+
 
 
 
@@ -66,6 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (playerStat._backupVariable1)
         {
             playerNumber = 1;
+            roomOwned = roomServer;
             gameObject.tag = "Player1";
             gameObject.transform.Find("Head").tag = "Player1";
             gameObject.transform.Find("Left Hand").tag = "Player1";
@@ -76,14 +83,18 @@ public class PlayerBehaviour : MonoBehaviour
         else if (!playerStat._backupVariable1)
         {
             playerNumber = 2;
+            roomOwned = roomClient;
             gameObject.tag = "Player2";
             gameObject.transform.Find("Head").tag = "Player2";
             gameObject.transform.Find("Left Hand").tag = "Player2";
             gameObject.transform.Find("Right Hand").tag = "Player2";
         }
 
+        roomOwned.GetComponentInChildren<GridManager>().playerReference = transform.gameObject;
+
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)
         {
+            TelemetryData.traps2++;
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
                 if (playerStat._backupVariable3 == 1f)
@@ -117,6 +128,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
+                TelemetryData.traps1++;
+
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;

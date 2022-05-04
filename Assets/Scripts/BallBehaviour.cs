@@ -9,7 +9,7 @@ public class BallBehaviour : MonoBehaviour
     public GameObject gameManager;
     public GameObject gridManager;
     public int playerNumber;
-
+    public GameObject playerReference;
     ModifierSync modifierSync;
 
     Vector3 startPos;
@@ -99,9 +99,7 @@ public class BallBehaviour : MonoBehaviour
             oppositeGridManager = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>();
         }
 
-        int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
-        Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
-
+        
 
 
         switch (modifier)
@@ -111,35 +109,47 @@ public class BallBehaviour : MonoBehaviour
                 break;
             case 1:
                 //bomb
-                
 
-                GameObject bomb = Realtime.Instantiate("Bomb", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
+                for (int i = 0; i < playerReference.GetComponent<PlayerStat>()._currentLevel; i++)
                 {
-                    ownedByClient = false,
-                    preventOwnershipTakeover = false,
-                    destroyWhenOwnerLeaves = false,
-                    destroyWhenLastClientLeaves = true
-                });
+                    int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
+                    Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
+
+                    GameObject bomb = Realtime.Instantiate("Bomb", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
+                    {
+                        ownedByClient = false,
+                        preventOwnershipTakeover = false,
+                        destroyWhenOwnerLeaves = false,
+                        destroyWhenLastClientLeaves = true
+                    });
 
 
-                bomb.GetComponent<BombBehaviour>().playerOwner = playerNumber;
+                    bomb.GetComponent<BombBehaviour>().playerOwner = playerNumber;
 
-                bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
+                    bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
+
+                }
 
                 break;
             case 2:
                 //mine
 
-
-                GameObject mine = Realtime.Instantiate("Mine", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
+                for (int i = 0; i <playerReference.GetComponent<PlayerStat>()._currentLevel; i++)
                 {
-                    ownedByClient = false,
-                    preventOwnershipTakeover = false,
-                    destroyWhenOwnerLeaves = false,
-                    destroyWhenLastClientLeaves = true
-                });
+                    int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
+                    Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
 
-                mine.GetComponent<BombBehaviour>().midPos = OppositePosition;
+                    GameObject mine = Realtime.Instantiate("Mine", randomLocation, OppositeRotation, new Realtime.InstantiateOptions
+                    {
+                        ownedByClient = false,
+                        preventOwnershipTakeover = false,
+                        destroyWhenOwnerLeaves = false,
+                        destroyWhenLastClientLeaves = true
+                    });
+
+                    mine.GetComponent<BombBehaviour>().midPos = OppositePosition;
+
+                }
 
                 break;
             case 3:

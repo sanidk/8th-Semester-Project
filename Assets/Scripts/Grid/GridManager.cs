@@ -11,6 +11,7 @@ public class GridManager : MonoBehaviour
     RealtimeComponent rc;
 
     public int playerNumber;
+    public GameObject playerReference;
 
     GameObject gameManagerObject;
 
@@ -331,6 +332,7 @@ public class GridManager : MonoBehaviour
                     //SetSpawnzonesInUseArray(gridNumber, true);
                     //ball.GetComponent<BallBehaviour>().isBallActive = true;
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
+                    ball.GetComponent<BallBehaviour>().playerReference = playerReference;
 
                     if (Random.Range(0, 1) == 0)
                     {

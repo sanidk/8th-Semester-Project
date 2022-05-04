@@ -21,6 +21,10 @@ public class BombBehaviour : MonoBehaviour
     public Vector3 dir;
     float randomDirectionAmount = 0.5f;
 
+    AudioSource audioSource;
+    public AudioClip explosionClip;
+
+
     bool isMatReset;
 
     float speed = .05f;
@@ -42,7 +46,7 @@ public class BombBehaviour : MonoBehaviour
         originalMat = gameObject.GetComponent<MeshRenderer>().material;
         mat = new Material(originalMat);
         gameObject.GetComponent<MeshRenderer>().material = mat;
-
+        audioSource = GetComponent<AudioSource>();
         spawnTime = Time.time;
         if (!GameManagerLogic.isServer)
         {
@@ -59,8 +63,6 @@ public class BombBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
 
         if (!isMatReset && Time.time > spawnTime + 2)
         {
@@ -157,6 +159,7 @@ public class BombBehaviour : MonoBehaviour
         if (gameObject.CompareTag("Mine"))
         {
             //print("Mine");
+            StartCoroutine(PlayExplodeSound());
             if (playerOwner == 1)
             {
                 GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
@@ -200,6 +203,7 @@ public class BombBehaviour : MonoBehaviour
         {
             explode = false;
             other.gameObject.GetComponent<PlayerStat>()._lives--;
+            StartCoroutine(PlayExplodeSound());
             Despawn();
 
 
@@ -207,6 +211,14 @@ public class BombBehaviour : MonoBehaviour
 
         
     }
+    IEnumerator PlayExplodeSound()
+    {
+        audioSource.loop = false;
+        audioSource.PlayOneShot(explosionClip);
+
+        yield return null;
+    }
+    
 
 
 

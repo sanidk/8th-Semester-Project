@@ -180,8 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de81fa600796b3468e652fc0c56335d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   gridManager: {fileID: 0}
   playerNumber: 0
+  playerReference: {fileID: 0}
   currentPos: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
   speed: 0.05
@@ -196,6 +198,7 @@ MonoBehaviour:
   overlayObject: {fileID: 833622301056728408, guid: 3892e2cc07268c940ad1ef7c6159b0c0, type: 3}
   modifier: 0
   oldModifier: 0
+  overlay: {fileID: 0}
 --- !u!114 &-4852979306208655646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8249ba5120740ef89849429b3add49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFeedback: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
+  audioFeedback: {fileID: 8300000, guid: c7b569795143f594a86d46a1e295622c, type: 3}
   scoreStreakV2: 0
   colour: {r: 0, g: 0, b: 0, a: 0}
   cubeHit: 0
@@ -365,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6d075cd9ce40445aa6768c9a6990da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ballBehaviour: {fileID: 0}
 --- !u!114 &-2308725469231484997
 MonoBehaviour:
   m_ObjectHideFlags: 0
