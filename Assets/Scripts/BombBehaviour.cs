@@ -111,11 +111,11 @@ public class BombBehaviour : MonoBehaviour
                 //explode = true;
                 if (playerOwner == 1)
                 {
-                    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
 
                 } else if (playerOwner == 2)
                 {
-                    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+                    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
                 }
 
                 //Instantiate(explosionSoundPrefab);
@@ -174,12 +174,12 @@ public class BombBehaviour : MonoBehaviour
         explode = true;
         if (playerOwner == 1)
         {
-            GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+            GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
 
         }
         else if (playerOwner == 2)
         {
-            GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+            GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
         }
         GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
         {
