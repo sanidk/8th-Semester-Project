@@ -181,7 +181,7 @@ public class BombBehaviour : MonoBehaviour
         {
             GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
         }
-        GameObject audioObject = Realtime.Instantiate("explodeAudioExplosion", transform.position, transform.rotation, new Realtime.InstantiateOptions
+        GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
         {
             ownedByClient = true,
             preventOwnershipTakeover = true,
@@ -211,7 +211,7 @@ public class BombBehaviour : MonoBehaviour
             if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             {
                 other.gameObject.GetComponent<PlayerStat>()._lives--;
-                GameObject audioObject = Realtime.Instantiate("explodeAudioExplosion", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
                 {
                     ownedByClient = true,
                     preventOwnershipTakeover = true,
