@@ -40,19 +40,25 @@ public class BombBehaviour : MonoBehaviour
     float eventTime = 10;
     Material mat;
     Material originalMat;
+
+    public GameObject explosionSoundPrefab;
     // Start is called before the first frame update
     void Start()
     {
         originalMat = gameObject.GetComponent<MeshRenderer>().material;
         mat = new Material(originalMat);
         gameObject.GetComponent<MeshRenderer>().material = mat;
+        try
+        {
+            gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
+        } catch (UnassignedReferenceException)
+        {
+            
+        }
+        
         audioSource = GetComponent<AudioSource>();
         spawnTime = Time.time;
 
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
 
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
         maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
@@ -67,7 +73,15 @@ public class BombBehaviour : MonoBehaviour
         if (!isMatReset && Time.time > spawnTime + 2)
         {
             gameObject.GetComponent<MeshRenderer>().material = originalMat;
-            GetComponent<Collider>().enabled = true;
+            try
+            {
+                gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
+            }
+            catch (UnassignedReferenceException)
+            {
+
+            }
+            GetComponent<SphereCollider>().enabled = true;
             isMatReset = true;
         } else
         {
@@ -86,16 +100,31 @@ public class BombBehaviour : MonoBehaviour
             return;
         }
 
+
+
+
+
         if (Time.time > spawnTime + eventTime)
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                explode = true;
+                //explode = true;
+                if (playerOwner == 1)
+                {
+                    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+
+                } else if (playerOwner == 2)
+                {
+                    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+                }
+
+                //Instantiate(explosionSoundPrefab);
                 Despawn();
             }
 
             if (gameObject.CompareTag("Mine"))
             {
+                
                 Despawn();
             }
 
@@ -140,46 +169,32 @@ public class BombBehaviour : MonoBehaviour
 
     
 
-    public void Trigger()
+    public void TriggerMine()
     {
-        if (!GameManagerLogic.isServer)
+        explode = true;
+        if (playerOwner == 1)
         {
-            return;
-        }
+            GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
 
-        if (gameObject.CompareTag("Bomb"))
+        }
+        else if (playerOwner == 2)
         {
-            //print("Bomb");
-            //explode = true;
-            
-            //DISARM
-            Despawn();
+            GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
         }
-
-        if (gameObject.CompareTag("Mine"))
+        GameObject audioObject = Realtime.Instantiate("explodeAudioExplosion", transform.position, transform.rotation, new Realtime.InstantiateOptions
         {
-            //print("Mine");
-            //StartCoroutine(PlayExplodeSound());
-            if (playerOwner == 1)
-            {
-                GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
-                Despawn();
-            }
-            else if (playerOwner == 2)
-            {
-                GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
-                Despawn();
-            }
-            //explode = true;
-        }
-
+            ownedByClient = true,
+            preventOwnershipTakeover = true,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+        });
         Despawn();
+
     }
 
 
     public void Despawn()
     {
-
         Realtime.Destroy(gameObject);
     }
 
@@ -189,46 +204,25 @@ public class BombBehaviour : MonoBehaviour
         {
             return;
         }
-
+        
         if (gameObject.CompareTag("Mine"))
         {
+            print("mine collision with player");
             if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             {
                 other.gameObject.GetComponent<PlayerStat>()._lives--;
+                GameObject audioObject = Realtime.Instantiate("explodeAudioExplosion", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = true,
+                    preventOwnershipTakeover = true,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
                 Despawn();
             }
         }
         
     }
-
-    private void onTriggerStay(Collider other)
-    {
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
-        if (explode && other.CompareTag("Player1") || other.CompareTag("Player2"))
-        {
-            explode = false;
-            other.gameObject.GetComponent<PlayerStat>()._lives--;
-            //StartCoroutine(PlayExplodeSound());
-            Despawn();
-
-
-        }
-
-        
-    }
-    //IEnumerator PlayExplodeSound()
-    //{
-    //    audioSource.loop = false;
-    //    audioSource.PlayOneShot(explosionClip);
-
-    //    yield return null;
-    //}
-    
-
-
 
 
 }

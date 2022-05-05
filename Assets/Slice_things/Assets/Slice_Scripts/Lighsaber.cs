@@ -333,11 +333,18 @@ public class Lighsaber : MonoBehaviour
         //{
         //    return;
         //}
+
+        print("trigger exit: "+other.gameObject.name);
         if (GameManagerLogic.isServer)
         {
-            if (other.gameObject.CompareTag("Bomb") || other.gameObject.CompareTag("Mine"))
+            if (other.gameObject.CompareTag("Bomb"))
             {
-                other.gameObject.GetComponent<BombBehaviour>().Trigger();
+                //Realtime.Destroy(other.gameObject);
+                other.gameObject.GetComponent<BombBehaviour>().Despawn();
+
+            } else if (other.gameObject.CompareTag("Mine"))
+            {
+                other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
             }
         }
         
@@ -433,8 +440,9 @@ public class Lighsaber : MonoBehaviour
 
 
         }
-        else
+        else if (other.gameObject.CompareTag("Cube"))
         {
+
             SliceCube(other);
             
         }
@@ -541,7 +549,7 @@ public class Lighsaber : MonoBehaviour
         if (obj.GetComponent<BallBehaviour>().overlay != null)
         {
             obj.GetComponent<BallBehaviour>().overlay.GetComponent<MeshRenderer>().enabled = true;
-            obj.GetComponent<BallBehaviour>().overlay.GetComponent<SphereCollider>().enabled = true;
+            obj.GetComponent<BallBehaviour>().overlay.GetComponent<BoxCollider>().enabled = true;
 
         }
 

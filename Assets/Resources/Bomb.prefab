@@ -92,11 +92,11 @@ GameObject:
   - component: {fileID: 6637459861319256577}
   - component: {fileID: 4632969977605942658}
   - component: {fileID: 8969845770555046301}
-  - component: {fileID: 7637601585443591357}
   - component: {fileID: 6488347338184590196}
   - component: {fileID: 6488347338184590195}
   - component: {fileID: 6488347338184590194}
   - component: {fileID: 2878247529086605691}
+  - component: {fileID: 1418560414741325081}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -169,19 +169,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7637601585443591357
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6488347338184590193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.07789875
-  m_Center: {x: 0, y: -0.00025160212, z: -7.2732027e-19}
 --- !u!114 &6488347338184590196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +229,7 @@ MonoBehaviour:
   explosionClip: {fileID: 8300000, guid: a8b4ea9b4c6e65a41b21fd4eb8363deb, type: 3}
   gridPosition: 0
   isBallActive: 0
-  eventTime: 5
+  explosionSoundPrefab: {fileID: 4740266352882395008, guid: a03e28604dfabb54dab165a109b6a0ba, type: 3}
 --- !u!82 &2878247529086605691
 AudioSource:
   m_ObjectHideFlags: 0
@@ -339,6 +326,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &1418560414741325081
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6488347338184590193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.010000002
+  m_Center: {x: -0.0000000013969839, y: -0.0000000023283062, z: -1.6543612e-23}
 --- !u!1 &7301697923051465652
 GameObject:
   m_ObjectHideFlags: 0

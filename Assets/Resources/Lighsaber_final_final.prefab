@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 5962388417764101148}
   m_Layer: 0
   m_Name: Lighsaber_final_final
-  m_TagString: Untagged
+  m_TagString: LightSaber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -69,6 +69,8 @@ public class GameManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         isDebuggingModeEnabled = isDebuggingModeEnabledSerializedField;
 
         if (!isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
@@ -98,6 +100,8 @@ public class GameManagerLogic : MonoBehaviour
         if (avatars == null) {
             return;
         }
+
+        AssignPlayerNumbers();
 
         for (int i = 0; i < avatars.Count; i++)
         {
@@ -228,6 +232,23 @@ public class GameManagerLogic : MonoBehaviour
     void AssignServer()
     {
         avatars[0].GetComponent<PlayerStat>()._backupVariable1 = true; //isServer
+    }
+
+    void AssignPlayerNumbers()
+    {
+        for (int i = 0; i < avatars.Count; i++)
+        {
+            RealtimeAvatar player = avatars[i];
+
+            if (player.gameObject.GetComponent<PlayerStat>()._backupVariable1) //isServer
+            {
+                player1 = player.gameObject;
+            } else
+            {
+                player2 = player.gameObject;
+            }
+
+        }
     }
 
 }
