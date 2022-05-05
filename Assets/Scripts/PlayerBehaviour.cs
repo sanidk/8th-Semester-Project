@@ -44,6 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
         roomServer = GameObject.Find("RoomPlayer1");
         roomClient = GameObject.Find("RoomPlayer2");
 
+        previousLevel = playerStat._currentLevel;
 
 
 
