@@ -120,12 +120,12 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                if (playerStat._currentLevel != previousLevel)
-                {
-                    spawnSendLaserCubeTrap(2);
-                    previousLevel = playerStat._currentLevel;
-                }
                 playerStat._scoreStreak = 0;
+            }
+            if (playerStat._currentLevel != previousLevel)
+            {
+                spawnSendLaserCubeTrap(2);
+                previousLevel = playerStat._currentLevel;
             }
         }
         else if (GetComponent<RealtimeView>().isOwnedLocallySelf && !playerStat._backupVariable1)
@@ -153,12 +153,12 @@ public class PlayerBehaviour : MonoBehaviour
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                if (previousLevel != playerStat._currentLevel)
-                {
-                    spawnSendLaserCubeTrap(1);
-                    previousLevel = playerStat._currentLevel;
-                }
                 playerStat._scoreStreak = 0;
+            }
+            if (previousLevel != playerStat._currentLevel)
+            {
+                spawnSendLaserCubeTrap(1);
+                previousLevel = playerStat._currentLevel;
             }
         }
 
