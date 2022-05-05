@@ -17,6 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject ProgressPillar;
     bool lightSaberSpawned;
     int randomTrap;
+    int previousLevel;
 
     GameObject roomOwned;
     GameObject roomServer;
@@ -102,27 +103,27 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
-                    playerStat._backupVariable3 = 0;
                 }
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
-                    playerStat._backupVariable4 = 0;
                 }
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
-                    playerStat._backupVariable5 = 0;
                 }
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
-                    playerStat._backupVariable6 = 0;
                 }
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                spawnSendLaserCubeTrap(2);
+                if (playerStat._currentLevel != previousLevel)
+                {
+                    spawnSendLaserCubeTrap(2);
+                    previousLevel = playerStat._currentLevel;
+                }
                 playerStat._scoreStreak = 0;
             }
         }
@@ -135,27 +136,27 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
-                    playerStat._backupVariable3 = 0;
                 }
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
-                    playerStat._backupVariable4 = 0;
                 }
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
-                    playerStat._backupVariable5 = 0;
                 }
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
-                    playerStat._backupVariable6 = 0;
                 }
                 int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
-                spawnSendLaserCubeTrap(1);
+                if (previousLevel != playerStat._currentLevel)
+                {
+                    spawnSendLaserCubeTrap(1);
+                    previousLevel = playerStat._currentLevel;
+                }
                 playerStat._scoreStreak = 0;
             }
         }
@@ -171,16 +172,33 @@ public class PlayerBehaviour : MonoBehaviour
             });
             lightSaber.GetComponent<Lighsaber>().playerObject = gameObject;
             //lightSaber.transform.SetParent(transform);
-            ProgressPillar = Realtime.Instantiate("ProgressPillar", transform.position + new Vector3(0, 0, 2.5f), Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+            if (playerStat._backupVariable1)
             {
+                ProgressPillar = Realtime.Instantiate("ProgressPillar", transform.position + new Vector3(15f, 2.1f, 2.75f), Quaternion.Euler(0, -90, 0), new Realtime.InstantiateOptions
+                {
 
-                ownedByClient = true,
-                preventOwnershipTakeover = false,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            });
+                    ownedByClient = true,
+                    preventOwnershipTakeover = false,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+                ProgressPillar.GetComponent<ProgressPillar>().playerNumber = 1;
+            }
+            else
+            {
+                ProgressPillar = Realtime.Instantiate("ProgressPillar", transform.position + new Vector3(-15f, 2.1f, 2.75f), Quaternion.Euler(0, 90, 0), new Realtime.InstantiateOptions
+                {
+
+                    ownedByClient = true,
+                    preventOwnershipTakeover = false,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+                ProgressPillar.GetComponent<ProgressPillar>().playerNumber = 2;
+            }
             ProgressPillar.GetComponent<ProgressPillar>().player = gameObject;
             ProgressPillar.GetComponent<ProgressPillar>().lightSaber = lightSaber;
+            lightSaber.GetComponent<Lighsaber>().progressPillar = ProgressPillar;
             lightSaberSpawned = true;
         }
 

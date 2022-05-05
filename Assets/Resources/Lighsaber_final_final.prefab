@@ -399,6 +399,8 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   scoreTemporary: {fileID: 8300000, guid: c63e07404457f4014a8372c43de17c03, type: 3}
   bladeMat: {fileID: 2100000, guid: ce14e8cc7ad28404d915cb44ed70ae24, type: 2}
+  scoreStreak_TextPrefab: {fileID: 782778299213416144, guid: 4262783ad603c4cbebeb173420b5a76c, type: 3}
+  progressPillar: {fileID: 0}
 --- !u!54 &7874898741404584144
 Rigidbody:
   m_ObjectHideFlags: 0

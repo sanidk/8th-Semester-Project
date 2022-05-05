@@ -59,6 +59,8 @@ public class Lighsaber : MonoBehaviour
     private int score;
     private int streak;
     public Material bladeMat;
+    public GameObject scoreStreak_TextPrefab;
+    public GameObject progressPillar;
 
     GameObject opponentRoom;
     
@@ -243,6 +245,16 @@ public class Lighsaber : MonoBehaviour
         if (GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
             playerObject.GetComponent<PlayerStat>()._scoreStreak++;
+            scoreStreak_TextPrefab.GetComponent<TextMesh>().color = _colour;
+            scoreStreak_TextPrefab.GetComponent<TextMesh>().text = playerObject.GetComponent<PlayerStat>()._scoreStreak.ToString();
+            Vector3 dir = playerObject.transform.GetChild(0).transform.position - _tip.transform.position;
+            dir = dir.normalized;
+            GameObject obj = scoreStreak_TextPrefab;
+            obj.transform.position = _tip.transform.position;
+            obj.transform.rotation = Quaternion.LookRotation(dir);
+            obj.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+            Instantiate(obj);
+
             other.GetComponent<CubeFeedback>().scoreStreakV2 = (int)playerObject.GetComponent<PlayerStat>()._scoreStreak;
             if (playerObject.GetComponent<PlayerStat>()._scoreStreak >= 10)
             {
@@ -515,6 +527,19 @@ public class Lighsaber : MonoBehaviour
 
 
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+        {
+            /*
+            foreach(GameObject slice in slices)
+            {
+                slice.GetComponent<PullCubePieces>().progressPillar = progressPillar;
+            }*/
+            for (int i = 0; i <= 1; i++)
+            {
+                Debug.Log(slices.Length);
+                slices[i].gameObject.GetComponent<PullCubePieces>().progressPillar = progressPillar;
+            }
+        }
 
         //Destroy(other.gameObject); - Commented, Instead Despawn.
         if (GameManagerLogic.isServer)

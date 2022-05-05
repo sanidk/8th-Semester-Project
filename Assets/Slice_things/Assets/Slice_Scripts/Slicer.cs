@@ -60,7 +60,9 @@ namespace Assets.Scripts
 
             meshGameObject.AddComponent<MeshFilter>();
             meshGameObject.AddComponent<MeshRenderer>();
+            meshGameObject.AddComponent<PullCubePieces>(); // Pull cubes toward progress pillar.
             meshGameObject.AddComponent<DestroyXSec>(); // Destroys sliced objects after 3 sec.
+            meshGameObject.GetComponent<DestroyXSec>().lifeTime = 5f; // set lifetime to 5sec instead of the std 3.
             //Commented next 4 lines of code to make child objects NOT sliceable.
             //Sliceable sliceable = meshGameObject.AddComponent<Sliceable>();
 

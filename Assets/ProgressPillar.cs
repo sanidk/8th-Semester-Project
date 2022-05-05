@@ -30,6 +30,13 @@ public class ProgressPillar : MonoBehaviour
     bool greenArraySetToDefaultColor;
     bool blueArraySetToDefaultColor;
 
+    public bool redCompleted;
+    public bool yellowCompleted;
+    public bool greenCompleted;
+    public bool blueCompleted;
+
+    public int playerNumber;
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,12 +63,34 @@ public class ProgressPillar : MonoBehaviour
     {
         if (player == null || lightSaber == null) { return; }
         if (!player.GetComponent<RealtimeTransform>().isOwnedLocallySelf) { return; }
+
+        if (redCompleted && yellowCompleted && greenCompleted && blueCompleted)
+        {
+            player.GetComponent<PlayerStat>()._currentLevel++;
+
+            redCompleted = false;
+            yellowCompleted = false;
+            greenCompleted = false;
+            blueCompleted = false;
+
+            for (int i = 0; i < amountOfProgressCubes; i++)
+            {
+                redProgressArray[i].GetComponent<ColorSync>().SetColor(Color.grey);
+                yellowProgressArray[i].GetComponent<ColorSync>().SetColor(Color.grey);
+                greenProgressArray[i].GetComponent<ColorSync>().SetColor(Color.grey);
+                blueProgressArray[i].GetComponent<ColorSync>().SetColor(Color.grey);
+            }
+
+        }
+
         if (player.GetComponent<PlayerStat>()._backupVariable3 == 1f) // Red
         {
             for (int i = 0; i < amountOfProgressCubes; i++)
             {
                 redProgressArray[i].GetComponent<ColorSync>().SetColor(Color.red);
             }
+            redCompleted = true;
+            player.GetComponent<PlayerStat>()._backupVariable3 = 0;
         }
         else
         {
@@ -73,7 +102,7 @@ public class ProgressPillar : MonoBehaviour
                 }
                 redArraySetToDefaultColor = false;
             }
-            else if(lightSaber.GetComponent<Lighsaber>().swordColour() != red && !redArraySetToDefaultColor)
+            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != red && !redArraySetToDefaultColor && !redCompleted)
             {
                 for (int i = 0; i < amountOfProgressCubes; i++)
                 {
@@ -90,6 +119,8 @@ public class ProgressPillar : MonoBehaviour
             {
                 yellowProgressArray[i].GetComponent<ColorSync>().SetColor(Color.yellow);
             }
+            yellowCompleted = true;
+            player.GetComponent<PlayerStat>()._backupVariable4 = 0;
         }
         else
         {
@@ -101,7 +132,7 @@ public class ProgressPillar : MonoBehaviour
                 }
                 yellowArraySetToDefaultColor = false;
             }
-            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != yellow && !yellowArraySetToDefaultColor)
+            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != yellow && !yellowArraySetToDefaultColor && !yellowCompleted)
             {
                 for (int i = 0; i < amountOfProgressCubes; i++)
                 {
@@ -118,6 +149,8 @@ public class ProgressPillar : MonoBehaviour
             {
                 greenProgressArray[i].GetComponent<ColorSync>().SetColor(Color.green);
             }
+            greenCompleted = true;
+            player.GetComponent<PlayerStat>()._backupVariable5 = 0;
         }
         else
         {
@@ -129,7 +162,7 @@ public class ProgressPillar : MonoBehaviour
                 }
                 greenArraySetToDefaultColor = false;
             }
-            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != green && !greenArraySetToDefaultColor)
+            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != green && !greenArraySetToDefaultColor && !greenCompleted)
             {
                 for (int i = 0; i < amountOfProgressCubes; i++)
                 {
@@ -146,6 +179,8 @@ public class ProgressPillar : MonoBehaviour
             {
                 blueProgressArray[i].GetComponent<ColorSync>().SetColor(Color.blue);
             }
+            blueCompleted = true;
+            player.GetComponent<PlayerStat>()._backupVariable6 = 0;
         }
         else
         {
@@ -157,7 +192,7 @@ public class ProgressPillar : MonoBehaviour
                 }
                 blueArraySetToDefaultColor = false;
             }
-            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != blue && !blueArraySetToDefaultColor)
+            else if (lightSaber.GetComponent<Lighsaber>().swordColour() != blue && !blueArraySetToDefaultColor && !blueCompleted)
             {
                 for (int i = 0; i < amountOfProgressCubes; i++)
                 {
