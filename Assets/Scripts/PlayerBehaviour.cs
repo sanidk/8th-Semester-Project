@@ -22,6 +22,7 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject roomServer;
     GameObject roomClient;
 
+    int test = 0;
 
 
     // Start is called before the first frame update
@@ -50,6 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
         if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
         {
             return;
