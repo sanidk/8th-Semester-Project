@@ -45,11 +45,9 @@ public class MusicPlayer : MonoBehaviour
             isStartBuild = true;
             //introloop.isPlaying
 
-
-
         }
 
-        if (!introloop.isPlaying && isStartBuild)
+        if (!isBuildPlayed && !introloop.isPlaying && isStartBuild)
         {
             build.Play();
             isBuildPlayed = true;
