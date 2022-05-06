@@ -113,6 +113,7 @@ public class BombBehaviour : MonoBehaviour
             transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime/2);
             if (elapsedTime > 2)
             {
+                GetComponent<TrailRenderer>().enabled = false;
                 isTargetPosReached = true;
             }
             return;
@@ -134,7 +135,13 @@ public class BombBehaviour : MonoBehaviour
                     GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
                 }
 
-                Instantiate(explosionSoundPrefab);
+                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = true,
+                    preventOwnershipTakeover = true,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
                 Despawn();
             }
 
