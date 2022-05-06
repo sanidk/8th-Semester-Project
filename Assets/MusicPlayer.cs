@@ -11,11 +11,12 @@ public class MusicPlayer : MonoBehaviour
 
     float volume = 0.3f;
 
-    bool isLoopPlayed;
+    bool isIntroPlayed;
     bool isBuildPlayed;
     bool isBuildStopped;
     bool isMainPlaying;
-
+    bool isStartBuild;
+    bool buildStart;
 
 
 
@@ -32,18 +33,26 @@ public class MusicPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!intro.isPlaying && !isLoopPlayed)
+        if (!intro.isPlaying && !isIntroPlayed)
         {
             introloop.Play();
-            isLoopPlayed = true;
+            isIntroPlayed = true;
         }
 
-        if (GameManagerLogic.isPlayersReady && !isBuildPlayed)
+        if (GameManagerLogic.isPlayersReady)
         {
             introloop.loop = false;
+            isStartBuild = true;
+            //introloop.isPlaying
+
+
+
+        }
+
+        if (!introloop.isPlaying && isStartBuild)
+        {
             build.Play();
             isBuildPlayed = true;
-            
         }
 
         if (isBuildPlayed && !build.isPlaying && !isMainPlaying)
