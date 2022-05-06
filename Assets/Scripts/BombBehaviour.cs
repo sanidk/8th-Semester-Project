@@ -17,14 +17,17 @@ public class BombBehaviour : MonoBehaviour
     Vector3 minPos;
     Vector3 maxPos;
     public Vector3 currentPos;
+    Vector3 initialPosition;
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     public Vector3 dir;
+    Vector3 initialDirection;
+    bool isTargetPosReached;
     float randomDirectionAmount = 0.5f;
 
     AudioSource audioSource;
     public AudioClip explosionClip;
 
-
+    public Vector3 targetPosition;
     bool isMatReset;
 
     float speed = .05f;
@@ -45,18 +48,19 @@ public class BombBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initialPosition = transform.position;
+        
         originalMat = gameObject.GetComponent<MeshRenderer>().material;
         mat = new Material(originalMat);
         gameObject.GetComponent<MeshRenderer>().material = mat;
-        try
-        {
-            gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
-        } catch (UnassignedReferenceException)
-        {
+        //try
+        //{
+        //    gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
+        //} catch (UnassignedReferenceException)
+        //{
             
-        }
+        //}
         
-        audioSource = GetComponent<AudioSource>();
         spawnTime = Time.time;
 
 
@@ -70,17 +74,19 @@ public class BombBehaviour : MonoBehaviour
     void Update()
     {
 
+        
+
         if (!isMatReset && Time.time > spawnTime + 2)
         {
             gameObject.GetComponent<MeshRenderer>().material = originalMat;
-            try
-            {
-                gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
-            }
-            catch (UnassignedReferenceException)
-            {
+            //try
+            //{
+            //    gameObject.GetComponentInChildren<MeshRenderer>().material = mat;
+            //}
+            //catch (UnassignedReferenceException)
+            //{
 
-            }
+            //}
             GetComponent<SphereCollider>().enabled = true;
             isMatReset = true;
         } else
@@ -100,10 +106,20 @@ public class BombBehaviour : MonoBehaviour
             return;
         }
 
+        if (!isTargetPosReached)
+        {
 
+            float elapsedTime = Time.time - spawnTime;
+            Vector3.Lerp(initialPosition, targetPosition, elapsedTime/2);
+            if (elapsedTime > 2)
+            {
+                isTargetPosReached = true;
+            }
+            return;
+        }
+        
 
-
-
+        
         if (Time.time > spawnTime + eventTime)
         {
             if (gameObject.CompareTag("Bomb"))
