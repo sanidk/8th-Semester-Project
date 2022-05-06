@@ -175,7 +175,6 @@ public class BombBehaviour : MonoBehaviour
         if (playerOwner == 1)
         {
             GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
-
         }
         else if (playerOwner == 2)
         {

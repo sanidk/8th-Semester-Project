@@ -155,7 +155,21 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
+
+        if (GameManagerLogic.isServer)
+        {
+            if (other.gameObject.CompareTag("Bomb"))
+            {
+                //Realtime.Destroy(other.gameObject);
+                other.gameObject.GetComponent<BombBehaviour>().Despawn();
+
+            }
+            else if (other.gameObject.CompareTag("Mine"))
+            {
+                other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
+            }
+        }
+
         _triggerEnterTipPosition = _tip.transform.position;
         _triggerEnterBasePosition = _base.transform.position;
 
@@ -346,19 +360,7 @@ public class Lighsaber : MonoBehaviour
         //    return;
         //}
 
-        print("trigger exit: "+other.gameObject.name);
-        if (GameManagerLogic.isServer)
-        {
-            if (other.gameObject.CompareTag("Bomb"))
-            {
-                //Realtime.Destroy(other.gameObject);
-                other.gameObject.GetComponent<BombBehaviour>().Despawn();
-
-            } else if (other.gameObject.CompareTag("Mine"))
-            {
-                other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
-            }
-        }
+        
         
 
 
