@@ -111,12 +111,9 @@ public class BallBehaviour : MonoBehaviour
             case 1:
                 //bomb
 
-                //for (int i = 0; i < playerReference.GetComponent<PlayerStat>()._currentLevel; i++)
-                //{
-                //int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
-                //Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
-
-                GameObject bomb = Realtime.Instantiate("Bomb", transform.position, Quaternion.Euler(-90, 0, 0), new Realtime.InstantiateOptions
+                for (int i = 0; i < playerReference.GetComponent<PlayerStat>()._currentLevel; i++)
+                {
+                    GameObject bomb = Realtime.Instantiate("Bomb", transform.position, Quaternion.Euler(-90, 0, 0), new Realtime.InstantiateOptions
                     {
                         ownedByClient = false,
                         preventOwnershipTakeover = false,
@@ -125,10 +122,18 @@ public class BallBehaviour : MonoBehaviour
                     });
 
 
-                bomb.GetComponent<BombBehaviour>().playerOwner = playerNumber;
+                    bomb.GetComponent<BombBehaviour>().playerOwner = playerNumber;
 
-                bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
-                bomb.GetComponent<BombBehaviour>().targetPosition = randomLocation;
+                    bomb.GetComponent<BombBehaviour>().midPos = OppositePosition;
+                    bomb.GetComponent<BombBehaviour>().targetPosition = randomLocation;
+
+                }
+                //int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
+                //Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
+
+
+
+                
                 //}
 
                 break;
@@ -139,8 +144,9 @@ public class BallBehaviour : MonoBehaviour
                 //{
                 //int randomInt = Random.Range(0, oppositeGridManager.spawnzonesArrayWithoutMiddle.Count);
                 //Vector3 randomLocation = oppositeGridManager.spawnzonesArrayWithoutMiddle[randomInt];
-
-                GameObject mine = Realtime.Instantiate("Mine", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                for (int i = 0; i < playerReference.GetComponent<PlayerStat>()._currentLevel; i++)
+                {
+                    GameObject mine = Realtime.Instantiate("Mine", transform.position, transform.rotation, new Realtime.InstantiateOptions
                     {
                         ownedByClient = false,
                         preventOwnershipTakeover = false,
@@ -148,8 +154,11 @@ public class BallBehaviour : MonoBehaviour
                         destroyWhenLastClientLeaves = true
                     });
 
-                mine.GetComponent<BombBehaviour>().midPos = OppositePosition;
-                mine.GetComponent<BombBehaviour>().targetPosition = randomLocation;
+                    mine.GetComponent<BombBehaviour>().midPos = OppositePosition;
+                    mine.GetComponent<BombBehaviour>().targetPosition = randomLocation;
+
+                }
+                    
 
 
                 //}
