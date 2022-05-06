@@ -253,7 +253,7 @@ MonoBehaviour:
   _interpolate: 1
   _syncPosition: 1
   _syncRotation: 1
-  _syncScale: 1
+  _syncScale: 0
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
 --- !u!54 &8913891370503574029
