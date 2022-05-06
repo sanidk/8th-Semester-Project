@@ -110,7 +110,7 @@ public class BombBehaviour : MonoBehaviour
         {
 
             float elapsedTime = Time.time - spawnTime;
-            Vector3.Lerp(initialPosition, targetPosition, elapsedTime/2);
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime/2);
             if (elapsedTime > 2)
             {
                 isTargetPosReached = true;
@@ -134,7 +134,7 @@ public class BombBehaviour : MonoBehaviour
                     GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
                 }
 
-                //Instantiate(explosionSoundPrefab);
+                Instantiate(explosionSoundPrefab);
                 Despawn();
             }
 
