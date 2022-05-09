@@ -63,6 +63,9 @@ public class Lighsaber : MonoBehaviour
     public GameObject progressPillar;
 
     GameObject opponentRoom;
+    public GameObject gridManagerObj;
+    public Transform trapSpawnTransform;
+    
     
     Vector3 relativeSliceStart;
     void Start()
@@ -280,6 +283,16 @@ public class Lighsaber : MonoBehaviour
                 else if (swordColour() == Color.yellow)
                 {
                     playerObject.GetComponent<PlayerStat>()._backupVariable4 = 1f;
+                    
+                    GameObject miniMace = Realtime.Instantiate("MaceTrap_MiniPrefab", other.gameObject.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                    {
+
+                        ownedByClient = true,
+                        preventOwnershipTakeover = false,
+                        destroyWhenOwnerLeaves = false,
+                        destroyWhenLastClientLeaves = true
+                    });
+                    miniMace.GetComponent<miniPrefab>().targetTransform = trapSpawnTransform;
                     //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
                 }
                 else if (swordColour() == Color.green)

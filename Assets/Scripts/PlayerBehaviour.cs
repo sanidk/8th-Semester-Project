@@ -118,6 +118,10 @@ public class PlayerBehaviour : MonoBehaviour
                     randomTrap = 3;
                 }
                 int randomInt = Random.Range(0, 4);
+                if (lightSaber != null)
+                {
+                    lightSaber.GetComponent<Lighsaber>().trapSpawnTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomInt].transform;
+                }
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 playerStat._scoreStreak = 0;
@@ -151,6 +155,10 @@ public class PlayerBehaviour : MonoBehaviour
                     randomTrap = 3;
                 }
                 int randomInt = Random.Range(0, 4);
+                if (lightSaber != null)
+                {
+                    lightSaber.GetComponent<Lighsaber>().trapSpawnTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomInt].transform;
+                }
                 //int randomTrap = Random.Range(0, 4);
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 playerStat._scoreStreak = 0;
