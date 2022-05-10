@@ -26,6 +26,11 @@ public class TrapDeploy : MonoBehaviour
     public GameObject[] bullets;
     float zOffset = -3f;
 
+    public AudioSource audioSource;
+    public AudioClip warningSound;
+    public AudioClip spearTrapSound;
+    public AudioClip maceAndFistSound;
+
     int selectedTrap;
     Quaternion spawnRotation = Quaternion.Euler(0,0,90);
 
@@ -49,6 +54,10 @@ public class TrapDeploy : MonoBehaviour
         warningGreen = Resources.Load<Material>("ForceFieldGreen");
         warningBlue = Resources.Load<Material>("ForceFieldBlue");
 
+        audioSource = GetComponentInChildren<AudioSource>();
+        warningSound = Resources.Load("alarm") as AudioClip;
+        spearTrapSound = Resources.Load("spearTrapSound") as AudioClip;
+        maceAndFistSound = Resources.Load("maceAndFistTrapSound") as AudioClip;
     }
 
     // Update is called once per frame
@@ -77,73 +86,81 @@ public class TrapDeploy : MonoBehaviour
         selectedTrap = typeOfTrap;
         
         if (selectedTrap == 0) {
-            tempWarning = Realtime.Instantiate("SmallWarningObject", new Vector3(transform.position.x, transform.position.y + 0.45f, transform.position.z), Quaternion.Euler(0,0,270), new Realtime.InstantiateOptions
+            tempWarning = Realtime.Instantiate("SmallWarningObj", new Vector3(transform.position.x, transform.position.y + 0.45f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningRed;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningRed;
+            for (int i = 0; i < 4; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningRed;
+                tempWarning.transform.GetChild(i).Rotate(0,0,90);
+            }
         } else if (selectedTrap == 2) {
-            tempWarning = Realtime.Instantiate("SmallWarningObject", new Vector3(transform.position.x, transform.position.y + 0.45f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
+            tempWarning = Realtime.Instantiate("SmallWarningObj", new Vector3(transform.position.x, transform.position.y + 0.45f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningGreen;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningGreen;
+            for (int i = 0; i < 4; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningGreen;
+                tempWarning.transform.GetChild(i).Rotate(0,0,270);
+            }
 
         } else if (selectedTrap == 1) {
             if (this.name == "Trap0" || this.name == "Trap1") {
-                tempWarning = Realtime.Instantiate("BigWarningObject", new Vector3(transform.position.x + 0.5f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+                tempWarning = Realtime.Instantiate("BigWarningObj", new Vector3(transform.position.x + 0.5f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningYellow;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningYellow;
+            for (int i = 0; i < 6; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningYellow;
+            }
         } else if (this.name == "Trap2" || this.name == "Trap3") {
-                tempWarning = Realtime.Instantiate("BigWarningObject", new Vector3(transform.position.x - 0.5f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+                tempWarning = Realtime.Instantiate("BigWarningObj", new Vector3(transform.position.x - 0.5f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
                 {
                     ownedByClient = false,
                     preventOwnershipTakeover = false,
                     destroyWhenOwnerLeaves = false,
                     destroyWhenLastClientLeaves = true
                 });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningYellow;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningYellow;
+            for (int i = 0; i < 6; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningYellow;
+            }
         }
         } else if (selectedTrap == 3) {
             if (this.name == "Trap0" || this.name == "Trap1") {
-                tempWarning = Realtime.Instantiate("BigWarningObject", new Vector3(transform.position.x + 0.425f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+                tempWarning = Realtime.Instantiate("BigWarningObj", new Vector3(transform.position.x + 0.425f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningBlue;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningBlue;
+            for (int i = 0; i < 6; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningBlue;
             }
         } else if (this.name == "Trap2" || this.name == "Trap3") {
-            tempWarning = Realtime.Instantiate("BigWarningObject", new Vector3(transform.position.x - 0.425f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
+            tempWarning = Realtime.Instantiate("BigWarningObj", new Vector3(transform.position.x - 0.425f, transform.position.y + 0.25f, transform.position.z), transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
-            tempWarning.transform.GetChild(0).GetComponent<MeshRenderer>().material = warningBlue;
-            tempWarning.transform.GetChild(1).GetComponent<MeshRenderer>().material = warningBlue;
+            for (int i = 0; i < 6; i++) {
+                tempWarning.transform.GetChild(i).GetComponent<MeshRenderer>().material = warningBlue;
+            }
+        }
         }
 
-        tempWarning.GetComponentsInChildren<MeshRenderer>();
+        //tempWarning.GetComponentsInChildren<MeshRenderer>();
         
         
         
@@ -201,7 +218,7 @@ public class TrapDeploy : MonoBehaviour
             });
             tempTrap.transform.rotation *= spawnRotation;
         } else if (typeOfTrap == 2) {
-            tempTrap = Realtime.Instantiate("FistTrap", new Vector3(transform.position.x, transform.position.y + 4, transform.position.z), Quaternion.Euler(270,0,0), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("FistTrap", new Vector3(transform.position.x + 1.15f, transform.position.y + 4, transform.position.z), Quaternion.Euler(0,0,270), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -294,13 +311,20 @@ public class TrapDeploy : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         if (selectedTrap == 0) {
             tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            tempTrap.GetComponent<Collider>().enabled = true;
+            audioSource = tempTrap.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(spearTrapSound, 0.5f);
             yield return new WaitForSecondsRealtime(2);
         } else if (selectedTrap == 1) {
             tempTrap.transform.GetChild(0).gameObject.AddComponent<PendulumMovement>();
+            audioSource = tempTrap.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(maceAndFistSound, 0.5f);
             yield return new WaitForSecondsRealtime(1.5f);
         } else if (selectedTrap == 2) {
             tempTrap.GetComponent<Rigidbody>().useGravity = true;
             tempTrap.GetComponent<Rigidbody>().isKinematic = false;
+            audioSource = tempTrap.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(maceAndFistSound, 0.5f);
             yield return new WaitForSecondsRealtime(2);
         } else if (selectedTrap == 3) {
             for (int i = 0; i < 3; i++) {  
