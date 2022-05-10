@@ -53,11 +53,11 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-        //if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
-        //{
-        //    return;
-        //}
+
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
 
 
         //if (Application.platform != RuntimePlatform.Android)
