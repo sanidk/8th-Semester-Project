@@ -68,7 +68,7 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _lives = _playerStatSync.GetLives();
+        //_lives = _playerStatSync.GetLives();
 
         /*
         if (!GameManagerLogic.isServer)
