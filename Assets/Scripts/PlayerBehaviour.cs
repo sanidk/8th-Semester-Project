@@ -54,10 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
-        {
-            return;
-        }
+        
 
         //if (Application.platform != RuntimePlatform.Android)
         //{
@@ -91,6 +88,11 @@ public class PlayerBehaviour : MonoBehaviour
             gameObject.transform.Find("Head").tag = "Player2";
             gameObject.transform.Find("Left Hand").tag = "Player2";
             gameObject.transform.Find("Right Hand").tag = "Player2";
+        }
+
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
         }
 
         roomOwned.GetComponentInChildren<GridManager>().playerReference = transform.gameObject;
