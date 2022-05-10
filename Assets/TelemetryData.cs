@@ -67,10 +67,10 @@ public class TelemetryData : MonoBehaviour
     void Update()
     {
         
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            return;
-        }
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+        //    return;
+        //}
 
         if (!GetComponent<GameLogic>()._isPlayersReadyToStartGame)
         {

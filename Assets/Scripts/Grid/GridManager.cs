@@ -309,6 +309,11 @@ public class GridManager : MonoBehaviour
         if (!realtime.connected) return;
         if (!GameManagerLogic.isServer) return;
 
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
+
         if (instantiateBalls)
         {
             InstantiateBalls();

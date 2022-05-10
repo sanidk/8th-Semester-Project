@@ -45,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
         roomClient = GameObject.Find("RoomPlayer2");
 
         previousLevel = playerStat._currentLevel;
-
+        
 
 
     }
@@ -58,7 +58,6 @@ public class PlayerBehaviour : MonoBehaviour
         {
             return;
         }
-
 
         //if (Application.platform != RuntimePlatform.Android)
         //{
@@ -98,7 +97,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (GetComponent<RealtimeView>().isOwnedLocallySelf && playerStat._backupVariable1)
         {
-            TelemetryData.traps2++;
+            //telemetry data wont work here because its not networked
+            //TelemetryData.traps2++;
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
                 if (playerStat._backupVariable3 == 1f)
@@ -136,7 +136,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (playerStat._scoreStreak >= streakToSendTrap)
             {
-                TelemetryData.traps1++;
+                //TelemetryData.traps1++;
 
                 if (playerStat._backupVariable3 == 1f)
                 {

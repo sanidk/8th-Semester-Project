@@ -101,6 +101,11 @@ public class Lighsaber : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
+
         if (playerObject == null)
         {
             playerNumber = 2;
@@ -158,7 +163,10 @@ public class Lighsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
         if (GameManagerLogic.isServer)
         {
             if (other.gameObject.CompareTag("Bomb"))
@@ -373,8 +381,11 @@ public class Lighsaber : MonoBehaviour
         //    return;
         //}
 
-        
-        
+        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        {
+            return;
+        }
+
 
 
         //other.gameObject.GetComponent<BombBehaviour>().Despawn();
