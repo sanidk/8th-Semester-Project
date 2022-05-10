@@ -33,6 +33,7 @@ public class livesUIManager : MonoBehaviour
     {
         if (lives != livesOld)
         {
+            
             StartCoroutine(looseLife(.5f, lives));
                 
 

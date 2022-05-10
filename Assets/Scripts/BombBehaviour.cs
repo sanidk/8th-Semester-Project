@@ -129,6 +129,7 @@ public class BombBehaviour : MonoBehaviour
             if (gameObject.CompareTag("Bomb"))
             {
                 //explode = true;
+                print(playerOwner);
                 if (playerOwner == 1)
                 {
                     GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;

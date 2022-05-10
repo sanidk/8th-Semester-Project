@@ -54,10 +54,10 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
     
-        if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
-        {
-            return;
-        }
+        //if (!GameManagerLogic.isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
+        //{
+        //    return;
+        //}
 
 
         //if (Application.platform != RuntimePlatform.Android)

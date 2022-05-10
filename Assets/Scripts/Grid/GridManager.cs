@@ -294,6 +294,7 @@ public class GridManager : MonoBehaviour
         if (gameObject.transform.parent.name == "RoomPlayer1")
         {
             playerNumber = 1;
+            
         }
         else if (gameObject.transform.parent.name == "RoomPlayer2")
         {
@@ -334,7 +335,7 @@ public class GridManager : MonoBehaviour
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
                     ball.GetComponent<BallBehaviour>().playerReference = playerReference;
 
-                    if (Random.Range(0, 9) == 0)
+                    if (Random.Range(0, 1) == 0)
                     {
                         ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
                     }
