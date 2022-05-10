@@ -43,9 +43,9 @@ public class GameManagerLogic : MonoBehaviour
 
     public static GameObject representationCubeSpawnLocationPlayer1;
     public static GameObject representationCubeSpawnLocationPlayer2;
-    
 
-
+    public static bool isSendFeedbackEnabled;
+    public bool isSendFeedbackEnabledReference;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +69,7 @@ public class GameManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        isSendFeedbackEnabled = isSendFeedbackEnabledReference;
 
         isDebuggingModeEnabled = isDebuggingModeEnabledSerializedField;
 

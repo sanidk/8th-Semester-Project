@@ -109,18 +109,27 @@ public class BombBehaviour : MonoBehaviour
             return;
         }
 
-        if (!isTargetPosReached)
+        if (GameManagerLogic.isSendFeedbackEnabled)
         {
+            transform.position = targetPosition;
 
-            float elapsedTime = Time.time - spawnTime;
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime/2);
-            if (elapsedTime > 2)
+        } else
+        {
+            if (!isTargetPosReached)
             {
-                GetComponent<TrailRenderer>().enabled = false;
-                isTargetPosReached = true;
+
+                float elapsedTime = Time.time - spawnTime;
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / 2);
+                if (elapsedTime > 2)
+                {
+                    GetComponent<TrailRenderer>().enabled = false;
+                    isTargetPosReached = true;
+                }
+                return;
             }
-            return;
         }
+
+        
         
 
         
