@@ -76,7 +76,7 @@ public class GameManagerLogic : MonoBehaviour
         if (!isDebuggingModeEnabled && Application.platform != RuntimePlatform.Android)
         {
             VRRig.transform.position = new Vector3(0, -200, 0);
-            return;
+            //return;
         }
 
 

@@ -2465,6 +2465,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114501696213753918, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
+      propertyPath: _joinRoomOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501696213753918, guid: fca9d4afb3743274e8f7da14019d7e0b, type: 3}
       propertyPath: _normcoreAppSettings
       value: 
       objectReference: {fileID: 11400000, guid: 7d57d53279a00394aab9413d8686bf3e, type: 2}
