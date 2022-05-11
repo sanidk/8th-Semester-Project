@@ -141,32 +141,6 @@ public class BombBehaviour : MonoBehaviour
             CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
         }
 
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
-        
-
-        if (GameManagerLogic.isSendFeedbackEnabled)
-        {
-            transform.position = targetPosition;
-
-        } else
-        {
-            if (!isTargetPosReached)
-            {
-
-                float elapsedTime = Time.time - spawnTime;
-                transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / 2);
-                if (elapsedTime > 2)
-                {
-                    GetComponent<TrailRenderer>().enabled = false;
-                    isTargetPosReached = true;
-                }
-                return;
-            }
-        }
-
         if (Time.time > spawnTime + eventTime)
         {
             if (gameObject.CompareTag("Bomb"))
@@ -195,11 +169,39 @@ public class BombBehaviour : MonoBehaviour
 
             if (gameObject.CompareTag("Mine"))
             {
-                
+
                 Despawn();
             }
 
-        } 
+        }
+
+        if (!GameManagerLogic.isServer)
+        {
+            return;
+        }
+        
+
+        if (GameManagerLogic.isSendFeedbackEnabled)
+        {
+            transform.position = targetPosition;
+
+        } else
+        {
+            if (!isTargetPosReached)
+            {
+
+                float elapsedTime = Time.time - spawnTime;
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / 2);
+                if (elapsedTime > 2)
+                {
+                    GetComponent<TrailRenderer>().enabled = false;
+                    isTargetPosReached = true;
+                }
+                return;
+            }
+        }
+
+        
         //if (!isBallSpawned) return;
 
         currentPos = transform.position;
