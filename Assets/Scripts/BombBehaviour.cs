@@ -302,6 +302,19 @@ public class BombBehaviour : MonoBehaviour
         Realtime.Destroy(gameObject);
     }
 
+    public void Explode()
+    {
+        GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+        {
+            ownedByClient = false,
+            preventOwnershipTakeover = false,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+        });
+
+        Despawn();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //if (!GameManagerLogic.isServer)

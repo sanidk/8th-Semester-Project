@@ -347,30 +347,30 @@ public class PlayerBehaviour : MonoBehaviour
         {
             playerStat._lives--;
 
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
-            {
-                ownedByClient = false,
-                preventOwnershipTakeover = false,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            });
+            //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
+            //{
+            //    ownedByClient = false,
+            //    preventOwnershipTakeover = false,
+            //    destroyWhenOwnerLeaves = false,
+            //    destroyWhenLastClientLeaves = true
+            //});
 
-            other.GetComponentInParent<BombBehaviour>().Despawn();
+            other.GetComponentInParent<BombBehaviour>().Explode();
         }
 
         if (other.CompareTag("Mine"))
         {
             playerStat._lives--;
             
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
-            {
-                ownedByClient = false,
-                preventOwnershipTakeover = false,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            });
+            //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
+            //{
+            //    ownedByClient = false,
+            //    preventOwnershipTakeover = false,
+            //    destroyWhenOwnerLeaves = false,
+            //    destroyWhenLastClientLeaves = true
+            //});
 
-            other.GetComponent<BombBehaviour>().Despawn();
+            other.GetComponent<BombBehaviour>().Explode();
         }
 
 
