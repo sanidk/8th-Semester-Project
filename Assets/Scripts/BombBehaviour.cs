@@ -102,25 +102,21 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
-        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated && GetComponent<RealtimeView>().isOwnedLocallySelf)
+        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
         {
+            CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+            CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+            CD_Copy.GetComponent<TextMesh>().color = Color.white;
+            CD_Copy.transform.position = countDownTransform.position;
             if (playerOwner == 1)
             {
-                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                CD_Copy.transform.position = countDownTransform.position;
                 Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
             }
-            else if (playerOwner == 2)
+            else// if (playerOwner == 2)
             {
-                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                CD_Copy.transform.position = countDownTransform.position;
                 Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
@@ -130,7 +126,7 @@ public class BombBehaviour : MonoBehaviour
         }
 
         
-        if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null && GetComponent<RealtimeView>().isOwnedLocallySelf)
+        if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null)
         {
             float elapsedTime = Time.time - spawnTime;
             if ((eventTime - elapsedTime) < 3)
