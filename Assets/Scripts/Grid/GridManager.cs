@@ -64,6 +64,8 @@ public class GridManager : MonoBehaviour
     public List<Vector3> spawnzonesArrayWithoutMiddle = new List<Vector3>();
 
 
+    bool isBallsSpawnedWithoutModifiers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -340,14 +342,20 @@ public class GridManager : MonoBehaviour
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
                     ball.GetComponent<BallBehaviour>().playerReference = playerReference;
 
-                    if (Random.Range(0, 1) == 0) // changed for testing:
+                    if (isBallsSpawnedWithoutModifiers)
                     {
-                        ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
+                        if (Random.Range(0, 1) == 0) // changed for testing:
+                        {
+                            ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
+                        }
                     }
+                    
 
 
                 }
             }
+
+            isBallsSpawnedWithoutModifiers = true;
 
         }
 
