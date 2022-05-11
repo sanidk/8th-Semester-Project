@@ -137,9 +137,6 @@ public class BombBehaviour : MonoBehaviour
             CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
         }
 
-        
-
-        
 
         if (Time.time > spawnTime + eventTime)
         {
