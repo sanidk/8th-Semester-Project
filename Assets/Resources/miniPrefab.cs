@@ -59,7 +59,7 @@ public class miniPrefab : MonoBehaviour
                 else if (gameObject.CompareTag("MiniFist"))
                 {
                     finalPosition = targetTransform.position + new Vector3(0, -0.3f, 0);
-                    if (transform.localScale.x < 0.5f)
+                    if (transform.localScale.x < 1f)
                     {
                         transform.localScale += scaleChange;//* Time.deltaTime;
                         transform.RotateAround(transform.position, Vector3.up, 30 * Time.deltaTime); // rotate around self with 5 degrees per sec.
