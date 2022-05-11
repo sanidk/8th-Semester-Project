@@ -354,7 +354,7 @@ public class PlayerBehaviour : MonoBehaviour
             //    destroyWhenOwnerLeaves = false,
             //    destroyWhenLastClientLeaves = true
             //});
-            other.GetComponent<RealtimeTransform>().RequestOwnership();
+            other.GetComponentInParent<RealtimeTransform>().RequestOwnership();
 
             other.GetComponentInParent<BombBehaviour>().Explode();
         }
