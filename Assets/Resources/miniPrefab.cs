@@ -40,27 +40,48 @@ public class miniPrefab : MonoBehaviour
                 {
                     finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
                     //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                    if (transform.localScale.x < 0.75f)
+                    {
+                        transform.localScale += scaleChange;//* Time.deltaTime;
+                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+                    }
                 }
                 else if (gameObject.name.Contains("SpearTrap_miniPrefab"))
                 {
                     finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
                     //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 }
+                else if (gameObject.name.Contains("FistTrap_miniPrefab"))
+                {
+                    finalPosition = targetTransform.position + new Vector3(0, -0.3f, 0);
+                    if (transform.localScale.x < 0.5f)
+                    {
+                        transform.localScale += scaleChange;//* Time.deltaTime;
+                        transform.RotateAround(transform.position, Vector3.up, 30 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+                    }
+                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                }
                 else
                 {
                     finalPosition = targetTransform.position;
                     //finalPosition = targetPositionTest;
+                    if (transform.localScale.x < 1.5f)
+                    {
+                        transform.localScale += scaleChange;//* Time.deltaTime;
+                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+                    }
                 }
                 finalPosSet = true;
             }
             float elapsedTime = Time.time - spawnTime;
             transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
 
+            /*
             if (transform.localScale.x < 1.5f)
             {
                 transform.localScale += scaleChange;//* Time.deltaTime;
                 transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-            }
+            }*/
 
             //float sineAlpha = Mathf.Sin(Time.time * 4);
             //Color color = new Color(originalMat.color.r, originalMat.color.g, originalMat.color.b, sineAlpha);
