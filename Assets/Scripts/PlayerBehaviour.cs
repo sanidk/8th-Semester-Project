@@ -206,7 +206,7 @@ public class PlayerBehaviour : MonoBehaviour
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
                         });
-                        miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                        miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
                         miniSpears.GetComponent<miniPrefab>().playerObj = gameObject;
                     }
                 }
@@ -222,7 +222,7 @@ public class PlayerBehaviour : MonoBehaviour
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
                         });
-                        miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                        miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
                         miniMace.GetComponent<miniPrefab>().playerObj = gameObject;
                     }
                 }
@@ -238,7 +238,7 @@ public class PlayerBehaviour : MonoBehaviour
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
                         });
-                        miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                        miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
                         miniFist.GetComponent<miniPrefab>().playerObj = gameObject;
                     }
                 }
@@ -254,7 +254,7 @@ public class PlayerBehaviour : MonoBehaviour
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
                         });
-                        miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                        miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
                         miniArrows.GetComponent<miniPrefab>().playerObj = gameObject;
                     }
                 }
@@ -265,7 +265,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
             if (miniPrefabOnLoc)
             {
-                GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
+                GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
                 miniPrefabOnLoc = false;
             }
             if (previousLevel != playerStat._currentLevel)
