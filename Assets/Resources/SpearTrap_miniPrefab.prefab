@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 6972048545780847524}
   m_Layer: 0
   m_Name: SpearTrap_miniPrefab
-  m_TagString: Untagged
+  m_TagString: MiniSpears
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
+  playerObj: {fileID: 0}
 --- !u!1 &2152965653281541974
 GameObject:
   m_ObjectHideFlags: 0

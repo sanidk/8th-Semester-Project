@@ -17,6 +17,10 @@ TagManager:
   - Laser
   - LightSaber
   - BombCollider
+  - MiniFist
+  - MiniArrows
+  - MiniMace
+  - MiniSpears
   layers:
   - Default
   - TransparentFX
