@@ -141,11 +141,21 @@ public class BombBehaviour : MonoBehaviour
             CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
         }
 
+        
+
+        if (!GameManagerLogic.isServer)
+        {
+            return;
+        }
+
         if (Time.time > spawnTime + eventTime)
         {
             if (gameObject.CompareTag("Bomb"))
             {
                 GetComponentInChildren<SphereCollider>().enabled = true;
+
+                
+
                 //explode = true;
                 //print(playerOwner);
                 //if (playerOwner == 1)
@@ -174,12 +184,6 @@ public class BombBehaviour : MonoBehaviour
             }
 
         }
-
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
-        
 
         if (GameManagerLogic.isSendFeedbackEnabled)
         {
