@@ -73,6 +73,16 @@ public class BombBehaviour : MonoBehaviour
         maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
         minPos = new Vector3(midPos.x - spacing, midPos.y - spacing, midPos.z - spacing);
 
+        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
+        {
+            ownedByClient = true,
+            preventOwnershipTakeover = false,
+            destroyWhenOwnerLeaves = false,
+            destroyWhenLastClientLeaves = true
+
+        });
+        CD_Copy.transform.SetParent(gameObject.transform);
+
     }
 
     // Update is called once per frame
@@ -131,15 +141,16 @@ public class BombBehaviour : MonoBehaviour
                     if(playerOwner == 1)
                     {
                         //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
-                        /*CD_Copy = Realtime.Instantiate("SpearTrap_miniPrefab", new Realtime.InstantiateOptions
+                        //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
+                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
                         {
                             ownedByClient = true,
                             preventOwnershipTakeover = false,
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
                             
-                        });*/
+                        });
+                        CD_Copy.transform.SetParent(gameObject.transform);
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
@@ -151,7 +162,16 @@ public class BombBehaviour : MonoBehaviour
                     else if (playerOwner == 2)
                     {
                         //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
+                        //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
+                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
+                        {
+                            ownedByClient = true,
+                            preventOwnershipTakeover = false,
+                            destroyWhenOwnerLeaves = false,
+                            destroyWhenLastClientLeaves = true
+
+                        });
+                        CD_Copy.transform.SetParent(gameObject.transform);
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
