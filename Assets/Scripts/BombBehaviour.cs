@@ -132,7 +132,7 @@ public class BombBehaviour : MonoBehaviour
                         //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
                         CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
                         {
-                            ownedByClient = false,
+                            ownedByClient = true,
                             preventOwnershipTakeover = false,
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
@@ -153,7 +153,7 @@ public class BombBehaviour : MonoBehaviour
                         //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
                         CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
                         {
-                            ownedByClient = false,
+                            ownedByClient = true,
                             preventOwnershipTakeover = false,
                             destroyWhenOwnerLeaves = false,
                             destroyWhenLastClientLeaves = true
