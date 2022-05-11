@@ -118,7 +118,7 @@ public class BombBehaviour : MonoBehaviour
             }
             else if (GameManagerLogic.player2 != null) // som om playerOwner==2 aldrig var true, da den ikke blev instantiated p? client?
             {
-                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
