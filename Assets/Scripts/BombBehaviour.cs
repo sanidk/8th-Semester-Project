@@ -150,7 +150,7 @@ public class BombBehaviour : MonoBehaviour
                             destroyWhenLastClientLeaves = true
                             
                         });
-                        CD_Copy.transform.SetParent(gameObject.transform);
+                        CD_Copy.transform.SetParent(gameObject.transform, true);
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
@@ -171,7 +171,7 @@ public class BombBehaviour : MonoBehaviour
                             destroyWhenLastClientLeaves = true
 
                         });
-                        CD_Copy.transform.SetParent(gameObject.transform);
+                        CD_Copy.transform.SetParent(gameObject.transform, true);
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
