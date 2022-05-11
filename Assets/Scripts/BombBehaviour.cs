@@ -130,7 +130,16 @@ public class BombBehaviour : MonoBehaviour
                     //CD_Copy.transform.position = countDownTransform.position;
                     if(playerOwner == 1)
                     {
-                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
+                        /*CD_Copy = Realtime.Instantiate("SpearTrap_miniPrefab", new Realtime.InstantiateOptions
+                        {
+                            ownedByClient = true,
+                            preventOwnershipTakeover = false,
+                            destroyWhenOwnerLeaves = false,
+                            destroyWhenLastClientLeaves = true
+                            
+                        });*/
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
@@ -141,7 +150,8 @@ public class BombBehaviour : MonoBehaviour
                     }
                     else if (playerOwner == 2)
                     {
-                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
                         CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
                         CD_Copy.GetComponent<TextMesh>().color = Color.white;
                         CD_Copy.transform.position = countDownTransform.position;
