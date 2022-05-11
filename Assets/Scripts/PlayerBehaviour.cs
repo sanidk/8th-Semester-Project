@@ -346,11 +346,11 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("BombCollider"))
         {
             playerStat._lives--;
-            
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.transform.position, other.transform.rotation, new Realtime.InstantiateOptions
+
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
             {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
@@ -362,10 +362,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             playerStat._lives--;
             
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.transform.position, other.transform.rotation, new Realtime.InstantiateOptions
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
             {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
+                ownedByClient = false,
+                preventOwnershipTakeover = false,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
