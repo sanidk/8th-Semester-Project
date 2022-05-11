@@ -104,12 +104,12 @@ public class BombBehaviour : MonoBehaviour
 
         
 
-        /*
+        
         if (!GameManagerLogic.isServer)
         {
             return;
         }
-        */
+        
 
         if (GameManagerLogic.isSendFeedbackEnabled)
         {
