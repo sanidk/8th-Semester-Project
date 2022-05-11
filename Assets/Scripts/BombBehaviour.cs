@@ -110,14 +110,14 @@ public class BombBehaviour : MonoBehaviour
             CD_Copy.transform.position = countDownTransform.position;
             if (playerOwner == 1)
             {
-                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
             }
-            else// if (playerOwner == 2)
+            else// if (playerOwner == 2) // som om playerOwner==2 aldrig var true, da den ikke blev instantiated p? client?
             {
-                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
