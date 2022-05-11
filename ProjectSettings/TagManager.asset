@@ -16,6 +16,7 @@ TagManager:
   - PowerUp
   - Laser
   - LightSaber
+  - BombCollider
   layers:
   - Default
   - TransparentFX

@@ -175,25 +175,26 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
+                GetComponentInChildren<SphereCollider>().enabled = true;
                 //explode = true;
-                print(playerOwner);
-                if (playerOwner == 1)
-                {
-                    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+                //print(playerOwner);
+                //if (playerOwner == 1)
+                //{
+                //    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
 
-                } else if (playerOwner == 2)
-                {
-                    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
-                }
+                //} else if (playerOwner == 2)
+                //{
+                //    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                //}
 
-                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
-                {
-                    ownedByClient = true,
-                    preventOwnershipTakeover = true,
-                    destroyWhenOwnerLeaves = false,
-                    destroyWhenLastClientLeaves = true
-                });
-                Despawn();
+                //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                //{
+                //    ownedByClient = true,
+                //    preventOwnershipTakeover = true,
+                //    destroyWhenOwnerLeaves = false,
+                //    destroyWhenLastClientLeaves = true
+                //});
+                //Despawn();
             }
 
             if (gameObject.CompareTag("Mine"))
@@ -273,27 +274,27 @@ public class BombBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
+        //if (!GameManagerLogic.isServer)
+        //{
+        //    return;
+        //}
         
-        if (gameObject.CompareTag("Mine"))
-        {
-            print("mine collision with player");
-            if (other.CompareTag("Player1") || other.CompareTag("Player2"))
-            {
-                other.gameObject.GetComponent<PlayerStat>()._lives--;
-                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
-                {
-                    ownedByClient = true,
-                    preventOwnershipTakeover = true,
-                    destroyWhenOwnerLeaves = false,
-                    destroyWhenLastClientLeaves = true
-                });
-                Despawn();
-            }
-        }
+        //if (gameObject.CompareTag("Mine"))
+        //{
+        //    print("mine collision with player");
+        //    if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        //    {
+        //        other.gameObject.GetComponent<PlayerStat>()._lives--;
+        //        GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+        //        {
+        //            ownedByClient = true,
+        //            preventOwnershipTakeover = true,
+        //            destroyWhenOwnerLeaves = false,
+        //            destroyWhenLastClientLeaves = true
+        //        });
+        //        Despawn();
+        //    }
+        //}
         
     }
 

@@ -343,6 +343,32 @@ public class PlayerBehaviour : MonoBehaviour
             playerStat._isReady = true;
         }
 
+        if (other.CompareTag("BombCollider"))
+        {
+            playerStat._lives--;
+            other.GetComponentInParent<BombBehaviour>().Despawn();
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+        }
+
+        if (other.CompareTag("Mine"))
+        {
+            playerStat._lives--;
+            other.GetComponentInParent<BombBehaviour>().Despawn();
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            {
+                ownedByClient = true,
+                preventOwnershipTakeover = true,
+                destroyWhenOwnerLeaves = false,
+                destroyWhenLastClientLeaves = true
+            });
+        }
+
 
     }
 
