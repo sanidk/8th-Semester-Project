@@ -51,6 +51,7 @@ public class BombBehaviour : MonoBehaviour
     float redval = 0;
 
     public GameObject explosionSoundPrefab;
+    public GameObject explosionColliderObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,8 +143,9 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
+                explosionColliderObj.SetActive(true);
                 //explode = true;
-                GetComponentInChildren<Collider>().enabled = true;
+                //GetComponentInChildren<SphereCollider>().enabled = true;
                 //explode = true;
                 //Explode();
 
