@@ -152,7 +152,7 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                GetComponentInChildren<SphereCollider>().enabled = true;
+                GetComponentInChildren<Collider>().enabled = true;
 
                 
 
