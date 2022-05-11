@@ -139,10 +139,7 @@ public class BombBehaviour : MonoBehaviour
 
         
 
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
+        
 
         if (Time.time > spawnTime + eventTime)
         {
@@ -179,6 +176,11 @@ public class BombBehaviour : MonoBehaviour
                 Despawn();
             }
 
+        }
+
+        if (!GameManagerLogic.isServer)
+        {
+            return;
         }
 
         if (GameManagerLogic.isSendFeedbackEnabled)

@@ -5,12 +5,14 @@ using Normal.Realtime;
 
 public class BombTrigger : MonoBehaviour
 {
+
+
     private void OnTriggerEnter(Collider other)
     {
-        if (!GameManagerLogic.isServer)
-        {
-            return;
-        }
+        //if (!GameManagerLogic.isServer)
+        //{
+        //    return;
+        //}
 
         
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
