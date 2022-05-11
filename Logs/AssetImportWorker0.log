@@ -1622,3 +1622,107 @@ AssetImportParameters requested are different than current active one (requested
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1249.926346 seconds.
+  path: Assets/Resources/11538_Hand_v2.obj
+  artifactKey: Guid(9cb11a498659fa54ebdd18de05e44f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/11538_Hand_v2.obj using Guid(9cb11a498659fa54ebdd18de05e44f0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '003ae9ba15f1e42a41ef721857cd070c') in 0.262913 seconds 
+  Import took 0.270090 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Resources/BigWarningObject.prefab
+  artifactKey: Guid(452b5d9002ca3414ba19edcc45abe801) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/BigWarningObject.prefab using Guid(452b5d9002ca3414ba19edcc45abe801) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e3265e381025c5d9855a8b26313f127') in 0.434268 seconds 
+  Import took 0.440691 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Resources/BulletTrap_miniPrefab.prefab
+  artifactKey: Guid(4eb669a76a29b4b01b5de1d16b9e890e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/BulletTrap_miniPrefab.prefab using Guid(4eb669a76a29b4b01b5de1d16b9e890e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '158a32a86dff53a7b058c551d55449f1') in 0.017614 seconds 
+  Import took 0.026641 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000384 seconds.
+  path: Assets/Resources/BulletTrap.prefab
+  artifactKey: Guid(119beea829e13cb4995915c1cc2d8305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/BulletTrap.prefab using Guid(119beea829e13cb4995915c1cc2d8305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79fd6cda363d19a3d2b0d88f4c08f2f5') in 0.008175 seconds 
+  Import took 0.017102 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000342 seconds.
+  path: Assets/Resources/BigWarningObj.prefab
+  artifactKey: Guid(d86e4e4adac60e841b371d5dceebca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/BigWarningObj.prefab using Guid(d86e4e4adac60e841b371d5dceebca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8fb527cc42300cd28c3c8e3fd1fbf91') in 0.025358 seconds 
+  Import took 0.038857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.104496 seconds.
+  path: Assets/Resources/FistTrap.prefab
+  artifactKey: Guid(95d8a3bb682aa6d4da18500f064f609d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/FistTrap.prefab using Guid(95d8a3bb682aa6d4da18500f064f609d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e057df9a032a1ab424ce49fd23957034') in 0.013096 seconds 
+  Import took 0.020012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000362 seconds.
+  path: Assets/Resources/FistTrap_miniPrefab.prefab
+  artifactKey: Guid(d3b0c8aa80eaf4d888a26192a77cc48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/FistTrap_miniPrefab.prefab using Guid(d3b0c8aa80eaf4d888a26192a77cc48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc3011ee179f96d6b102de12b41ccfb') in 0.011071 seconds 
+  Import took 0.017799 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.952599 seconds.
+  path: Assets/Resources/ForceFieldBlue.mat
+  artifactKey: Guid(1738e6c85890c1d4281189a4efd30463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldBlue.mat using Guid(1738e6c85890c1d4281189a4efd30463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efa90d030a1fe7e5342a6df23c5d9018') in 0.030300 seconds 
+  Import took 0.038314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/Resources/ForceFieldGreen.mat
+  artifactKey: Guid(4f027d0eb262df847aa913b2f9c7d313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldGreen.mat using Guid(4f027d0eb262df847aa913b2f9c7d313) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d9c873db7c94db4b4298cd3b9c6e3d') in 0.021990 seconds 
+  Import took 0.031582 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000356 seconds.
+  path: Assets/Resources/ForceFieldBlue.mat
+  artifactKey: Guid(1738e6c85890c1d4281189a4efd30463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldBlue.mat using Guid(1738e6c85890c1d4281189a4efd30463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efa90d030a1fe7e5342a6df23c5d9018') in 0.021822 seconds 
+  Import took 0.029060 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000468 seconds.
+  path: Assets/Resources/ForceFieldYellow.mat
+  artifactKey: Guid(9611bcc367aa9cb4e8a44aa8a9361fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldYellow.mat using Guid(9611bcc367aa9cb4e8a44aa8a9361fdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f550af9fd41ee0979fc20f0286358e46') in 0.020995 seconds 
+  Import took 0.031205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000522 seconds.
+  path: Assets/Resources/ForceFieldRed.mat
+  artifactKey: Guid(01dcf7d8a1b60cd4ea6fe37b297c5e97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldRed.mat using Guid(01dcf7d8a1b60cd4ea6fe37b297c5e97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920a1d61035caf74797bd88049d58ff3') in 0.020904 seconds 
+  Import took 0.030853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002497 seconds.
+  path: Assets/Resources/ForceFieldRed.mat
+  artifactKey: Guid(01dcf7d8a1b60cd4ea6fe37b297c5e97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/ForceFieldRed.mat using Guid(01dcf7d8a1b60cd4ea6fe37b297c5e97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920a1d61035caf74797bd88049d58ff3') in 0.023487 seconds 
+  Import took 0.032532 seconds .
+
