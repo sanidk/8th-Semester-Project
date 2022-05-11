@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 8176193290164949244}
   - component: {fileID: 2639028054057987523}
   - component: {fileID: 3648066426113310260}
-  - component: {fileID: 6619412176316481684}
   m_Layer: 0
   m_Name: Collider
   m_TagString: BombCollider
@@ -131,22 +130,10 @@ SphereCollider:
   m_GameObject: {fileID: 1354093197843795060}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 5.8508086
   m_Center: {x: 0, y: 0.2111069, z: 0.00000046033506}
---- !u!114 &6619412176316481684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354093197843795060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8575ac247b6bba048a3ecec0fb232fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2026184987025869119
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +317,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   gridPosition: 0
   isBallActive: 0
+  explode: 0
   textMeshObj: {fileID: 782778299213416144, guid: 4262783ad603c4cbebeb173420b5a76c, type: 3}
   countDownTransform: {fileID: 4213864300356362227}
   explosionSoundPrefab: {fileID: 4740266352882395008, guid: a03e28604dfabb54dab165a109b6a0ba, type: 3}

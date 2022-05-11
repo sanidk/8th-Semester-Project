@@ -145,8 +145,8 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                explode = true;
-                //GetComponentInChildren<Collider>().enabled = true;
+                //explode = true;
+                GetComponentInChildren<Collider>().enabled = true;
                 //explode = true;
                 //Explode();
 
