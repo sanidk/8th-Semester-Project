@@ -101,6 +101,40 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
+        if (Time.time > spawnTime + eventTime)
+        {
+            if (gameObject.CompareTag("Bomb"))
+            {
+                GetComponentInChildren<SphereCollider>().enabled = true;
+                //explode = true;
+                //print(playerOwner);
+                //if (playerOwner == 1)
+                //{
+                //    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+
+                //} else if (playerOwner == 2)
+                //{
+                //    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                //}
+
+                //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                //{
+                //    ownedByClient = true,
+                //    preventOwnershipTakeover = true,
+                //    destroyWhenOwnerLeaves = false,
+                //    destroyWhenLastClientLeaves = true
+                //});
+                //Despawn();
+            }
+
+            if (gameObject.CompareTag("Mine"))
+            {
+
+                Despawn();
+            }
+
+        }
+
 
         if (!GameManagerLogic.isServer)
         {
@@ -188,39 +222,7 @@ public class BombBehaviour : MonoBehaviour
         
 
         
-        if (Time.time > spawnTime + eventTime)
-        {
-            if (gameObject.CompareTag("Bomb"))
-            {
-                GetComponentInChildren<SphereCollider>().enabled = true;
-                //explode = true;
-                //print(playerOwner);
-                //if (playerOwner == 1)
-                //{
-                //    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
-
-                //} else if (playerOwner == 2)
-                //{
-                //    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
-                //}
-
-                //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
-                //{
-                //    ownedByClient = true,
-                //    preventOwnershipTakeover = true,
-                //    destroyWhenOwnerLeaves = false,
-                //    destroyWhenLastClientLeaves = true
-                //});
-                //Despawn();
-            }
-
-            if (gameObject.CompareTag("Mine"))
-            {
-                
-                Despawn();
-            }
-
-        } 
+       
         //if (!isBallSpawned) return;
 
         currentPos = transform.position;
