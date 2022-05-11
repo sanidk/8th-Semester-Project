@@ -167,17 +167,20 @@ public class Lighsaber : MonoBehaviour
         {
             return;
         }
-        if (GameManagerLogic.isServer)
+        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
             if (other.gameObject.CompareTag("Bomb"))
             {
                 //Realtime.Destroy(other.gameObject);
+                
                 other.gameObject.GetComponent<BombBehaviour>().Despawn();
 
             }
             else if (other.gameObject.CompareTag("Mine"))
             {
-                other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
+                playerObject.GetComponent<PlayerStat>()._lives--;
+                other.gameObject.GetComponent<BombBehaviour>().Despawn();
+                //other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
             }
         }
 

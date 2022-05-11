@@ -246,23 +246,23 @@ public class BombBehaviour : MonoBehaviour
 
     public void TriggerMine()
     {
-        explode = true;
-        if (playerOwner == 1)
-        {
-            GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
-        }
-        else if (playerOwner == 2)
-        {
-            GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
-        }
-        GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
-        {
-            ownedByClient = true,
-            preventOwnershipTakeover = true,
-            destroyWhenOwnerLeaves = false,
-            destroyWhenLastClientLeaves = true
-        });
-        Despawn();
+        //explode = true;
+        //if (playerOwner == 1)
+        //{
+        //    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+        //}
+        //else if (playerOwner == 2)
+        //{
+        //    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+        //}
+        //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+        //{
+        //    ownedByClient = true,
+        //    preventOwnershipTakeover = true,
+        //    destroyWhenOwnerLeaves = false,
+        //    destroyWhenLastClientLeaves = true
+        //});
+        //Despawn();
 
     }
 
