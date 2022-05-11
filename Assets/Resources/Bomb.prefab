@@ -321,6 +321,7 @@ MonoBehaviour:
   textMeshObj: {fileID: 782778299213416144, guid: 4262783ad603c4cbebeb173420b5a76c, type: 3}
   countDownTransform: {fileID: 4213864300356362227}
   explosionSoundPrefab: {fileID: 4740266352882395008, guid: a03e28604dfabb54dab165a109b6a0ba, type: 3}
+  explosionColliderObj: {fileID: 1354093197843795060}
 --- !u!82 &5817525551374493784
 AudioSource:
   m_ObjectHideFlags: 0

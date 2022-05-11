@@ -329,8 +329,6 @@ public class GridManager : MonoBehaviour
             {
                 GameObject ball = ballsArray[i];
                 
-                
-                
 
                 if (!ball.GetComponent<BallBehaviour>().isBallActive)
                 {
