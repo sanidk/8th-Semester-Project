@@ -354,6 +354,7 @@ public class PlayerBehaviour : MonoBehaviour
             //    destroyWhenOwnerLeaves = false,
             //    destroyWhenLastClientLeaves = true
             //});
+            other.GetComponent<RealtimeTransform>().RequestOwnership();
 
             other.GetComponentInParent<BombBehaviour>().Explode();
         }
@@ -361,7 +362,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("Mine"))
         {
             playerStat._lives--;
-            
+
             //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
             //{
             //    ownedByClient = false,
@@ -369,6 +370,7 @@ public class PlayerBehaviour : MonoBehaviour
             //    destroyWhenOwnerLeaves = false,
             //    destroyWhenLastClientLeaves = true
             //});
+            other.GetComponent<RealtimeTransform>().RequestOwnership();
 
             other.GetComponent<BombBehaviour>().Explode();
         }
