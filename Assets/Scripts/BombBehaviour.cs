@@ -102,109 +102,107 @@ public class BombBehaviour : MonoBehaviour
         }
 
 
+        
 
-
-
+        /*
         if (!GameManagerLogic.isServer)
         {
-
-            if (GameManagerLogic.isSendFeedbackEnabled)
-            {
-                transform.position = targetPosition;
-
-            }
-            else
-            {
-                if (!isTargetPosReached)
-                {
-
-                    float elapsedTime = Time.time - spawnTime;
-                    transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / 2);
-                    if (elapsedTime > 2)
-                    {
-                        GetComponent<TrailRenderer>().enabled = false;
-                        //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                        //CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                        //CD_Copy.transform.position = countDownTransform.position;
-                        if (playerOwner == 1)
-                        {
-                            CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                            CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                            CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                            CD_Copy.transform.position = countDownTransform.position;
-                            Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                            direction = direction.normalized;
-                            CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                            CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-                        }
-                        else if (playerOwner == 2)
-                        {
-                            CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                            CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                            CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                            CD_Copy.transform.position = countDownTransform.position;
-                            Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                            direction = direction.normalized;
-                            CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                            CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-
-                        }
-                        isTargetPosReached = true;
-                    }
-                    return;
-                }
-            }
-
-
-            if (isTargetPosReached && (Time.time - spawnTime) < eventTime && CD_Copy != null)
-            {
-                float elapsedTime = Time.time - spawnTime;
-                if ((eventTime - elapsedTime) < 3)
-                {
-                    CD_Copy.GetComponent<TextMesh>().color = Color.red;
-                    //mby audio here as well?
-                }
-                CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
-            }
+            return;
         }
+        */
 
-
-
-        if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+        if (GameManagerLogic.isSendFeedbackEnabled)
         {
-            if (Time.time > spawnTime + eventTime)
+            transform.position = targetPosition;
+
+        } else
+        {
+            if (!isTargetPosReached)
             {
-                if (gameObject.CompareTag("Bomb"))
-                {
-                    //explode = true;
-                    print(playerOwner);
-                    if (playerOwner == 1)
-                    {
-                        GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
 
-                    } else if (playerOwner == 2)
+                float elapsedTime = Time.time - spawnTime;
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / 2);
+                if (elapsedTime > 2)
+                {
+                    GetComponent<TrailRenderer>().enabled = false;
+                    //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                    //CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                    //CD_Copy.transform.position = countDownTransform.position;
+                    if(playerOwner == 1)
                     {
-                        GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                        CD_Copy.transform.position = countDownTransform.position;
+                        Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                        direction = direction.normalized;
+                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
                     }
-
-                    GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                    else if (playerOwner == 2)
                     {
-                        ownedByClient = true,
-                        preventOwnershipTakeover = true,
-                        destroyWhenOwnerLeaves = false,
-                        destroyWhenLastClientLeaves = true
-                    });
-                    Despawn();
+                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                        CD_Copy.transform.position = countDownTransform.position;
+                        Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                        direction = direction.normalized;
+                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+
+                    }
+                    isTargetPosReached = true;
                 }
-
-                if (gameObject.CompareTag("Mine"))
-                {
-
-                    Despawn();
-                }
-
+                return;
             }
         }
+
+        if (isTargetPosReached && (Time.time - spawnTime) < eventTime && CD_Copy != null)
+        {
+            float elapsedTime = Time.time - spawnTime;
+            if ((eventTime - elapsedTime) < 3)
+            {
+                CD_Copy.GetComponent<TextMesh>().color = Color.red;
+                //mby audio here as well?
+            }
+            CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
+        }
+        
+        
+
+        
+        if (Time.time > spawnTime + eventTime)
+        {
+            if (gameObject.CompareTag("Bomb"))
+            {
+                //explode = true;
+                print(playerOwner);
+                if (playerOwner == 1)
+                {
+                    GameManagerLogic.player2.GetComponent<PlayerStat>()._lives--;
+
+                } else if (playerOwner == 2)
+                {
+                    GameManagerLogic.player1.GetComponent<PlayerStat>()._lives--;
+                }
+
+                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = true,
+                    preventOwnershipTakeover = true,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+                Despawn();
+            }
+
+            if (gameObject.CompareTag("Mine"))
+            {
+                
+                Despawn();
+            }
+
+        } 
         //if (!isBallSpawned) return;
 
         currentPos = transform.position;
