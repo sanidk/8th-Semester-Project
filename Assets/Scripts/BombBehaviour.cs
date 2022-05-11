@@ -43,6 +43,9 @@ public class BombBehaviour : MonoBehaviour
     float eventTime = 10;
     Material mat;
     Material originalMat;
+    public GameObject textMeshObj;
+    public Transform countDownTransform;
+    private GameObject CD_Copy;
 
     float redval = 0;
 
@@ -65,7 +68,7 @@ public class BombBehaviour : MonoBehaviour
         
         spawnTime = Time.time;
 
-        
+
         dir = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
         maxPos = new Vector3(midPos.x + spacing, midPos.y + spacing, midPos.z + spacing);
         minPos = new Vector3(midPos.x - spacing, midPos.y - spacing, midPos.z - spacing);
@@ -75,8 +78,6 @@ public class BombBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
 
         if (!isMatReset && Time.time > spawnTime + 2)
         {
@@ -103,11 +104,12 @@ public class BombBehaviour : MonoBehaviour
 
         
 
-
+        /*
         if (!GameManagerLogic.isServer)
         {
             return;
         }
+        */
 
         if (GameManagerLogic.isSendFeedbackEnabled)
         {
@@ -123,12 +125,48 @@ public class BombBehaviour : MonoBehaviour
                 if (elapsedTime > 2)
                 {
                     GetComponent<TrailRenderer>().enabled = false;
+                    //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                    //CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                    //CD_Copy.transform.position = countDownTransform.position;
+                    if(playerOwner == 1)
+                    {
+                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                        CD_Copy.transform.position = countDownTransform.position;
+                        Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                        direction = direction.normalized;
+                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+                    }
+                    else if (playerOwner == 2)
+                    {
+                        CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                        CD_Copy.transform.position = countDownTransform.position;
+                        Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                        direction = direction.normalized;
+                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+
+                    }
                     isTargetPosReached = true;
                 }
                 return;
             }
         }
 
+        if (isTargetPosReached && (Time.time - spawnTime) < eventTime && CD_Copy != null)
+        {
+            float elapsedTime = Time.time - spawnTime;
+            if ((eventTime - elapsedTime) < 3)
+            {
+                CD_Copy.GetComponent<TextMesh>().color = Color.red;
+                //mby audio here as well?
+            }
+            CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
+        }
         
         
 

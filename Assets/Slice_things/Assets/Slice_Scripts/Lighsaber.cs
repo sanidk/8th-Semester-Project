@@ -19,7 +19,7 @@ public class Lighsaber : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
-    private GameObject _tip = null;
+    public GameObject _tip = null; // was private
 
     [SerializeField]
     [Tooltip("The empty game object located at the base of the blade")]
@@ -286,13 +286,7 @@ public class Lighsaber : MonoBehaviour
                 if (swordColour() == Color.red)
                 {
                     playerObject.GetComponent<PlayerStat>()._backupVariable3 = 1f;
-                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
-                }
-                else if (swordColour() == Color.yellow)
-                {
-                    playerObject.GetComponent<PlayerStat>()._backupVariable4 = 1f;
-                    
-                    GameObject miniMace = Realtime.Instantiate("MaceTrap_MiniPrefab", other.gameObject.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                    /*GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", other.gameObject.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
                     {
 
                         ownedByClient = true,
@@ -300,24 +294,27 @@ public class Lighsaber : MonoBehaviour
                         destroyWhenOwnerLeaves = false,
                         destroyWhenLastClientLeaves = true
                     });
-                    miniMace.GetComponent<miniPrefab>().targetTransform = trapSpawnTransform;
+                    miniSpears.GetComponent<miniPrefab>().targetTransform = trapSpawnTransform;
+                    miniSpears.GetComponent<miniPrefab>().playerObj = playerObject;*/
                     //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
+                }
+                else if (swordColour() == Color.yellow)
+                {
+                    playerObject.GetComponent<PlayerStat>()._backupVariable4 = 1f;
                 }
                 else if (swordColour() == Color.green)
                 {
+                    
                     playerObject.GetComponent<PlayerStat>()._backupVariable5 = 1f;
-                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
                 }
                 else if (swordColour() == Color.blue)
                 {
                     playerObject.GetComponent<PlayerStat>()._backupVariable6 = 1f;
-                    //playerObject.GetComponent<PlayerBehaviour>().resetScore = true;
                 }
             }
         }
         
         other.GetComponent<CubeFeedback>().cubeHit = false;
-
 
         //No score variable to increase in Playerstat?
         if (GetComponent<RealtimeView>().isOwnedLocallySelf)

@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 8754562471534869171}
   - component: {fileID: 8492187891181256062}
   m_Layer: 0
-  m_Name: MaceTrap_MiniPrefab
+  m_Name: MaceTrap_miniPrefab
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
   _interpolate: 1
   _syncPosition: 1
   _syncRotation: 1
-  _syncScale: 0
+  _syncScale: 1
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
 --- !u!114 &8492187891181256062
@@ -248,3 +248,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b7a4144b5d04e5bb3b1924d87e9011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  playerObj: {fileID: 0}

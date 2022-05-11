@@ -340,7 +340,7 @@ public class GridManager : MonoBehaviour
                     StartCoroutine(ball.GetComponent<BallBehaviour>().SpawnBall(gridNumber, pos));
                     ball.GetComponent<BallBehaviour>().playerReference = playerReference;
 
-                    if (Random.Range(0, 11) == 0)
+                    if (Random.Range(0, 1) == 0) // changed for testing:
                     {
                         ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
                     }
