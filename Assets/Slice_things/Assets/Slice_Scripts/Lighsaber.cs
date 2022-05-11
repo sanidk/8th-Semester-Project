@@ -179,8 +179,8 @@ public class Lighsaber : MonoBehaviour
             else if (other.gameObject.CompareTag("Mine"))
             {
                 playerObject.GetComponent<PlayerStat>()._lives--;
-                other.gameObject.GetComponent<BombBehaviour>().Despawn();
-                //other.gameObject.GetComponent<BombBehaviour>().TriggerMine();
+                other.gameObject.GetComponent<BombBehaviour>().Explode();
+                
             }
         }
 
