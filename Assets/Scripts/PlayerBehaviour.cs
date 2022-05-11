@@ -336,12 +336,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
+
         
-        if (other.CompareTag("ReadyPlayer"))
-        {
-            playerStat._isReady = true;
-        }
+
+
+        if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
 
         if (other.CompareTag("BombCollider"))
         {
@@ -358,6 +357,13 @@ public class PlayerBehaviour : MonoBehaviour
 
             other.GetComponentInParent<BombBehaviour>().Explode();
         }
+
+        if (other.CompareTag("ReadyPlayer"))
+        {
+            playerStat._isReady = true;
+        }
+
+        
 
         if (other.CompareTag("Mine"))
         {

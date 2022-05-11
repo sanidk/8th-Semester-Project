@@ -38,7 +38,7 @@ public class BombBehaviour : MonoBehaviour
     public bool isBallActive = false;
 
     public static float cooldown = 3;
-    bool explode;
+    public bool explode;
     float spawnTime;
     float eventTime = 10;
     Material mat;
@@ -145,9 +145,10 @@ public class BombBehaviour : MonoBehaviour
         {
             if (gameObject.CompareTag("Bomb"))
             {
-                GetComponentInChildren<Collider>().enabled = true;
-
-                
+                explode = true;
+                //GetComponentInChildren<Collider>().enabled = true;
+                //explode = true;
+                //Explode();
 
                 //explode = true;
                 //print(playerOwner);

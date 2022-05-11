@@ -9,26 +9,31 @@ public class BombTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (!GameManagerLogic.isServer)
-        //{
-        //    return;
-        //}
-
-        
-        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        if (GetComponentInParent<RealtimeView>().isOwnedLocallySelf)
         {
-            other.gameObject.GetComponent<PlayerStat>()._lives--;
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
-            {
-                ownedByClient = true,
-                preventOwnershipTakeover = true,
-                destroyWhenOwnerLeaves = false,
-                destroyWhenLastClientLeaves = true
-            });
 
-            GetComponentInParent<BombBehaviour>().Despawn();
         }
-        
+
+        if (GetComponentInParent<BombBehaviour>().explode)
+        {
+            if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+            {
+                other.gameObject.GetComponent<PlayerStat>()._lives--;
+                GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+                {
+                    ownedByClient = true,
+                    preventOwnershipTakeover = true,
+                    destroyWhenOwnerLeaves = false,
+                    destroyWhenLastClientLeaves = true
+                });
+
+                GetComponentInParent<BombBehaviour>().Despawn();
+            }
+
+            
+
+        }
+
 
     }
     // Start is called before the first frame update
