@@ -346,27 +346,31 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("BombCollider"))
         {
             playerStat._lives--;
-            other.GetComponentInParent<BombBehaviour>().Despawn();
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.transform.position, other.transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = true,
                 preventOwnershipTakeover = true,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
+
+            other.GetComponentInParent<BombBehaviour>().Despawn();
         }
 
         if (other.CompareTag("Mine"))
         {
             playerStat._lives--;
-            other.GetComponentInParent<BombBehaviour>().Despawn();
-            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", transform.position, transform.rotation, new Realtime.InstantiateOptions
+            
+            GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.transform.position, other.transform.rotation, new Realtime.InstantiateOptions
             {
                 ownedByClient = true,
                 preventOwnershipTakeover = true,
                 destroyWhenOwnerLeaves = false,
                 destroyWhenLastClientLeaves = true
             });
+
+            other.GetComponent<BombBehaviour>().Despawn();
         }
 
 
