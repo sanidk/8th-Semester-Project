@@ -102,7 +102,7 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
-        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
+        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated && GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
             if (playerOwner == 1)
             {
@@ -130,7 +130,7 @@ public class BombBehaviour : MonoBehaviour
         }
 
         
-        if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null)
+        if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null && GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
             float elapsedTime = Time.time - spawnTime;
             if ((eventTime - elapsedTime) < 3)
