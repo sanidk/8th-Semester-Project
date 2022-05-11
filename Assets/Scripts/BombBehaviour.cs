@@ -46,6 +46,7 @@ public class BombBehaviour : MonoBehaviour
     public GameObject textMeshObj;
     public Transform countDownTransform;
     private GameObject CD_Copy;
+    private bool cdTextInstantiated;
 
     float redval = 0;
 
@@ -101,6 +102,44 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
+        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
+        {
+            if (playerOwner == 1)
+            {
+                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                CD_Copy.transform.position = countDownTransform.position;
+                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                direction = direction.normalized;
+                CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+            }
+            else if (playerOwner == 2)
+            {
+                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                CD_Copy.transform.position = countDownTransform.position;
+                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                direction = direction.normalized;
+                CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+                CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+            }
+            cdTextInstantiated = true;
+        }
+
+        
+        if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null)
+        {
+            float elapsedTime = Time.time - spawnTime;
+            if ((eventTime - elapsedTime) < 3)
+            {
+                CD_Copy.GetComponent<TextMesh>().color = Color.red;
+                //mby audio here as well?
+            }
+            CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
+        }
 
         if (!GameManagerLogic.isServer)
         {
@@ -122,72 +161,12 @@ public class BombBehaviour : MonoBehaviour
                 if (elapsedTime > 2)
                 {
                     GetComponent<TrailRenderer>().enabled = false;
-                    //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                    //CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                    //CD_Copy.transform.position = countDownTransform.position;
-                    if(playerOwner == 1)
-                    {
-                        
-                        //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                        //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
-                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
-                        {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                            
-                        });
-                        CD_Copy.transform.SetParent(gameObject.transform, true);
-                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                        CD_Copy.transform.position = countDownTransform.position;
-                        Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                        direction = direction.normalized;
-                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-                    }
-                    else if (playerOwner == 2)
-                    {
-                        //CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                        //CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", gameObject.transform, true);
-                        CD_Copy = Realtime.Instantiate("StreakNumber_Realtime", new Realtime.InstantiateOptions
-                        {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-
-                        });
-                        CD_Copy.transform.SetParent(gameObject.transform, true);
-                        CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                        CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                        CD_Copy.transform.position = countDownTransform.position;
-                        Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                        direction = direction.normalized;
-                        CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                        CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-                    }
                     isTargetPosReached = true;
                 }
                 return;
             }
         }
-        /*
-        if (isTargetPosReached && (Time.time - spawnTime) < eventTime && CD_Copy != null)
-        {
-            float elapsedTime = Time.time - spawnTime;
-            if ((eventTime - elapsedTime) < 3)
-            {
-                CD_Copy.GetComponent<TextMesh>().color = Color.red;
-                //mby audio here as well?
-            }
-            CD_Copy.GetComponent<TextMesh>().text = ((int)eventTime - (int)elapsedTime).ToString();
-        }*/
-        
-        
 
-        
         if (Time.time > spawnTime + eventTime)
         {
             if (gameObject.CompareTag("Bomb"))
