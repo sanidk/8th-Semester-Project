@@ -50,6 +50,11 @@ public class miniPrefab : MonoBehaviour
                 {
                     finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
                     //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                    if (transform.localScale.x < 1.5f)
+                    {
+                        transform.localScale += scaleChange;//* Time.deltaTime;
+                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+                    }
                 }
                 else if (gameObject.name.Contains("FistTrap_miniPrefab"))
                 {
@@ -61,7 +66,16 @@ public class miniPrefab : MonoBehaviour
                     }
                     //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 }
-                else
+                else if (gameObject.name.Contains("BulletTrap_miniPrefab"))
+                {
+                    finalPosition = targetTransform.position + new Vector3(0, -0.3f, 0);
+                    if (transform.localScale.x < 1.25f)
+                    {
+                        transform.localScale += scaleChange;//* Time.deltaTime;
+                        transform.RotateAround(transform.position, Vector3.up, 40 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+                    }
+                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                }else
                 {
                     finalPosition = targetTransform.position;
                     //finalPosition = targetPositionTest;

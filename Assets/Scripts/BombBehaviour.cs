@@ -108,16 +108,16 @@ public class BombBehaviour : MonoBehaviour
             CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
             CD_Copy.GetComponent<TextMesh>().color = Color.white;
             CD_Copy.transform.position = countDownTransform.position;
-            if (playerOwner == 1)
+            if (GameManagerLogic.player1 != null)
             {
-                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
             }
-            else// if (playerOwner == 2) // som om playerOwner==2 aldrig var true, da den ikke blev instantiated p? client?
+            else if (GameManagerLogic.player2 != null) // som om playerOwner==2 aldrig var true, da den ikke blev instantiated p? client?
             {
-                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
+                Vector3 direction = GameManagerLogic.player1.transform.GetChild(0).transform.position - CD_Copy.transform.position;
                 direction = direction.normalized;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
