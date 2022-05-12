@@ -79,6 +79,10 @@ public class GameManagerLogic : MonoBehaviour
             //return;
         }
 
+        if (CheckForControllerInput())
+        {
+            isSendFeedbackEnabled = !isSendFeedbackEnabled;
+        }
 
 
         //maybe make delays in the loop so it doesnt check all the time
@@ -248,6 +252,57 @@ public class GameManagerLogic : MonoBehaviour
                 player2 = player.gameObject;
             }
 
+        }
+    }
+
+    bool CheckForControllerInput()
+    {
+        bool isLeftPressed = false;
+        bool isRightPressed = false;
+
+        var leftHandDevices = new List<UnityEngine.XR.InputDevice>();
+        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.LeftHand, leftHandDevices);
+
+        var rightHandDevices = new List<UnityEngine.XR.InputDevice>();
+        UnityEngine.XR.InputDevices.GetDevicesAtXRNode(UnityEngine.XR.XRNode.RightHand, rightHandDevices);
+
+        if (leftHandDevices.Count == 1)
+        {
+            UnityEngine.XR.InputDevice device = leftHandDevices[0];
+
+            bool triggerValue;
+            if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out triggerValue) && triggerValue)
+            {
+                isLeftPressed = true;
+            }
+            else
+            {
+                isLeftPressed = false;
+            }
+        }
+
+        if (rightHandDevices.Count == 1)
+        {
+            UnityEngine.XR.InputDevice device = rightHandDevices[0];
+
+            bool triggerValue;
+            if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primaryButton, out triggerValue) && triggerValue)
+            {
+                isRightPressed = true;
+            }
+            else
+            {
+                isRightPressed = false;
+            }
+        }
+
+        if (isLeftPressed && isRightPressed)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
