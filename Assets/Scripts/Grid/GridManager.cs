@@ -342,7 +342,7 @@ public class GridManager : MonoBehaviour
 
                     if (isBallsSpawnedWithoutModifiers)
                     {
-                        if (Random.Range(0, 1) == 0) // changed for testing:
+                        if (Random.Range(0, 11) == 0) // changed for testing:
                         {
                             ball.GetComponent<ModifierSync>().SetModifier(Random.Range(1, 6));
                         }

@@ -3222,7 +3222,7 @@ MonoBehaviour:
   trapNameDesignator: 0
   smallTrapNameDesignator: 0
   spawnBalls: 0
-  ballsAmount: 20
+  ballsAmount: 30
   spawnzonesArrayWithoutMiddle: []
 --- !u!4 &1290933643
 Transform:

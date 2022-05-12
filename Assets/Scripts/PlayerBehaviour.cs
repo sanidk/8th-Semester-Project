@@ -190,7 +190,9 @@ public class PlayerBehaviour : MonoBehaviour
                 //GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
                 if (!GameManagerLogic.isSendFeedbackEnabled)
                 {
+                    
                     GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
+                    
                 }
                 playerStat._scoreStreak = 0;
             }
