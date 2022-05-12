@@ -367,14 +367,13 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
 
-    private void OnTriggerExit(Collider other)
+
+    IEnumerator ImmuneXSeconds(int seconds)
     {
-        if (other.CompareTag("BombCollider"))
-        {
-            isTakenBombDamage = false;
-        }
-            
+        yield return new WaitForSeconds(seconds);
+        isTakenBombDamage = false;
     }
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -389,6 +388,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 playerStat._lives--;
                 isTakenBombDamage = true;
+                StartCoroutine(ImmuneXSeconds(1));
             }
             
             
