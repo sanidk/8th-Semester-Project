@@ -369,7 +369,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("BombCollider") && !isTakenBombDamage)
+        if (other.CompareTag("BombCollider"))
         {
             isTakenBombDamage = false;
         }
@@ -383,10 +383,15 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (!GetComponent<RealtimeTransform>().isOwnedLocallySelf) return;
 
-        if (other.CompareTag("BombCollider") && !isTakenBombDamage)
+        if (other.CompareTag("BombCollider"))
         {
-            playerStat._lives--;
-            isTakenBombDamage = true;
+            if (!isTakenBombDamage)
+            {
+                playerStat._lives--;
+                isTakenBombDamage = true;
+            }
+            
+            
             //GameObject audioObject = Realtime.Instantiate("explodeAudioPrefab", other.gameObject.transform.position, other.gameObject.transform.rotation, new Realtime.InstantiateOptions
             //{
             //    ownedByClient = false,
