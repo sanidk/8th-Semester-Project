@@ -42,7 +42,7 @@ public class miniPrefab : MonoBehaviour
             float elapsedTime = Time.time - spawnTime;
             if (gameObject.CompareTag("MiniMace"))
             {
-                finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
+                finalPosition = targetTransform.position + new Vector3(0, 13.5f, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.5f, 0.5f, 0.5f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
 
@@ -63,7 +63,7 @@ public class miniPrefab : MonoBehaviour
             }
             else if (gameObject.CompareTag("MiniFist"))
             {
-                finalPosition = targetTransform.position + new Vector3(0, 2.5f, 0);
+                finalPosition = targetTransform.position + new Vector3(0, 12.5f, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.1f, 0.1f, 0.1f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
 
@@ -74,10 +74,6 @@ public class miniPrefab : MonoBehaviour
                 finalPosition = targetTransform.position + new Vector3(0, 0, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.55f, 0.55f, 0.55f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
-            }
-            else
-            {
-
             }
             //float elapsedTime = Time.time - spawnTime;
 
@@ -94,7 +90,7 @@ public class miniPrefab : MonoBehaviour
 
             //mat.color = color;
 
-            if (elapsedTime > 3) // set to 2.5 after
+            if (elapsedTime > 8) // set to 2.5 after
             {
                 isTargetPosReached = true;
                 playerObj.GetComponent<PlayerBehaviour>().miniPrefabOnLoc = true;

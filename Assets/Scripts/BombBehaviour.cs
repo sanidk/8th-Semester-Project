@@ -104,21 +104,18 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
-        if (!GetComponent<RealtimeView>().isOwnedLocallySelf)
+        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
         {
-            if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
-            {
-                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-                CD_Copy.GetComponent<TextMesh>().color = Color.white;
-                CD_Copy.transform.position = countDownTransform.position;
-                GameObject camera = GameObject.Find("Main Camera");
-                Vector3 direction = camera.transform.position - CD_Copy.transform.position;
-                CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-                rotationSet = true;
-                cdTextInstantiated = true;
-            }
+            CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+            CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+            CD_Copy.GetComponent<TextMesh>().color = Color.white;
+            CD_Copy.transform.position = countDownTransform.position;
+            GameObject camera = GameObject.Find("Main Camera");
+            Vector3 direction = camera.transform.position - CD_Copy.transform.position;
+            CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
+            CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+            rotationSet = true;
+            cdTextInstantiated = true;
         }
 
         if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null)
