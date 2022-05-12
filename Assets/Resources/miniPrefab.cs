@@ -16,11 +16,13 @@ public class miniPrefab : MonoBehaviour
     private bool finalPosSet;
     public GameObject playerObj;
     private Vector3 targetPositionTest;
+    private Vector3 initialScale;
 
     void Start()
     {
         spawnTime = Time.time;
         initialPosition = transform.position;
+        initialScale = transform.localScale;
         scaleChange = new Vector3(0.01f,0.01f,0.01f);
     }
 
@@ -35,61 +37,44 @@ public class miniPrefab : MonoBehaviour
         {
             //if (!playerObj.GetComponent<PlayerBehaviour>().spawnedTrapPositionSet) { return; }
             //targetPositionTest = playerObj.GetComponent<PlayerBehaviour>().spawnedTrapPosition;
-            if (!finalPosSet)
-            {
-                if (gameObject.CompareTag("MiniMace"))
-                {
-                    finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
-                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
-                    if (transform.localScale.x < 0.75f)
-                    {
-                        transform.localScale += scaleChange;//* Time.deltaTime;
-                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-                    }
-                }
-                else if (gameObject.CompareTag("MiniSpears"))
-                {
-                    finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
-                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
-                    if (transform.localScale.x < 1.5f)
-                    {
-                        transform.localScale += scaleChange;//* Time.deltaTime;
-                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-                    }
-                }
-                else if (gameObject.CompareTag("MiniFist"))
-                {
-                    finalPosition = targetTransform.position + new Vector3(0, -0.3f, 0);
-                    if (transform.localScale.x < 1f)
-                    {
-                        transform.localScale += scaleChange;//* Time.deltaTime;
-                        transform.RotateAround(transform.position, Vector3.up, 30 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-                    }
-                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
-                }
-                else if (gameObject.CompareTag("MiniArrows"))
-                {
-                    finalPosition = targetTransform.position + new Vector3(0, -0.3f, 0);
-                    if (transform.localScale.x < 1.25f)
-                    {
-                        transform.localScale += scaleChange;//* Time.deltaTime;
-                        transform.RotateAround(transform.position, Vector3.up, 40 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-                    }
-                    //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
-                }else
-                {
-                    finalPosition = targetTransform.position;
-                    //finalPosition = targetPositionTest;
-                    if (transform.localScale.x < 1.5f)
-                    {
-                        transform.localScale += scaleChange;//* Time.deltaTime;
-                        transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
-                    }
-                }
-                finalPosSet = true;
-            }
             float elapsedTime = Time.time - spawnTime;
-            transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+            if (gameObject.CompareTag("MiniMace"))
+            {
+                finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
+                transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.5f, 0.5f, 0.5f), elapsedTime / 2);
+                transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+                //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                //transform.localScale += scaleChange;//* Time.deltaTime;
+                //transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+            }
+            else if (gameObject.CompareTag("MiniSpears"))
+            {
+                finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
+                transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.65f,0.65f,0.65f), elapsedTime / 2);
+                transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+                //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+                //transform.localScale += scaleChange;//* Time.deltaTime;
+                //transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
+            }
+            else if (gameObject.CompareTag("MiniFist"))
+            {
+                finalPosition = targetTransform.position + new Vector3(0, 2.5f, 0);
+                transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.1f, 0.1f, 0.1f), elapsedTime / 2);
+                transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+
+                //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
+            }
+            else if (gameObject.CompareTag("MiniArrows"))
+            {
+                finalPosition = targetTransform.position + new Vector3(0, 0, 0);
+                transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.55f, 0.55f, 0.55f), elapsedTime / 2);
+                transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+            }
+            else
+            {
+
+            }
+            //float elapsedTime = Time.time - spawnTime;
 
             /*
             if (transform.localScale.x < 1.5f)
