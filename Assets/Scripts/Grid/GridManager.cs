@@ -54,7 +54,7 @@ public class GridManager : MonoBehaviour
     Vector3 instantiatePosition = new Vector3(0, -100, 0);
     bool instantiateBalls = true;
     public bool spawnBalls = false;
-    public int ballsAmount = 10;
+    int ballsAmount = 35;
     int ballsAmountMax = 50;
     GameObject[] ballsArray;
 

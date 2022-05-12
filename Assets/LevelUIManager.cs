@@ -7,12 +7,13 @@ public class LevelUIManager : MonoBehaviour
 {
     public static int level = 1;
     int previousLevel = 1;
+    bool oldSendFeedback;
 
     Text text;
     // Start is called before the first frame update
     void Start()
     {
-
+        oldSendFeedback = GameManagerLogic.isSendFeedbackEnabled;
         text = GetComponent<Text>();
         
     }
@@ -27,6 +28,20 @@ public class LevelUIManager : MonoBehaviour
             
             previousLevel = level;
 
+        }
+        ModeChanged();
+
+
+
+    }
+
+    public void ModeChanged()
+    {
+        if (GameManagerLogic.isSendFeedbackEnabled != oldSendFeedback)
+        {
+            text.text = "isSendFeedbackEnabled: " + GameManagerLogic.isSendFeedbackEnabled.ToString();
+            oldSendFeedback = GameManagerLogic.isSendFeedbackEnabled;
+            RemoveText(5);
         }
         
     }

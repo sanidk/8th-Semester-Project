@@ -2024,7 +2024,7 @@ MonoBehaviour:
   VRRig: {fileID: 850827784}
   spawnPlayer1: {fileID: 1011263024}
   spawnPlayer2: {fileID: 625912134}
-  isSendFeedbackEnabledReference: 1
+  isSendFeedbackEnabledReference: 0
 --- !u!114 &975502221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,7 +3415,6 @@ MonoBehaviour:
   trapNameDesignator: 0
   smallTrapNameDesignator: 0
   spawnBalls: 0
-  ballsAmount: 30
   spawnzonesArrayWithoutMiddle: []
 --- !u!4 &1290933643
 Transform:
@@ -3489,7 +3488,6 @@ MonoBehaviour:
   trapNameDesignator: 0
   smallTrapNameDesignator: 0
   spawnBalls: 0
-  ballsAmount: 20
   spawnzonesArrayWithoutMiddle: []
 --- !u!1 &1427258979
 GameObject:
