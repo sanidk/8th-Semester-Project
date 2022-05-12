@@ -31,6 +31,8 @@ public class TrapDeploy : MonoBehaviour
     public AudioClip spearTrapSound;
     public AudioClip maceAndFistSound;
 
+    public float waittimetriggertrap;
+
     int selectedTrap;
     Quaternion spawnRotation = Quaternion.Euler(0,0,90);
 
@@ -308,7 +310,7 @@ public class TrapDeploy : MonoBehaviour
 
     IEnumerator WaitAndTriggerTrap(GameObject tempWarning, GameObject tempTrap)
     {
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(3);
         if (selectedTrap == 0) {
             tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
             tempTrap.GetComponent<Collider>().enabled = true;
