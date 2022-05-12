@@ -23,7 +23,7 @@ public class LevelUIManager : MonoBehaviour
         if (level != previousLevel)
         {
             text.text = "Level "+level.ToString()+"!";
-            RemoveText(3);
+            StartCoroutine(RemoveText(3));
             
             previousLevel = level;
 
