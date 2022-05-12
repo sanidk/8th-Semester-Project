@@ -174,7 +174,7 @@ public class BombBehaviour : MonoBehaviour
             return;
         }
 
-        if (GameManagerLogic.isSendFeedbackEnabled)
+        if (!GameManagerLogic.isSendFeedbackEnabled)
         {
             transform.position = targetPosition;
 
