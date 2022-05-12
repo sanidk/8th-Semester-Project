@@ -302,11 +302,11 @@ public class TrapDeploy : MonoBehaviour
         Debug.Log("Root is: " + gameObject.transform.root);
         Debug.Log("Trap is: " + gameObject.name);
         // Play sound of trap getting ready (build up)
-        StartCoroutine(WaitAndTriggerTrap());
+        StartCoroutine(WaitAndTriggerTrap(tempWarning, tempTrap));
         // Play sound of trap triggering (snap)
     }
 
-    IEnumerator WaitAndTriggerTrap()
+    IEnumerator WaitAndTriggerTrap(GameObject tempWarning, GameObject tempTrap)
     {
         yield return new WaitForSecondsRealtime(5);
         if (selectedTrap == 0) {
