@@ -47,6 +47,7 @@ public class BombBehaviour : MonoBehaviour
     public Transform countDownTransform;
     private GameObject CD_Copy;
     private bool cdTextInstantiated;
+    private bool rotationSet;
 
     float redval = 0;
 
@@ -103,30 +104,23 @@ public class BombBehaviour : MonoBehaviour
             mat.color = color;
         }
 
-        if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
+        if (!GetComponent<RealtimeView>().isOwnedLocallySelf)
         {
-            CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
-            CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
-            CD_Copy.GetComponent<TextMesh>().color = Color.white;
-            CD_Copy.transform.position = countDownTransform.position;
-            if (GameManagerLogic.player1 != null)
+            if ((Time.time - spawnTime) > 2.5f && !cdTextInstantiated)
             {
-                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                direction = direction.normalized;
+                CD_Copy = Instantiate(textMeshObj, gameObject.transform, true); // make copy of textPrefab
+                CD_Copy.GetComponent<DestroyXSec>().lifeTime = eventTime;
+                CD_Copy.GetComponent<TextMesh>().color = Color.white;
+                CD_Copy.transform.position = countDownTransform.position;
+                GameObject camera = GameObject.Find("Main Camera");
+                Vector3 direction = camera.transform.position - CD_Copy.transform.position;
                 CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
                 CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
+                rotationSet = true;
+                cdTextInstantiated = true;
             }
-            else if (GameManagerLogic.player2 != null) // som om playerOwner==2 aldrig var true, da den ikke blev instantiated p? client?
-            {
-                Vector3 direction = GameManagerLogic.player2.transform.GetChild(0).transform.position - CD_Copy.transform.position;
-                direction = direction.normalized;
-                CD_Copy.transform.rotation = Quaternion.LookRotation(direction);
-                CD_Copy.transform.rotation *= Quaternion.AngleAxis(180, Vector3.up);
-            }
-            cdTextInstantiated = true;
         }
 
-        
         if (cdTextInstantiated && (Time.time - spawnTime) < eventTime && CD_Copy != null)
         {
             float elapsedTime = Time.time - spawnTime;

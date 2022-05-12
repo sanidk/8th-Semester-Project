@@ -17,6 +17,7 @@ public class miniPrefab : MonoBehaviour
     public GameObject playerObj;
     private Vector3 targetPositionTest;
     private Vector3 initialScale;
+    private Quaternion initialRotation;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class miniPrefab : MonoBehaviour
         initialPosition = transform.position;
         initialScale = transform.localScale;
         scaleChange = new Vector3(0.01f,0.01f,0.01f);
+        initialRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class miniPrefab : MonoBehaviour
                 finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.5f, 0.5f, 0.5f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+
+
                 //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 //transform.localScale += scaleChange;//* Time.deltaTime;
                 //transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
@@ -52,6 +56,7 @@ public class miniPrefab : MonoBehaviour
                 finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.65f,0.65f,0.65f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+                transform.rotation = Quaternion.Lerp(initialRotation,Quaternion.Euler(new Vector3(0,450,0)), elapsedTime / 2);
                 //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 //transform.localScale += scaleChange;//* Time.deltaTime;
                 //transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
