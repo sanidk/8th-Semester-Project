@@ -94,6 +94,11 @@ public class PlayerStat : MonoBehaviour
         {
             _playerStatSync.SetCurrentLevel(_currentLevel);
             _previousCurrentLevel = _currentLevel;
+
+            if (GetComponent<RealtimeView>().isOwnedLocallySelf)
+            {
+                LevelUIManager.level = _currentLevel;
+            }
         }
         if (_lives != _previousLives)
         {
