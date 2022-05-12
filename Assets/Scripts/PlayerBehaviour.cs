@@ -111,69 +111,77 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniSpears.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniSpears.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniMace.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniMace.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniFist.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniFist.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniArrows.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniArrows.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 //int randomInt = Random.Range(0, 4);
@@ -205,69 +213,77 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniSpears.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniSpears.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniSpears.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniMace.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniMace.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniMace.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniFist.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniFist.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniFist.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
-                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
-                    if (lightSaber != null)
+                    if (GameManagerLogic.isSendFeedbackEnabled)
                     {
-                        GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                        if (lightSaber != null)
                         {
-                            ownedByClient = true,
-                            preventOwnershipTakeover = false,
-                            destroyWhenOwnerLeaves = false,
-                            destroyWhenLastClientLeaves = true
-                        });
-                        miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
-                        miniArrows.GetComponent<miniPrefab>().playerObj = gameObject;
+                            GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
+                            {
+                                ownedByClient = true,
+                                preventOwnershipTakeover = false,
+                                destroyWhenOwnerLeaves = false,
+                                destroyWhenLastClientLeaves = true
+                            });
+                            miniArrows.GetComponent<miniPrefab>().targetTransform = GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().trapCubeList[randomSqOnFloor].transform;
+                            miniArrows.GetComponent<miniPrefab>().playerObj = gameObject;
+                        }
                     }
                 }
                 //int randomInt = Random.Range(0, 4);
