@@ -111,6 +111,7 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -127,6 +128,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -143,6 +145,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -159,6 +162,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -175,9 +179,13 @@ public class PlayerBehaviour : MonoBehaviour
                 //int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 //GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                if (!GameManagerLogic.isSendFeedbackEnabled)
+                {
+                    GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
+                }
                 playerStat._scoreStreak = 0;
             }
-            if (miniPrefabOnLoc)
+            if (miniPrefabOnLoc && GameManagerLogic.isSendFeedbackEnabled)
             {
                 GameManagerLogic.roomClient.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
                 miniPrefabOnLoc = false;
@@ -197,6 +205,7 @@ public class PlayerBehaviour : MonoBehaviour
                 if (playerStat._backupVariable3 == 1f)
                 {
                     randomTrap = 0;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniSpears = Realtime.Instantiate("SpearTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -213,6 +222,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable4 == 1f)
                 {
                     randomTrap = 1;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniMace = Realtime.Instantiate("MaceTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -229,6 +239,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable5 == 1f)
                 {
                     randomTrap = 2;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniFist = Realtime.Instantiate("FistTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -245,6 +256,7 @@ public class PlayerBehaviour : MonoBehaviour
                 else if (playerStat._backupVariable6 == 1f)
                 {
                     randomTrap = 3;
+                    if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
                     if (lightSaber != null)
                     {
                         GameObject miniArrows = Realtime.Instantiate("BulletTrap_miniPrefab", lightSaber.GetComponent<Lighsaber>()._tip.transform.position, Quaternion.Euler(0, 0, 0), new Realtime.InstantiateOptions
@@ -261,9 +273,13 @@ public class PlayerBehaviour : MonoBehaviour
                 //int randomInt = Random.Range(0, 4);
                 //int randomTrap = Random.Range(0, 4);
                 //GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomInt, randomTrap);
+                if (!GameManagerLogic.isSendFeedbackEnabled)
+                {
+                    GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
+                }
                 playerStat._scoreStreak = 0;
             }
-            if (miniPrefabOnLoc)
+            if (miniPrefabOnLoc && GameManagerLogic.isSendFeedbackEnabled)
             {
                 GameManagerLogic.roomServer.GetComponentInChildren<GridManager>().sendTrap(randomSqOnFloor, randomTrap);
                 miniPrefabOnLoc = false;

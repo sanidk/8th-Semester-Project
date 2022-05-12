@@ -28,6 +28,7 @@ public class miniPrefab : MonoBehaviour
     void Update()
     {
         //ifServercheck?
+        if (!GameManagerLogic.isSendFeedbackEnabled) { return; }
         if (!GetComponent<RealtimeView>().isOwnedLocallySelf) { return; }
         //transform.position += new Vector3(0.01f, 0.01f, 0.01f); // works 
         if (targetTransform != null)
