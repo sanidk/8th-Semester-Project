@@ -42,10 +42,9 @@ public class miniPrefab : MonoBehaviour
             float elapsedTime = Time.time - spawnTime;
             if (gameObject.CompareTag("MiniMace"))
             {
-                finalPosition = targetTransform.position + new Vector3(0, 3.5f, 0);
+                finalPosition = targetTransform.position + new Vector3(0, 4.5f, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.5f, 0.5f, 0.5f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
-
 
                 //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 //transform.localScale += scaleChange;//* Time.deltaTime;
@@ -56,16 +55,17 @@ public class miniPrefab : MonoBehaviour
                 finalPosition = targetTransform.position + new Vector3(0,-0.3f,0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.65f,0.65f,0.65f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
-                transform.rotation = Quaternion.Lerp(initialRotation,Quaternion.Euler(new Vector3(0,450,0)), elapsedTime / 2);
+                transform.rotation = Quaternion.Lerp(initialRotation,Quaternion.Euler(new Vector3(0,360,0)), elapsedTime / 2);
                 //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
                 //transform.localScale += scaleChange;//* Time.deltaTime;
                 //transform.RotateAround(transform.position, Vector3.up, 80 * Time.deltaTime); // rotate around self with 5 degrees per sec.
             }
             else if (gameObject.CompareTag("MiniFist"))
             {
-                finalPosition = targetTransform.position + new Vector3(0, 2.5f, 0);
+                finalPosition = targetTransform.position + new Vector3(0, 4.5f, 0);
                 transform.localScale = Vector3.Lerp(initialScale, new Vector3(0.1f, 0.1f, 0.1f), elapsedTime / 2);
                 transform.position = Vector3.Lerp(initialPosition, finalPosition, elapsedTime / 2);
+                transform.rotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(new Vector3(0, 0, 270)), elapsedTime / 2);
 
                 //finalPosition = targetPositionTest + new Vector3(0, 3.5f, 0);
             }
