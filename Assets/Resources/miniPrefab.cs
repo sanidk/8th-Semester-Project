@@ -90,7 +90,7 @@ public class miniPrefab : MonoBehaviour
 
             //mat.color = color;
 
-            if (elapsedTime > 8) // set to 2.5 after
+            if (elapsedTime > 3) // set to 2.5 after
             {
                 isTargetPosReached = true;
                 playerObj.GetComponent<PlayerBehaviour>().miniPrefabOnLoc = true;
