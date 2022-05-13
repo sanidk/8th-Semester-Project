@@ -308,25 +308,24 @@ public class TrapDeploy : MonoBehaviour
         // Play sound of trap triggering (snap)
     }
 
-    IEnumerator WaitAndTriggerTrap(GameObject _tempWarning, GameObject _tempTrap)
+    IEnumerator WaitAndTriggerTrap(GameObject tempWarning, GameObject tempTrap)
     {
         yield return new WaitForSecondsRealtime(3);
         if (selectedTrap == 0) {
-            _tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
-            _tempTrap.GetComponent<Collider>().enabled = true;
-            _tempTrap.transform.GetChild(0).gameObject.SetActive(true);
-            audioSource = _tempTrap.GetComponent<AudioSource>();
+            tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z);
+            tempTrap.GetComponent<Collider>().enabled = true;
+            audioSource = tempTrap.GetComponent<AudioSource>();
             audioSource.PlayOneShot(spearTrapSound, 0.5f);
             yield return new WaitForSecondsRealtime(2);
         } else if (selectedTrap == 1) {
-            _tempTrap.transform.GetChild(0).gameObject.AddComponent<PendulumMovement>();
-            audioSource = _tempTrap.GetComponent<AudioSource>();
+            tempTrap.transform.GetChild(0).gameObject.AddComponent<PendulumMovement>();
+            audioSource = tempTrap.GetComponent<AudioSource>();
             audioSource.PlayOneShot(maceAndFistSound, 0.5f);
             yield return new WaitForSecondsRealtime(1.5f);
         } else if (selectedTrap == 2) {
-            _tempTrap.GetComponent<Rigidbody>().useGravity = true;
-            _tempTrap.GetComponent<Rigidbody>().isKinematic = false;
-            audioSource = _tempTrap.GetComponent<AudioSource>();
+            tempTrap.GetComponent<Rigidbody>().useGravity = true;
+            tempTrap.GetComponent<Rigidbody>().isKinematic = false;
+            audioSource = tempTrap.GetComponent<AudioSource>();
             audioSource.PlayOneShot(maceAndFistSound, 0.5f);
             yield return new WaitForSecondsRealtime(2);
         } else if (selectedTrap == 3) {
@@ -337,8 +336,8 @@ public class TrapDeploy : MonoBehaviour
             yield return new WaitForSecondsRealtime(1.5f);
         }
 
-        Realtime.Destroy(_tempWarning);
-        Realtime.Destroy(_tempTrap);
+        Realtime.Destroy(tempWarning);
+        Realtime.Destroy(tempTrap);
     }
 
     /*
