@@ -47,7 +47,6 @@ public class GameManagerLogic : MonoBehaviour
     bool isControlReadPaused;
 
     public static bool isSendFeedbackEnabled = true; // setting it to true by defefault.
-    public bool isSendFeedbackEnabledReference = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +77,6 @@ public class GameManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isSendFeedbackEnabled = isSendFeedbackEnabledReference;
 
         isDebuggingModeEnabled = isDebuggingModeEnabledSerializedField;
 

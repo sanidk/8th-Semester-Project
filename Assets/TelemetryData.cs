@@ -23,7 +23,10 @@ public class TelemetryData : MonoBehaviour
     public static int traps1old;
     public static int traps2old;
 
-    static string datetime = DateTime.Now.ToString();
+    //static string datetimeRaw = DateTime.Now.ToString();
+    static string format = "Mddyyyyhhmmsstt";
+    static string datetime = DateTime.Now.ToString(format);
+
     string headPosPath1 = @"C:\TelemetryData\headPosPath1"+datetime+".txt";
     string leftHandPosPath1 = @"C:\TelemetryData\leftHandPosPath1" + datetime + ".txt";
     string rightHandPosPath1 = @"C:\TelemetryData\rightHandPosPath1" + datetime + ".txt";
@@ -41,7 +44,7 @@ public class TelemetryData : MonoBehaviour
 
     void Start()
     {
-        
+        print(headPosPath1);
 
 
 
@@ -71,8 +74,8 @@ public class TelemetryData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //if (Application.platform == RuntimePlatform.Android)
+        //print(Application.platform);
+        //if (Application.platform != RuntimePlatform.WindowsPlayer)
         //{
         //    return;
         //}
