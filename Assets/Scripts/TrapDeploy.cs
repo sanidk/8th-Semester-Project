@@ -228,7 +228,7 @@ public class TrapDeploy : MonoBehaviour
                 destroyWhenLastClientLeaves = true
             });
         } else if (typeOfTrap == 3 && this.name == "Trap0" && gameObject.transform.root.name == "RoomPlayer2") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 1.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 1.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -237,7 +237,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap1" && gameObject.transform.root.name == "RoomPlayer2") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 1.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 1.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -246,7 +246,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap2" && gameObject.transform.root.name == "RoomPlayer2") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 2.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 2.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -255,7 +255,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap3" && gameObject.transform.root.name == "RoomPlayer2") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 2.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x - 2.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(0,0,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -264,7 +264,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap0" && gameObject.transform.root.name == "RoomPlayer1") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 2.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 2.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -273,7 +273,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap1" && gameObject.transform.root.name == "RoomPlayer1") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 2.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 2.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -282,7 +282,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap2" && gameObject.transform.root.name == "RoomPlayer1") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 1.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 1.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
@@ -291,7 +291,7 @@ public class TrapDeploy : MonoBehaviour
             });
             placeBullets(tempTrap.transform);
         } else if (typeOfTrap == 3 && this.name == "Trap3" && gameObject.transform.root.name == "RoomPlayer1") {
-            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 1.5f, transform.position.y + 0.55f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
+            tempTrap = Realtime.Instantiate("BulletTrap", new Vector3(transform.position.x + 1.5f, transform.position.y + 1f, transform.position.z), Quaternion.Euler(180,180,90), new Realtime.InstantiateOptions
             {
                 ownedByClient = false,
                 preventOwnershipTakeover = false,
