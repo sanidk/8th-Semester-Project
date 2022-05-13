@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66189724, g: 0.37448916, b: 0.53587884, a: 1}
+  m_IndirectSpecularColor: {r: 0.66184294, g: 0.37451345, b: 0.53594595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   VRRig: {fileID: 850827784}
   spawnPlayer1: {fileID: 1011263024}
   spawnPlayer2: {fileID: 625912134}
-  isSendFeedbackEnabledReference: 0
+  isSendFeedbackEnabledReference: 1
 --- !u!114 &975502221
 MonoBehaviour:
   m_ObjectHideFlags: 0
