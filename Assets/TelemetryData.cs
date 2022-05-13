@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Normal.Realtime;
+using System;
 
 public class TelemetryData : MonoBehaviour
 {
@@ -22,43 +23,47 @@ public class TelemetryData : MonoBehaviour
     public static int traps1old;
     public static int traps2old;
 
+    static string datetime = DateTime.Now.ToString();
+    string headPosPath1 = @"C:\TelemetryData\headPosPath1"+datetime+".txt";
+    string leftHandPosPath1 = @"C:\TelemetryData\leftHandPosPath1" + datetime + ".txt";
+    string rightHandPosPath1 = @"C:\TelemetryData\rightHandPosPath1" + datetime + ".txt";
+    string trapsSentPath1 = @"C:\TelemetryData\trapsSentPath1" + datetime + ".txt";
+    string cubesPath1 = @"C:\TelemetryData\cubesPath1" + datetime + ".txt";
+    string livesPath1 = @"C:\TelemetryData\livesPath1" + datetime + ".txt";
 
-    string headPosPath1 = @"C:\TelemetryData\headPosPath1.txt";
-    string leftHandPosPath1 = @"C:\TelemetryData\leftHandPosPath1.txt";
-    string rightHandPosPath1 = @"C:\TelemetryData\rightHandPosPath1.txt";
-    string trapsSentPath1 = @"C:\TelemetryData\trapsSentPath1.txt";
-    string cubesPath1 = @"C:\TelemetryData\cubesPath1.txt";
-    string livesPath1 = @"C:\TelemetryData\livesPath1.txt";
-
-    string headPosPath2 = @"C:\TelemetryData\headPosPath2.txt";
-    string leftHandPosPath2 = @"C:\TelemetryData\leftHandPosPath2.txt";
-    string rightHandPosPath2 = @"C:\TelemetryData\rightHandPosPath2.txt";
-    string trapsSentPath2= @"C:\TelemetryData\trapsSentPath2.txt";
-    string cubesPath2 = @"C:\TelemetryData\cubesPath2.txt";
-    string livesPath2 = @"C:\TelemetryData\livesPath2.txt";
+    string headPosPath2 = @"C:\TelemetryData\headPosPath2" + datetime + ".txt";
+    string leftHandPosPath2 = @"C:\TelemetryData\leftHandPosPath2" + datetime + ".txt";
+    string rightHandPosPath2 = @"C:\TelemetryData\rightHandPosPath2" + datetime + ".txt";
+    string trapsSentPath2= @"C:\TelemetryData\trapsSentPath2" + datetime + ".txt";
+    string cubesPath2 = @"C:\TelemetryData\cubesPath2" + datetime + ".txt";
+    string livesPath2 = @"C:\TelemetryData\livesPath2" + datetime + ".txt";
 
 
     void Start()
     {
+        
+
+
+
         if (Application.platform == RuntimePlatform.Android)
         {
             return;
         }
 
 
-        File.WriteAllText(headPosPath1, "");
-        File.WriteAllText(leftHandPosPath1, "");
-        File.WriteAllText(rightHandPosPath1, "");
-        File.WriteAllText(trapsSentPath1, "");
-        File.WriteAllText(cubesPath1, "");
-        File.WriteAllText(livesPath1, "");
+        //File.WriteAllText(headPosPath1, "");
+        //File.WriteAllText(leftHandPosPath1, "");
+        //File.WriteAllText(rightHandPosPath1, "");
+        //File.WriteAllText(trapsSentPath1, "");
+        //File.WriteAllText(cubesPath1, "");
+        //File.WriteAllText(livesPath1, "");
 
-        File.WriteAllText(headPosPath2, "");
-        File.WriteAllText(leftHandPosPath2, "");
-        File.WriteAllText(rightHandPosPath2, "");
-        File.WriteAllText(trapsSentPath2, "");
-        File.WriteAllText(cubesPath2, "");
-        File.WriteAllText(livesPath2, "");
+        //File.WriteAllText(headPosPath2, "");
+        //File.WriteAllText(leftHandPosPath2, "");
+        //File.WriteAllText(rightHandPosPath2, "");
+        //File.WriteAllText(trapsSentPath2, "");
+        //File.WriteAllText(cubesPath2, "");
+        //File.WriteAllText(livesPath2, "");
 
 
     }
