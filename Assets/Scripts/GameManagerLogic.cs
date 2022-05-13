@@ -44,6 +44,8 @@ public class GameManagerLogic : MonoBehaviour
     public static GameObject representationCubeSpawnLocationPlayer1;
     public static GameObject representationCubeSpawnLocationPlayer2;
 
+    bool isControlReadPaused;
+
     public static bool isSendFeedbackEnabled = true; // setting it to true by defefault.
     public bool isSendFeedbackEnabledReference = true;
     // Start is called before the first frame update
@@ -66,6 +68,13 @@ public class GameManagerLogic : MonoBehaviour
 
     }
 
+    IEnumerator pauseControllerRead(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isControlReadPaused = false;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -79,9 +88,13 @@ public class GameManagerLogic : MonoBehaviour
             //return;
         }
 
-        if (CheckForControllerInput())
+        if (CheckForControllerInput() && !isControlReadPaused)
         {
             isSendFeedbackEnabled = !isSendFeedbackEnabled;
+            isControlReadPaused = true;
+            StartCoroutine(pauseControllerRead(3));
+            
+
         }
 
 
