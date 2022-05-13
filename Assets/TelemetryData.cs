@@ -27,19 +27,19 @@ public class TelemetryData : MonoBehaviour
     static string format = "Mddyyyyhhmmsstt";
     static string datetime = DateTime.Now.ToString(format);
 
-    string headPosPath1 = @"C:\TelemetryData\headPosPath1"+datetime+".txt";
-    string leftHandPosPath1 = @"C:\TelemetryData\leftHandPosPath1" + datetime + ".txt";
-    string rightHandPosPath1 = @"C:\TelemetryData\rightHandPosPath1" + datetime + ".txt";
-    string trapsSentPath1 = @"C:\TelemetryData\trapsSentPath1" + datetime + ".txt";
-    string cubesPath1 = @"C:\TelemetryData\cubesPath1" + datetime + ".txt";
-    string livesPath1 = @"C:\TelemetryData\livesPath1" + datetime + ".txt";
+    string headPosPath1 = @"C:\TelemetryData\1headPosPath"+datetime+".txt";
+    string leftHandPosPath1 = @"C:\TelemetryData\1leftHandPosPath" + datetime + ".txt";
+    string rightHandPosPath1 = @"C:\TelemetryData\1rightHandPosPath" + datetime + ".txt";
+    string trapsSentPath1 = @"C:\TelemetryData\1trapsSentPath" + datetime + ".txt";
+    string cubesPath1 = @"C:\TelemetryData\1cubesPath" + datetime + ".txt";
+    string livesPath1 = @"C:\TelemetryData\1livesPath" + datetime + ".txt";
 
-    string headPosPath2 = @"C:\TelemetryData\headPosPath2" + datetime + ".txt";
-    string leftHandPosPath2 = @"C:\TelemetryData\leftHandPosPath2" + datetime + ".txt";
-    string rightHandPosPath2 = @"C:\TelemetryData\rightHandPosPath2" + datetime + ".txt";
-    string trapsSentPath2= @"C:\TelemetryData\trapsSentPath2" + datetime + ".txt";
-    string cubesPath2 = @"C:\TelemetryData\cubesPath2" + datetime + ".txt";
-    string livesPath2 = @"C:\TelemetryData\livesPath2" + datetime + ".txt";
+    string headPosPath2 = @"C:\TelemetryData\2headPosPath" + datetime + ".txt";
+    string leftHandPosPath2 = @"C:\TelemetryData\2leftHandPosPath" + datetime + ".txt";
+    string rightHandPosPath2 = @"C:\TelemetryData\2rightHandPosPath" + datetime + ".txt";
+    string trapsSentPath2= @"C:\TelemetryData\2trapsSentPath" + datetime + ".txt";
+    string cubesPath2 = @"C:\TelemetryData\2cubesPath" + datetime + ".txt";
+    string livesPath2 = @"C:\TelemetryData\2livesPath" + datetime + ".txt";
 
 
     void Start()
@@ -101,13 +101,13 @@ public class TelemetryData : MonoBehaviour
             Vector3 rightHand = player.gameObject.transform.Find("Right Hand").transform.position;
 
 
-            PlayerStat playerStat = player.gameObject.GetComponent<PlayerStat>();
+            //PlayerStat playerStat = player.gameObject.GetComponent<PlayerStat>();
 
 
             if (playerNumber == 1)
             {
                 
-                lives1 = playerStat._lives;
+                //lives1 = playerStat._lives;
 
                 File.AppendAllText(headPosPath1, Time.time.ToString() + " : " + headPos.x + " : " + headPos.y +" : " + headPos.z + "\n");
                 File.AppendAllText(leftHandPosPath1, Time.time.ToString() + " : " + leftHand.x + " : " + leftHand.y + " : " + leftHand.z + "\n");
@@ -134,7 +134,7 @@ public class TelemetryData : MonoBehaviour
             }
             if (playerNumber == 2)
             {
-                lives2 = playerStat._lives;
+                //lives2 = playerStat._lives;
 
                 File.AppendAllText(headPosPath2, Time.time.ToString() + " : " + headPos.x + " : " + headPos.y + " : " + headPos.z + "\n");
                 File.AppendAllText(leftHandPosPath2, Time.time.ToString() + " : " + leftHand.x + " : " + leftHand.y + " : " + leftHand.z + "\n");
