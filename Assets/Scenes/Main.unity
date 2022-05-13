@@ -2024,7 +2024,6 @@ MonoBehaviour:
   VRRig: {fileID: 850827784}
   spawnPlayer1: {fileID: 1011263024}
   spawnPlayer2: {fileID: 625912134}
-  isSendFeedbackEnabledReference: 1
 --- !u!114 &975502221
 MonoBehaviour:
   m_ObjectHideFlags: 0
