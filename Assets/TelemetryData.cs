@@ -92,8 +92,15 @@ public class TelemetryData : MonoBehaviour
             Vector3 leftHand = player.gameObject.transform.Find("Left Hand").transform.position;
             Vector3 rightHand = player.gameObject.transform.Find("Right Hand").transform.position;
 
+
+            PlayerStat playerStat = player.gameObject.GetComponent<PlayerStat>();
+
+
             if (playerNumber == 1)
             {
+                
+                lives1 = playerStat._lives;
+
                 File.AppendAllText(headPosPath1, Time.time.ToString() + " : " + headPos.x + " : " + headPos.y +" : " + headPos.z + "\n");
                 File.AppendAllText(leftHandPosPath1, Time.time.ToString() + " : " + leftHand.x + " : " + leftHand.y + " : " + leftHand.z + "\n");
                 File.AppendAllText(rightHandPosPath1, Time.time.ToString() + " : " + rightHand.x + " : " + rightHand.y + " : " + rightHand.z + "\n");
@@ -119,6 +126,8 @@ public class TelemetryData : MonoBehaviour
             }
             if (playerNumber == 2)
             {
+                lives2 = playerStat._lives;
+
                 File.AppendAllText(headPosPath2, Time.time.ToString() + " : " + headPos.x + " : " + headPos.y + " : " + headPos.z + "\n");
                 File.AppendAllText(leftHandPosPath2, Time.time.ToString() + " : " + leftHand.x + " : " + leftHand.y + " : " + leftHand.z + "\n");
                 File.AppendAllText(rightHandPosPath2, Time.time.ToString() + " : " + rightHand.x + " : " + rightHand.y + " : " + rightHand.z + "\n");

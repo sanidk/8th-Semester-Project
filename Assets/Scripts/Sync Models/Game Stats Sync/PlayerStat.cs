@@ -110,31 +110,14 @@ public class PlayerStat : MonoBehaviour
                 livesUIObject.GetComponent<livesUIManager>().lives = _lives;
             }
 
-            if (Application.platform != RuntimePlatform.Android)
-            {
-                if (GetComponent<RealtimeView>().isOwnedLocallySelf)
-                {
-                    
-                    if (GetComponent<PlayerBehaviour>().playerNumber == 1)
-                    {
-                        TelemetryData.lives1 = _lives;
-                    }
-                    else if (GetComponent<PlayerBehaviour>().playerNumber == 2)
-                    {
-                        TelemetryData.lives2 = _lives;
-                    }
-                }
-                    
-
-                
-            }
+            
         }
         if (_scoreStreak != _previousScoreStreak)
         {
             _playerStatSync.SetScoreStreak(_scoreStreak);
             _previousScoreStreak = _scoreStreak;
 
-            if (Application.platform != RuntimePlatform.Android)
+            if (Application.platform != RuntimePlatform.Android && !GetComponent<RealtimeView>().isOwnedLocallySelf)
             {
                 
                 if (GetComponent<PlayerBehaviour>().playerNumber == 1)
