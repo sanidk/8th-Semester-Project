@@ -29,22 +29,17 @@ public class LevelUIManager : MonoBehaviour
             previousLevel = level;
 
         }
-        ModeChanged();
 
-
-
-    }
-
-    public void ModeChanged()
-    {
         if (GameManagerLogic.isSendFeedbackEnabled != oldSendFeedback)
         {
-            text.text = "isSendFeedbackEnabled: " + GameManagerLogic.isSendFeedbackEnabled.ToString();
+            text.text = GameManagerLogic.isSendFeedbackEnabled.ToString();
             oldSendFeedback = GameManagerLogic.isSendFeedbackEnabled;
-            RemoveText(5);
+            StartCoroutine(RemoveText(5));
         }
-        
+
+
     }
+
 
     IEnumerator RemoveText(int seconds)
     {
