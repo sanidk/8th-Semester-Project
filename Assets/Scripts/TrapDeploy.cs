@@ -313,7 +313,7 @@ public class TrapDeploy : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         if (selectedTrap == 0) {
             tempTrap.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-            tempTrap.GetComponent<Collider>().enabled = true;
+            tempTrap.GetComponent<BoxCollider>().enabled = true;
             audioSource = tempTrap.GetComponent<AudioSource>();
             audioSource.PlayOneShot(spearTrapSound, 0.5f);
             yield return new WaitForSecondsRealtime(2);
